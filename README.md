@@ -39,22 +39,16 @@ See detailed [cookiecutter-django Docker documentation](https://cookiecutter-dja
 
 ## Contact
 
-<div>
-  <a href="https://kayace.com/" target="_blank" 
-     style="display:inline-block;padding:10px 16px;margin:4px;font-size:16px;font-weight:bold;color:white;background-color:#2196f3;text-decoration:none;border-radius:6px;">
-    Website
-  </a>
-  <a href="https://www.upwork.com/freelancers/~01250366c1d60c34c3" target="_blank" 
-     style="display:inline-block;padding:10px 16px;margin:4px;font-size:16px;font-weight:bold;color:white;background-color:#4caf50;text-decoration:none;border-radius:6px;">
-    Upwork
-  </a>
-  <a href="https://www.linkedin.com/in/adnan-kayace/" target="_blank" 
-     style="display:inline-block;padding:10px 16px;margin:4px;font-size:16px;font-weight:bold;color:white;background-color:#0077b5;text-decoration:none;border-radius:6px;">
-    Linkedin
-  </a>
-  <a href="https://x.com/adnankayace" target="_blank" 
-     style="display:inline-block;padding:10px 16px;margin:4px;font-size:16px;font-weight:bold;color:white;background-color:#1da1f2;text-decoration:none;border-radius:6px;">
-    X-Twitter
-  </a>
-</div>
+- [Website](https://kayace.com)
+- [Upwork](https://www.upwork.com/freelancers/~01250366c1d60c34c3)
+- [Linkedin](https://www.linkedin.com/in/adnan-kayace)
+- [X-Twitter](https://x.com/adnankayace)
+
+## Demo
+
+### Türkçe 🇹🇷
+
+[![weforbiz | Profesyonel Pazaryeri Uygulaması](https://img.youtube.com/vi/kVwxe-8muBw/0.jpg)](https://www.youtube.com/watch?v=kVwxe-8muBw)
+
+
 
