@@ -1,0 +1,47 @@
+{
+  "name": "wfb",
+  "version": "0.1.0",
+  "devDependencies": {
+    "@babel/core": "^7.16.5",
+    "@babel/preset-env": "^7.16.5",
+    "@fortawesome/fontawesome-free": "^6.5.1",
+    "@popperjs/core": "^2.10.2",
+    "autoprefixer": "^10.4.0",
+    "babel-loader": "^10.0.0",
+    "bootstrap": "^5.2.3",
+    "bootstrap-icons": "^1.11.3",
+    "css-loader": "^7.1.2",
+    "htmx.org": "^2.0.6",
+    "mini-css-extract-plugin": "^2.4.5",
+    "node-sass-tilde-importer": "^1.0.2",
+    "pixrem": "^5.0.0",
+    "postcss": "^8.3.11",
+    "postcss-loader": "^8.0.0",
+    "postcss-preset-env": "^10.0.3",
+    "sass": "1.77.6",
+    "sass-loader": "^16.0.1",
+    "webpack": "^5.82.0",
+    "webpack-bundle-tracker": "^3.0.1",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.0.2",
+    "webpack-merge": "^6.0.1"
+  },
+  "engines": {
+    "node": "24.5"
+  },
+  "browserslist": [
+    "last 2 versions"
+  ],
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
+  },
+  "scripts": {
+    "dev": "webpack serve --config webpack/dev.config.js",
+    "build": "webpack --config webpack/prod.config.js"
+  },
+  "dependencies": {
+    "package.json": "^2.0.1"
+  }
+}

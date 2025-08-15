@@ -1,0 +1,84 @@
+<div class="row">
+    <div class="col">
+        <div class="card p-3 mb-2 {% if contract.status == contract_status_choices.OPEN %}bg-white{%endif%}">
+            <div class="mb-2 d-flex justify-content-between">
+                <span>
+                    {{_("Contract for :")}} {{contract.job.title}}
+                </span>
+                {% if not is_detail %}
+                <a href="{% url 'jobs:contracts-detail' cid=contract.id %}" class="btn btn-primary">
+                    <i class="fa-solid fa-square-arrow-up-right"></i>
+                    <span>
+                        {{_("Detail")}}
+                    </span>
+                </a>
+                {% endif %}
+            </div>
+            <div class="mb-2">
+                {{_("Work Status :")}}
+                <span class="badge bg-warning-subtle text-primary-emphasis rounded-pill">
+                    {{contract.workstatus}}
+                </span>
+                {% if contract.workstatus == job_status_choices.IN_REVIEW %}
+                <span class="spinner-grow spinner-grow-sm text-warning" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </span>
+                {% endif %}
+            </div>
+            <div class="mb-2 d-flex justify-content-between">
+                <span>
+                    <small>
+                        {{_("Created date:")}}
+                        {{ contract.created_date|date:"D d M Y" }}
+                    </small>
+                </span>
+            </div>
+            <div class="mb-2">
+                <span>{{_("Contract Status :")}} </span>
+                <span class="badge bg-light-subtle border border-light-subtle text-light-emphasis rounded-pill">
+                    {{contract.status}}
+                </span>
+                {% if contract.status == contract_status_choices.OPEN and contract.workstatus == job_status_choices.DONE %}
+                <button class="btn btn-danger btn-sm" aria-label="non flagged button" title="{{_('Close Contract')}}"
+                    data-bs-toggle="modal" data-bs-target="#contractCloseModal-{{job.id}}">
+                    <i class="fa-regular fa-circle-xmark"></i>
+                    {{_('Close')}}
+                </button>
+                <div>
+                    {% include 'common/modals/contract-close-modal.html' with contract=contract %}
+                </div>
+                {% elif contract.status == contract_status_choices.PENDING %}
+                <span class="spinner-grow spinner-grow-sm text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </span>
+                {% endif %}
+            </div>
+            <div>
+                <span>{{_("Hired by :")}} </span>
+                <span class="badge bg-secondary-subtle text-secondary-emphasis rounded-pill">
+                    {{contract.client_user.get_full_name}}
+                </span>
+                {% if contract.status == contract_status_choices.CLOSED and not contract.is_feedback_submitted %}
+                <a href="{% url 'jobs:contracts-create-feedback' cid=contract.id %}"
+                    class="btn btn-primary btn-sm rounded-pill">
+                    <i class="fa-solid fa-comment-dots"></i>
+                    {{_("Feedback")}}
+                </a>
+                {% endif %}
+            </div>
+            <div>
+                {% include 'professional/jobs/budget-item.html' with job=contract.job %}
+            </div>
+            {% if not contract.proposal.is_accepted %}
+            <form action="{% url 'jobs:accept-contract' %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="contract_id" value="{{contract.id}}" id="idContract{{contract.id}}">
+                <button type="submit" class="btn btn-primary btn-sm">
+                    <i class="fa-solid fa-check-double"></i>
+                    {{_("Accept")}}
+                </button>
+            </form>
+            {% endif %}
+        </div>
+    </div>
+</div>

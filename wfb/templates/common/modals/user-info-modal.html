@@ -1,0 +1,39 @@
+<div class="modal fade" id="userInfoModal-{{job.id}}" tabindex="-1" aria-labelledby="userInfoModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <form action="{% url 'users:update' %}" method="post" class="form-group">
+                {% csrf_token %}
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="userInfoModalLabel">{{_("User Information")}}</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-floating mb-3">
+                        <input value="{{user.first_name}}" name="first_name" type="text"
+                            class="form-control border-primary-subtle" id="idFirstname" placeholder="{{_('Ex; adnan')}}"
+                            required>
+                        <label for="idFirstname">{{_("First Name")}}</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input value="{{user.last_name}}" name="last_name" type="text"
+                            class="form-control border-primary-subtle" id="idLastname" placeholder="{{_('Ex; kaya')}}"
+                            required>
+                        <label for="idLastname">{{_("Last Name")}}</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input name="email" value="{{user.email}}" type="email" class="form-control" id="idEmail"
+                            placeholder="email" required>
+                        <label for="idEmail">{{_("Email")}}</label>
+                    </div>
+                </div>
+                <div class="d-grid col-md-6 mx-auto">
+                    <button type="submit" class="btn btn-primary p-2 m-1 mb-4 py-2">
+                        <i class="fa-solid fa-check-double"></i>
+                        {{_("Submit")}}
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

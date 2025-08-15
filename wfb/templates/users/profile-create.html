@@ -1,0 +1,53 @@
+{% extends 'users/base.html' %}
+
+
+{% block users_body %}
+<div class="row">
+    <div class="col-lg-6 mx-auto">
+        <div class="card p-3">
+            <div class="card-title text-center text-muted">
+                <h4>
+                    {{_("Tell us who are you?")}}
+                </h4>
+            </div>
+            <form action="{% url 'users:profile-create' %}" method="post">
+                {% csrf_token %}
+                <div class="row my-4">
+                    <div class="col">
+                        <div class="form-check border-bottom border-3 border-primary-subtle">
+                            <span
+                                class="badge badge-pill text-primary-emphasis fs-5">
+                                <input name="profile_type" class="form-check-input" type="radio"
+                                    value="{{profile_type_choices.FREELANCER}}" id="idProfessional" checked>
+                                <label class="form-check-label" for="idProfessional">
+                                    <i class="fa-solid fa-user-astronaut fs-3"></i>
+                                    {{_("I'm a Professional")}}
+                                </label>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-check border-bottom border-3 border-success-subtle">
+                            <span
+                                class="badge badge-pill text-success-emphasis fs-5">
+                                <input name="profile_type" class="form-check-input" type="radio"
+                                    value="{{profile_type_choices.CLIENT}}" id="idClient">
+                                <label class="form-check-label" for="idClient">
+                                    <i class="fa-solid fa-user-tie fs-3"></i>
+                                    {{_("I'm a Client")}}
+                                </label>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-grid gap-2 col-6 mx-auto">
+                    <button class="btn btn-primary mt-4" type="submit">
+                        <i class="fa-solid fa-check-double"></i>
+                        {{_("Submit")}}
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock users_body %}

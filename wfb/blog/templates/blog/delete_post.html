@@ -1,0 +1,33 @@
+{% load i18n %}
+<button type="button" class="btn bt-sm badge badge-pill bg-danger text-light" data-bs-toggle="modal"
+    data-bs-target="#deletePostModal-{{post.pk}}">
+    <small>
+        <i class="bi bi-trash"></i>
+        {{_("Delete Post")}}
+    </small>
+</button>
+
+<div class="modal fade" id="deletePostModal-{{post.pk}}" tabindex="-1" aria-labelledby="deletePostModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <form action="{{post.get_absolute_url}}" method="post" class="form-group">
+                {% csrf_token %}
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="deletePostModalLabel">{{_("Please confirm!")}}</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        {{_("Are you sure to delete the post?")}}
+                    </p>
+                    <input type="hidden" name="is_deleted" value="true" />
+                </div>
+                <div class="modal-footer d-flex justify-content-between">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{_("Close")}}</button>
+                    <button type="submit" class="btn btn-warning">{{_("Yes")}}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

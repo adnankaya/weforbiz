@@ -1,0 +1,32 @@
+{% extends "chats/base.html" %}
+{% load static %}
+{% load i18n %}
+{% load core_tags %}
+
+
+
+
+<div>
+    {% block chats_body %}
+
+    <main class="content">
+        <div class="container">
+            {% if user.client and request.session.is_client %}
+            <div class="row">
+                <div class="col">
+                    {% include 'chats/as_client.html' %}
+                </div>
+            </div>
+            {% elif user.professional and request.session.is_professional %}
+            <div class="row">
+                <div class="col">
+                    {% include 'chats/as_professional.html' %}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </main>
+
+    {% endblock chats_body %}
+
+</div>

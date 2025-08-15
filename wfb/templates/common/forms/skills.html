@@ -1,0 +1,110 @@
+<h5 class="mb-2">{{_("Skills")}}</h5>
+
+<div id="chips-container" class="my-2 d-flex flex-wrap align-items-center"></div>
+
+<div class="form-floating">
+    <input value="{% if professionalSkills %}{{professionalSkills}}{% endif %}" {% if isRequired %}required{%endif%}
+        name="skills" class="form-control border border-2 border-dark-subtle" placeholder="Skills" id="idSkills"
+        oninput="convertToChips(this.value)" onkeydown="handleKeyDown(event)">
+    <label for="idSkills">{{_("Skills")}}</label>
+
+    <div class="my-2">
+        <strong id="skills-message" class="text-danger"></strong>
+    </div>
+</div>
+
+<div>
+    <p>
+        {{_("Add skills with comma separated. Ex; python, django, html")}}
+    </p>
+    <p>
+        {{_("Max 10 skills allowed...")}}
+    </p>
+</div>
+
+<script>
+    const MAX_SKILLS = 10;
+
+    function convertToChips(value) {
+        const container = document.getElementById('chips-container');
+        container.innerHTML = '';
+
+        const skills = value.split(',').map(skill => skill.trim());
+
+        // Remove duplicates when the user hits the comma or submits the form
+        const uniqueSkills = Array.from(new Set(skills));
+
+        if (uniqueSkills.length > MAX_SKILLS) {
+            // Display a message when the user hits the comma key after reaching the maximum skills
+            document.getElementById('skills-message').textContent = `You can add up to ${MAX_SKILLS} unique skills.`;
+            document.getElementById('skills-message').hidden = false;
+
+            // Update the input value without adding more skills
+            document.getElementById('idSkills').value = uniqueSkills.slice(0, MAX_SKILLS).join(', ');
+        } else {
+            uniqueSkills.forEach(skill => {
+                if (skill !== '') {
+                    const chip = document.createElement('span');
+                    chip.classList.add('badge',
+                        'badge-pill',
+                        'd-flex',
+                        'align-items-center',
+                        'text-secondary-emphasis',
+                        'bg-secondary-subtle',
+                        'border',
+                        'border-secondary-subtle',
+                        'rounded-pill',
+                        'm-1',
+                    );
+
+                    // Split skill based on spaces and ensure only one space between words
+                    const skillWords = skill.split(/\s+/);
+
+                    chip.innerHTML = skillWords.map(word => `<span class="px-1">${word}</span>`).join('');
+                    chip.innerHTML += `
+                        <span class="vr mx-2"></span>
+                        <a href="#" onclick="removeSkill(this)">
+                            <i class="fa-solid fa-circle-xmark text-secondary"></i>
+                        </a>
+                    `;
+                    container.appendChild(chip);
+                }
+            });
+
+            // Hide the skills message if the user is within the limit
+            document.getElementById('skills-message').textContent = '';
+            document.getElementById('skills-message').hidden = true;
+
+            // Update the input value without duplicates and exceeded skills
+            document.getElementById('idSkills').value = uniqueSkills.slice(0, MAX_SKILLS).join(',').replace(/,{2,}/g, ',');
+        }
+    }
+
+    function removeSkill(button) {
+        const chip = button.parentElement;
+        const skillToRemove = chip.textContent.trim();
+        const skillsTextarea = document.getElementById('idSkills');
+
+        // Remove the skill from the textarea value, handling both cases
+        skillsTextarea.value = skillsTextarea.value.replace(skillToRemove, '').replace(/,{2,}/g, ',').replace(/^,|,$/g, '');
+
+        // Remove the chip from the container
+        chip.remove();
+
+        // Clear the skills message
+        document.getElementById('skills-message').textContent = '';
+    }
+
+    function handleKeyDown(event) {
+        // Handle backspace key
+        if (event.key === 'Backspace') {
+            convertToChips(document.getElementById('idSkills').value);
+        }
+    }
+
+    // Initialize chips if there are existing skills
+    window.onload = function () {
+        const skillsTextarea = document.getElementById('idSkills');
+        convertToChips(skillsTextarea.value);
+    };
+</script>

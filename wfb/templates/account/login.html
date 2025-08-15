@@ -1,0 +1,33 @@
+{% extends "account/base_entrance.html" %}
+
+{% load i18n %}
+{% load static %}
+
+{% block content %}
+  {% url 'account_login' as login_url %}
+  {% url 'account_reset_password' as reset_url %}
+  <div class="row">
+    <div class="col">
+      <div class="card p-4 shadow">
+        <div class="card-title opacity-100">
+          <div class="fs-1 text-center">
+            <h4 class="text-secondary-emphasis">{{ _("Welcome back to Weforbiz!") }}</h4>
+            <h6 class="text-muted">
+              <i class="fa-solid fa-bolt fa-beat"></i>
+              {{_("The best platform for your business needs.")}}
+            </h6>
+          </div>
+        </div>
+        <div class="card-body">{% include "account/login-form.html" %}</div>
+        <div class="row text-center">
+          <div class="col-md-6 my-1">
+            <a class="" href="{{ signup_url }}">{{ _("Don't have an account? Sign Up") }}</a>
+          </div>
+          <div class="col-md-6 my-1">
+            <a class="" href="{{ reset_url }}" >{{ _("Forgot password?") }}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

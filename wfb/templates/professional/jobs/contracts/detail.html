@@ -1,0 +1,56 @@
+{% extends 'professional/jobs/base.html' %}
+{% load job_tags %}
+
+
+{% block jobs_body %}
+<div>
+    <div class="container my-4 d-flex justify-content-center">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'jobs:contracts' %}">{{_("Contracts")}}</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{_("Detail")}}</li>
+            </ol>
+        </nav>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h2>{{_("Contract Detail")}}</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            {% include 'professional/jobs/contracts/contract-item.html' %}
+        </div>
+    </div>
+    {% is_work_submitable contract user.professional as isWorkSubmitable %}
+    {% if user.professional and isWorkSubmitable %}
+    <div class="row">
+        <div class="col">
+            <div class="card p-2 my-2 bg-primary-subtle">
+                <div>
+                    <h4>{{_("Did you complete the work?")}}</h4>
+                </div>
+                <div>
+                    {% include 'professional/jobs/contracts/submit-work-form.html' %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    {% is_work_acceptable contract as isWorkAcceptable %}
+    {% if user.client and user.client == contract.job.created_by and isWorkAcceptable %}
+    <div class="row">
+        <div class="col">
+            <div class="card bg-success-subtle p-2 my-2">
+                <div>
+                    <h4>{{_("Do you accept the work frelancer completed?")}}</h4>
+                </div>
+                <div>
+                    {% include 'professional/jobs/contracts/accept-work-form.html' %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock jobs_body %}

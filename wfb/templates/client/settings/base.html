@@ -1,0 +1,47 @@
+{% extends 'client/base.html' %}
+
+
+{% block core_client_body %}
+
+<style>
+    /*
+ * Sidebar
+ */
+
+    @media (min-width: 768px) {
+        .sidebar .offcanvas-lg {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 48px;
+        }
+
+
+    }
+
+    .sidebar .nav-link {
+        font-size: .875rem;
+        font-weight: 500;
+    }
+
+    .sidebar .nav-link.active {
+        color: #2470dc;
+    }
+
+    .sidebar-heading {
+        font-size: .75rem;
+    }
+</style>
+
+<div class="container-fluid">
+    <div class="row">
+        <h3>{{_("Settings")}}</h3>
+        <div class="sidebar border border-right col-md-3 col-lg-2 p-0 bg-warning-subtle">
+            {% include 'client/settings/sidebar.html' %}
+        </div>
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            {% block settings_body %}
+            {% endblock settings_body %}
+        </main>
+    </div>
+</div>
+{% endblock core_client_body %}

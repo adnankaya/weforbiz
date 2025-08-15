@@ -1,0 +1,112 @@
+{% extends 'users/base.html' %}
+{% load static %}
+{% load job_tags %}
+{% load core_tags %}
+{% load humanize %}
+
+
+{% block users_body %}
+<div class="row p-4">
+    <div class="col">
+        <h5>
+            {{_("Client: ")}} {{client.user.get_full_name}}
+        </h5>
+        <p>
+            {{_("Spent:")}} ${{client.total_spent}}
+        </p>
+        <p>
+            {% include 'users/rating/result.html' %}
+        </p>
+        <div class="row my-4">
+            <div class="col">
+                <h4 class="mt-4">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    {{_("Work History")}}
+                </h4>
+                <div class="list-group">
+                    {% for prev_contract in client.get_previous_contracts %}
+                    <div class="list-group-item list-group-item-action">
+                        <div class="d-flex justify-content-between">
+                            <span>
+                                <a href="{{ prev_contract.job.get_absolute_url }}">
+                                    {{ prev_contract.job.title }}
+                                </a>
+                            </span>
+                            <span class="small">
+                                <small>
+                                    {{ prev_contract.job.created_date|date:"M Y" }}
+                                    /
+                                    {{ prev_contract.updated_date|date:"M Y" }}
+
+                                </small>
+                            </span>
+                        </div>
+                        <div>
+                            {% for feedback in prev_contract.feedback_set.all %}
+                            <div>
+                                {% if feedback.created_by == prev_contract.job.created_by.user %}
+                                <div class="small">
+                                    <span>
+                                        {{_("To professional: ")}}
+                                        {{feedback.contract.proposal.created_by.user.get_full_name}}
+                                    </span>
+                                    <span class="text-primary-emphasis">
+                                        {% render_stars feedback.avg_rating %}
+                                    </span>
+                                    <p>
+                                        <i class="fa-regular fa-comment"></i>
+                                        {{feedback.comment}}
+                                    </p>
+                                </div>
+                                {% else %}
+                                <div class="small text-end">
+                                    <span>
+                                        {{_("To client: ")}}
+                                        {{feedback.contract.job.created_by.user.get_full_name}}
+                                    </span>
+                                    <span class="text-primary-emphasis">
+                                        {% render_stars feedback.avg_rating %}
+                                    </span>
+                                    <p>
+                                        <i class="fa-regular fa-comment"></i>
+                                        {{feedback.comment}}
+                                    </p>
+                                </div>
+                                {% endif %}
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <div>
+                            <span class="badge bg-success-subtle text-success-emphasis rounded-pill">
+                                {{_("$ Amount :")}}
+                                {{prev_contract.proposal.amount}}
+                            </span>
+                            <span>-</span>
+                            <small>
+                                <b class="ms-1">
+                                    {{prev_contract.job.job_type|title}}
+                                </b>
+                            </small>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="row my-4">
+            <div class="col">
+                <h4>{{_("Jobs posted by this client")}}</h4>
+                <div class="list-group">
+                    {% for job in client.job_set.all %}
+                    <a href="{{job.get_absolute_url}}" class="list-group-item list-group-item-action">
+                        <strong class="text-primary">
+                            {{job.title}}
+                        </strong>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock users_body %}

@@ -1,0 +1,23 @@
+{% load static %}
+{% load humanize %}
+
+<div class="d-flex gap-2 p-2">
+    <img src="{% static 'images/profiles/user.png' %}" class="rounded-circle flex-shrink-0" alt="message sender"
+        width="32" height="32">
+    <div class="d-flex gap-2 w-100 justify-content-between">
+        <div>
+            <p>
+                <span class="fw-bold d-block">{{sender.get_full_name}}</span>
+                {% now "Y-m-d" as todays_date %}
+                {% if message.messaged_date|date:"Y-m-d" < todays_date %}
+                <small class="d-block">{{message.messaged_date|date:"d M Y"}}</small>
+                {% else %}
+                <small class="d-block">{{message.messaged_date|naturaltime}}</small>
+                {% endif %}
+            </p>
+            <p>
+                {{message.text}}
+            </p>
+        </div>
+    </div>
+</div>

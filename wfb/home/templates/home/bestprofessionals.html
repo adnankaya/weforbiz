@@ -1,0 +1,15 @@
+{% load static %}
+{% load core_tags %}
+
+
+<section class="">
+    <div class="container p-3">
+        <div class="row">
+            {% for bestprofessional in best_professionals %}
+            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 mb-3">
+                {% include 'professional/professional-item.html' with professional=bestprofessional %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

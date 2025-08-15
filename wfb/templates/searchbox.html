@@ -1,0 +1,11 @@
+{% load i18n %}
+<form method="get" class="">
+    <div class="input-group bg-white">
+        <input name="query" value="{%if query%}{{query}}{%endif%}" type="search"
+            class="form-control border border-2 border-primary-subtle" placeholder="{{_('Search...')}}"
+            aria-label="post" aria-describedby="btn-search">
+        <button class="btn btn-dark" type="submit" id="btn-search">
+            <i class="fa-solid fa-search"></i>
+        </button>
+    </div>
+</form>

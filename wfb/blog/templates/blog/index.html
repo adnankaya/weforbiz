@@ -1,0 +1,33 @@
+{% extends "blog/base.html" %}
+{% load i18n %}
+
+
+{% block blog_body %}
+
+
+<div class="row">
+    <div class="col">
+        <div class="row">
+            <div class="col">
+                {% for post in paginated_posts %}
+                <div class="mb-3">
+                    {% include "blog/post_item.html" %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="">
+    {% include "pagination.html" with page=paginated_posts %}
+</div>
+
+{% endblock blog_body %}
+
+{% comment %}
+{% block core_rightbar %}
+{% include "blog/post_rightbar.html" %}
+{% endblock core_rightbar %}
+
+{% endcomment %}

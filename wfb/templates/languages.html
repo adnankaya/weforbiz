@@ -1,0 +1,32 @@
+{% load i18n %}
+
+<div class="dropdown my-1 mb-sm-2 p-1 mx-2">
+  <a href=""
+     class="d-flex align-items-center text-dark text-decoration-none dropdown-toggle"
+     id="ddLang"
+     data-bs-toggle="dropdown"
+     aria-expanded="false">
+    <i class="fa-solid fa-language fs-5"></i>
+    <span class="ms-1">{{ _("Lang") }}</span>
+  </a>
+  <ul class="dropdown-menu dropdown-menu-start text-small shadow-sm"
+      aria-labelledby="ddLang">
+    {% get_current_language as LANGUAGE_CODE %}
+    {% get_available_languages as LANGUAGES %}
+    {% get_language_info_list for LANGUAGES as languages %}
+    {% for lang in languages %}
+      <li>
+        <a class="dropdown-item{% if lang.code == LANGUAGE_CODE %} active {% endif %}"
+           href='/{{ lang.code }}/{{ request.get_full_path|slice:"4:" }}'>
+          {% if lang.code == "tr" %}
+            🇹🇷 TR
+          {% elif lang.code == "en" %}
+            🇺🇸 EN
+          {% elif lang.code == "ar" %}
+            🇸🇦 AR
+          {% endif %}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>

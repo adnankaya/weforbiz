@@ -1,0 +1,42 @@
+<div class="card border-0 shadow-sm p-4 mb-3">
+    <div class="mb-3">
+        <span>{{_("Availability")}}</span>
+        <button class="btn btn-sm btn-light" aria-label="non flagged button" title="{{_('Availability')}}"
+            data-bs-toggle="modal" data-bs-target="#availabilityModal">
+            <i class="fa-solid fa-edit text-primary"></i>
+        </button>
+        {% include 'users/professionals/availability-modal.html' %}
+        <div class="small">
+            {%if user.professional.is_available%}
+            <small class="badge bg-primary-subtle border border-primary-subtle text-primary-emphasis rounded-pill">
+                {{_("On")}}
+            </small>
+            {%else%}
+            <small class="badge bg-dark-subtle border border-dark-subtle text-dark-emphasis rounded-pill">
+                {{_("Off")}}
+            </small>
+            {%endif%}
+        </div>
+    </div>
+    <div class="mb-3">
+        <span>{{_("Visibility")}}</span>
+        <button class="btn btn-sm btn-light" aria-label="non flagged button" title="{{_('Visibility')}}"
+            data-bs-toggle="modal" data-bs-target="#visibilityModal">
+            <i class="fa-solid fa-edit text-primary"></i>
+        </button>
+        {% include 'users/professionals/visibility-modal.html' %}
+        <div class="small">
+            <small class="badge bg-dark-subtle border border-dark-subtle text-dark-emphasis rounded-pill">
+                {{user.professional.visibility}}
+            </small>
+        </div>
+    </div>
+    <div class="mb-3">
+        <span>{{_("Hours Per Week")}}</span>
+        <button class="btn btn-sm btn-light" aria-label="non flagged button" title="{{_('Hours Per Week')}}"
+            data-bs-toggle="modal" data-bs-target="#hoursPerWeekModal">
+            <i class="fa-solid fa-edit text-primary"></i>
+        </button>
+        {% include 'users/professionals/hours-per-week-modal.html' %}
+    </div>
+</div>

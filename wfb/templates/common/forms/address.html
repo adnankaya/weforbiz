@@ -1,0 +1,17 @@
+<div>
+    <div class="form-floating mb-2">
+        <input name="country" value="{{address.city.country.name}}" type="text" class="form-control border-primary-subtle" id="idCountry"
+            placeholder="{{_('country')}}" required>
+        <label for="idCountry">{{_("Country")}}</label>
+    </div>
+    <div class="form-floating mb-2">
+        <input name="city" value="{{address.city.name}}" type="text" class="form-control border-primary-subtle" id="idCity"
+            placeholder="{{_('city')}}" required>
+        <label for="idCity">{{_("City")}}</label>
+    </div>
+    <div class="form-floating mt-2">
+        <textarea name="line" class="form-control border-primary-subtle" placeholder="" id="idaddressLine"
+            style="height: 100px">{%if address.line %}{{address.line}}{%endif%}</textarea>
+        <label for="idaddressLine">{{_("Address Line")}}</label>
+    </div>
+</div>

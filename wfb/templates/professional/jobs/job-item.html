@@ -1,0 +1,111 @@
+{% load humanize %}
+<style>
+.job-card {
+  transition: transform 0.3s ease-out, background-color 0.4s ease-in-out, box-shadow 0.3s ease-in-out;
+
+}
+
+.job-card:hover {
+  background-color: #eaeaea;
+}
+</style>
+<div class="card p-3 mb-2 border-0 shadow-sm job-card">
+    <div class="small my-1">
+        <small>
+            <i class="fa-solid fa-clock"></i>
+            {{ job.created_date|naturaltime}}
+        </small>
+    </div>
+    <div class="d-flex justify-content-between">
+        {% if is_list_page %}
+        <a href="{{ job.get_absolute_url }}" class="text-decoration-none">
+            <i class="fa-solid fa-briefcase"></i>
+            <span>
+                {{job.title}}
+            </span>
+        </a>
+        {% endif %}
+        <span><!--This must be here--></span>
+
+    </div>
+    <div class="mt-2">
+        <p class="small">
+            {% include 'professional/jobs/budget-item.html' with job=job %}
+        </p>
+    </div>
+    <p class="small">
+        <span>
+            <!-- <i class="fa-solid fa-comment-dollar"></i> -->
+            {{_("Proposals: ")}}
+        </span>
+        <strong>{{job.proposal_count}}</strong>
+    </p>
+    <p>
+        {% for skill in job.skills.all %}
+        <span class="badge badge-pill bg-secondary-subtle text-dark-emphasis rounded-pill">
+            {{skill.name}}
+        </span>
+        {% endfor %}
+    </p>
+    <p>
+    <h5 class="">
+        {{_("Job Description")}}
+    </h5>
+    {% if show_full_description %}
+    <span>
+        {{job.description|linebreaks}}
+    </span>
+    {% else %}
+    <span>
+        {{job.description|truncatewords:120}}
+    </span>
+    {% endif %}
+    </p>
+    <div class="card-footer bg-white border-0 border-top border-light d-flex justify-content-between">
+        {% if is_list_page %}
+        <div>
+            {% if job.is_applied_before %}
+            <a href="{{ job.get_absolute_url }}" class="btn btn-sm bg-primary-subtle">
+                <i class="fa-solid fa-bolt text-primary-subtle"></i>
+                <span>{{_("Applied")}}</span>
+            </a>
+            {% else %}
+            <a href="{{ job.get_absolute_url }}" class="btn btn-primary btn-sm">
+                <i class="fa-solid fa-bolt"></i>
+                <span>{{_("Apply")}}</span>
+            </a>
+            {% endif %}
+        </div>
+        {% endif %}
+        {% if user.is_authenticated %}
+        <div class="d-flex">
+            {% if job.is_saved %}
+            <a href="{% url 'jobs:unsave-job' idjob=job.id %}" class="btn btn-sm btn-secondary ms-1"
+                aria-label="saved job link" title="{{_('Saved this job')}}">
+                <i class="fa-solid fa-bookmark"></i>
+                <span>{{_("Saved")}}</span>
+            </a>
+            {% else %}
+            <a href="{% url 'jobs:save-job' idjob=job.id %}" class="btn btn-sm btn-light ms-1"
+                aria-label="unsaved job link" title="{{_('Save this job')}}">
+                <i class="fa-regular fa-bookmark"></i>
+                <span>{{_("Save")}}</span>
+            </a>
+            {% endif %}
+            {% if job.is_flagged %}
+            <button class="btn btn-sm btn-secondary ms-1" aria-label="flagged button" title="{{_('Report this job')}}">
+                <i class="fa-solid fa-flag"></i>
+                <span>{{_("Flagged")}}</span>
+            </button>
+            {% else %}
+            <button class="btn btn-sm btn-light ms-1" aria-label="non flagged button" title="{{_('Report this job')}}"
+                data-bs-toggle="modal" data-bs-target="#flagJobModal-{{job.id}}">
+                <i class="fa-regular fa-flag"></i>
+                <span>{{_("Flag")}}</span>
+            </button>
+            {% include 'professional/jobs/flag-job-modal.html' with job=job %}
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+</div>

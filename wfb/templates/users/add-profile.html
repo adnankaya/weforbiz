@@ -1,0 +1,12 @@
+{% if not user.client %}
+<a class="nav-link d-flex align-items-center gap-2 small" href="{% url 'users:profile-create' %}">
+    <i class="fa-solid fa-user-plus"></i>
+    {{_("Add Client Profile")}}
+</a>
+{% endif%}
+{% if not user.professional %}
+<a class="nav-link d-flex align-items-center gap-2 small" href="{% url 'users:profile-create' %}">
+    <i class="fa-solid fa-user-plus"></i>
+    {{_("Add Professional Profile")}}
+</a>
+{% endif%}

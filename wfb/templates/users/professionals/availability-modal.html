@@ -1,0 +1,36 @@
+{% load i18n %}
+<div class="modal fade" id="availabilityModal" tabindex="-1" aria-labelledby="availabilityModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <form action="{% url 'users:professional-availability' fid=user.professional.id %}" method="post"
+                class="form-group">
+                {% csrf_token %}
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="availabilityModalLabel">{{_("Profile Availability")}}</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" name="availability" value="yes" type="checkbox" role="switch"
+                            id="availabilityCheck" {% if user.professional.is_available %}checked{%endif%}>
+                        <label class="form-check-label" for="availabilityCheck">{{_("Availability")}}</label>
+                    </div>
+                    <div class="alert alert-warning small fw-bold">
+                        <ul>
+                            <li>
+                                {% blocktranslate %}
+                                If you open availability every day you spend {{AVAILABILITY_POINT}} point(s).
+                                {% endblocktranslate %}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-between">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{_("Close")}}</button>
+                    <button type="submit" class="btn btn-primary">{{_("Submit")}}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

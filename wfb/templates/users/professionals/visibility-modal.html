@@ -1,0 +1,72 @@
+{% load i18n %}
+<div class="modal fade" id="visibilityModal" tabindex="-1" aria-labelledby="visibilityModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <form action="{% url 'users:professional-visibility' fid=user.professional.id %}" method="post"
+                class="form-group">
+                {% csrf_token %}
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="visibilityModalLabel">{{_("Profile Visibility")}}</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-check">
+                        <input {% if is_public_only %} checked {%endif%} class="form-check-input" type="radio"
+                            name="visibility" value="PUBLIC" id="publicOnly">
+                        <label class="form-check-label" for="publicOnly">
+                            {{_("Public")}}
+                        </label>
+                    </div>
+                    <div class="small">
+                        <ul>
+                            <li>
+                                {% blocktranslate %}
+                                Your profile is visible to the general public and will show up in search engine results
+                                {% endblocktranslate %}
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="form-check">
+                        <input {% if is_platform_only %} checked {%endif%} class="form-check-input" type="radio"
+                            name="visibility" value="PLATFORM ONLY" id="platformOnly">
+                        <label class="form-check-label" for="platformOnly">
+                            {{_("Platform Only")}}
+                        </label>
+                    </div>
+                    <div class="small">
+                        <ul>
+                            <li>
+                                {{_("Only signed in platform users will see your profile")}}
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="form-check">
+                        <input {% if is_private_only %} checked {%endif%} class="form-check-input" type="radio"
+                            name="visibility" value="PRIVATE" id="privateOnly">
+                        <label class="form-check-label" for="privateOnly">
+                            {{_("Private")}}
+                        </label>
+                    </div>
+                    <div class="small">
+                        <ul>
+                            <li>
+                                {% blocktranslate %}
+                                Your profile will not appear in search results on platform or search engines. It will
+                                not
+                                be visible via a direct link for non-platform users. Platform users who have a direct
+                                link
+                                to your profile will see limited information. Clients you have worked with or submitted
+                                a proposal to will see your full profile
+                                {% endblocktranslate %}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-between">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{_("Close")}}</button>
+                    <button type="submit" class="btn btn-primary">{{_("Submit")}}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+{% load static %}
+<p>
+    {% if is_proposal_detail %}
+    <a href="{{proposal.job.get_absolute_url}}" class="">
+        <i class="fa-solid fa-briefcase"></i>
+        {{proposal.job.title}}
+    </a>
+    {% else %}
+    <a href="{% url 'jobs:proposal-detail' idjob=proposal.job.id proposal_id=proposal.id %}" class="text-success">
+        <i class="fa-solid fa-comment-dollar"></i>
+        <b>
+            {{proposal.job.title}}
+        </b>
+    </a>
+    {% endif %}
+</p>
+<p>
+    <i class="fa-solid fa-calendar-days"></i>
+    {{proposal.created_date|date:'D d M Y'}}
+</p>

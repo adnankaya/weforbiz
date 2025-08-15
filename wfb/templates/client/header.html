@@ -1,0 +1,88 @@
+{% load static %}
+
+
+
+<header class="p-3 shadow-sm">
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="/"
+                class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-dark text-decoration-none">
+                <i class="fa-solid fa-user-tie fs-3"></i>
+                {{_("We For Biz")}}
+            </a>
+
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li>
+                    <a class="nav-link text-dark nav-link-underline" aria-current="page"
+                        href="{% url 'jobs:list' %}">
+                        <i class="fa-solid fa-briefcase"></i>
+                        {{_("Jobs")}}
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link text-dark" aria-current="page" href="{% url 'jobs:contracts' %}">
+                        <i class="fa-solid fa-file-signature"></i>
+                        {{_("Contracts")}}
+                    </a>
+                </li>
+                <li class="">
+                    <a class="nav-link text-dark" href="{% url 'chats:chat-index' %}">
+                        <i class="fa-solid fa-message"></i>
+                        <span class="">{{_("Messages")}}</span>
+                    </a>
+                </li>
+            </ul>
+            {% include 'notification.html' %}
+            <div class="dropdown ms-1 mb-sm-2 text-dark">
+                <a href="#"
+                    class="d-block link-body-emphasis text-decoration-none dropdown-toggle d-flex align-items-center"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="{% static 'images/profiles/user.png' %}" alt="user profile image" width="32" height="32"
+                        class="rounded-circle me-1">
+                    <span class="d-none d-md-block ">{{user.get_full_name}}</span>
+                </a>
+                <ul class="dropdown-menu shadow-lg border-0 small">
+                    <li>
+                        <a class="dropdown-item p-1" href="{% url 'users:clients-detail' cid=user.client.id %}">
+                            <i class="fa-solid fa-user-tie fs-4"></i>
+                            {{_("My Profile")}}
+                        </a>
+                    </li>
+                    {% if user.professional %}
+                    <li>
+                        <a class="dropdown-item text-dark bg-primary-subtle p-1"
+                            href="{% url 'users:switch-profile' %}">
+                            <i class="fa-solid fa-user-astronaut fs-4"></i>
+                            {{_("Switch to Professional Profile")}}
+                        </a>
+                    </li>
+                    {% endif %}
+                    <li>
+                        <a class="dropdown-item" href="{% url 'users:settings-contact-info' %}">
+                            <i class="fa-solid fa-gear"></i>
+                            {{_("Settings")}}
+                        </a>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li class="small">
+                        <a class="dropdown-item" href="{% url 'account_logout' %}">
+                            {{_("Sign Out")}}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            {% if is_settings_page %}
+            <div class="nav-item text-nowrap d-md-none mx-2 mb-sm-2">
+                <button class="nav-link  px-3 text-dark-emphasis rounded" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <i class="fa-solid fa-bars"></i>
+                    {{_("Menu")}}
+                </button>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</header>

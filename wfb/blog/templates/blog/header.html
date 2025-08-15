@@ -1,0 +1,36 @@
+{% load static %}
+
+
+
+<header class="p-3">
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="/"
+                class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-primary-emphasis text-decoration-none">
+                <i class="fa-solid fa-user-tie fs-3"></i>
+                {{_("We For Biz")}}
+            </a>
+
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li>
+                    <a class="nav-link text-primary-emphasis nav-link-underline" aria-current="page"
+                        href="{% url 'blog:index' %}">
+                        <i class="fa-solid fa-blog"></i>
+                        {{_("Blog")}}
+                    </a>
+                </li>
+            </ul>
+            <div class="col-lg-4 mb-lg-0 mb-sm-2" >
+                {% include "blog/searchbox.html" %}
+            </div>
+            <div class="text-end mx-2">
+                <a class="btn btn-outline-dark text-dark" href="{% url 'account_login' %}">
+                    {{_("Sign In")}}
+                </a>
+                <a class="btn btn-outline-primary" href="{% url 'account_signup' %}">
+                    {{_("Sign Up")}}
+                </a>
+            </div>
+        </div>
+    </div>
+</header>

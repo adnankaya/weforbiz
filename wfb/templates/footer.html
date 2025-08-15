@@ -1,0 +1,90 @@
+<div class="container">
+    <div class="row py-5 px-2">
+        <div class="col my-4">
+            <div class="row">
+                <div class="col-md-3 mb-3">
+                    <h5 class="fw-bold">For Clients</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Post a project</a>
+                        </li>
+                        <li><a href="#">Review professionals</a>
+                        </li>
+                        <li><a href="#">Pay professionals</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <h5 class="fw-bold">For Professionals</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Create a profile</a>
+                        </li>
+                        <li><a href="#">Find projects</a>
+                        </li>
+                        <li><a href="#">Get paid</a>
+                        </li>
+                    </ul>
+                </div>
+
+
+
+                <div class="col-md-3 mb-3">
+                    <h5 class="fw-bold">{{_("Resources")}}</h5>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="{% url 'blog:index' %}">{{_("Blog")}}</a>
+                        </li>
+                        <li>
+                            <a href="#">{{_("Help & Support")}}</a>
+                        </li>
+                        <li>
+                            <a href="#">{{_("Success Stories")}}</a>
+                        </li>
+                        <li>
+                            <a href="#">{{_("Reviews")}}</a>
+                        </li>
+                        <li>
+                            <a href="#">{{_("Community")}}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <h5 class="fw-bold">{{_("Company")}}</h5>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="{% url 'general:about-us' %}">{{_("About Us")}}</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'general:contact-us' %}">{{_("Contact Us")}}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="my-2">
+
+
+            <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-2">
+                <p>&copy; 2025 weforbiz.com {{_("All rights reserved.")}}</p>
+                <ul class="list-unstyled d-flex">
+                    <li class="ms-3"><a class="link-body-emphasis" href="#">
+                            <i class="fa-brands fa-linkedin"></i>
+                        </a>
+                    </li>
+                    <li class="ms-3"><a class="link-body-emphasis" href="#">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+                    </li>
+                    <li class="ms-3"><a class="link-body-emphasis" href="#">
+                            <i class="fa-brands fa-facebook"></i>
+                        </a>
+                    </li>
+                    <li class="ms-3"><a class="link-body-emphasis" href="#">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

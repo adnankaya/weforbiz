@@ -1,0 +1,22 @@
+{% load static %}
+{% load i18n %}
+{% load humanize %}
+
+<div class="row">
+    <div class="col">
+        <h3>
+            {{_("Your Chat Rooms")}}
+        </h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <div class="list-group list-group-flush">
+            {% for chat_room in professional_chat_rooms %}
+            <div class="list-group-item list-group-item-action">
+                {% include 'chats/chat-room-item.html' with cruser=chat_room.client.user %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

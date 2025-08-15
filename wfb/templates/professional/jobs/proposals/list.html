@@ -1,0 +1,31 @@
+{% extends 'professional/jobs/base.html' %}
+
+
+
+<div>
+    {% block jobs_body %}
+    <div class="row">
+        <div class="col">
+            <h3 class="bg-success-subtle p-2">
+                {{_("Job Proposals")}}
+            </h3>
+            {% if proposals %}
+            <div class="list-group list-group-flush">
+                {% for proposal in proposals %}
+                <div class="list-group-item list-group-item-action mb-2">
+                    {% include 'professional/jobs/proposals/proposal-item.html' %}
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <div class="alert alert-warning my-4 mx-2">
+                <i class="fa-solid fa-warning fs-3"></i>
+                <strong>
+                    {{_("No proposal found")}}
+                </strong>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    {% endblock jobs_body %}
+</div>

@@ -1,0 +1,144 @@
+{% extends 'client/jobs/base.html' %}
+
+{% block jobs_body %}
+<div class="row">
+    <div class="col">
+        <div class="row">
+            <div class="col-lg-8 col-md-6 mx-auto">
+                <h3 class="text-center my-2 bg-md-grey-300 text-dark px-2 py-4 rounded-top-2">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                    {{_(" Post your job in 3 simple steps")}}
+                    {{_("and")}}
+                    <i class="fa-solid fa-rocket"></i>
+                    {{_("kickstart your project.")}}
+                </h3>
+            </div>
+        </div>
+        <form method="post">
+            {% csrf_token %}
+            <ul class="nav nav-underline nav-fill mt-4 mb-4" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="title-tab" data-bs-toggle="tab" data-bs-target="#title-tab-pane"
+                        type="button" role="tab" aria-controls="title-tab-pane" aria-selected="true">
+                        <span class="badge text-bg-primary rounded-circle">1</span>
+                        {{_("Title")}}
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="description-tab" data-bs-toggle="tab"
+                        data-bs-target="#description-tab-pane" type="button" role="tab"
+                        aria-controls="description-tab-pane" aria-selected="false">
+                        <span class="badge text-bg-primary rounded-circle">2</span>
+                        {{_("Description")}}
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="budget-tab" data-bs-toggle="tab" data-bs-target="#budget-tab-pane"
+                        type="button" role="tab" aria-controls="budget-tab-pane" aria-selected="false">
+                        <span class="badge text-bg-primary rounded-circle">3</span>
+                        {{_("Budget")}}
+                    </button>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="title-tab-pane" role="tabpanel" aria-labelledby="title-tab"
+                    tabindex="0">
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-floating mb-3">
+                                <input name="title" type="text" class="form-control border-2 border-primary-subtle"
+                                    id="idTitle" placeholder="{{_('I want to build a website')}}" required>
+                                <label for="idTitle">{{_("Job Title")}}</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            {% include 'common/forms/skills.html' with isRequired='true' %}
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="description-tab-pane" role="tabpanel" aria-labelledby="description-tab"
+                    tabindex="0">
+                    <div class="form-floating">
+                        <textarea name="description" class="form-control border-2 border-primary-subtle"
+                            placeholder="Description" id="idDescription" style="height: 200px" required></textarea>
+                        <label for="idDescription">{{_("Job Description")}}</label>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="budget-tab-pane" role="tabpanel" aria-labelledby="budget-tab"
+                    tabindex="0">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3" id="minBudgetDiv">
+                                <input name="min_budget" type="number" min="0"
+                                    class="form-control border-2 border-primary-subtle" id="idMinBudget"
+                                    placeholder="{{_('10')}}">
+                                <label for="idMinBudget">{{_("Min Budget")}}</label>
+                            </div>
+                            <div class="form-floating mb-3" id="maxBudgetDiv">
+                                <input name="max_budget" type="number" min="0"
+                                    class="form-control border-2 border-primary-subtle" id="idMaxBudget"
+                                    placeholder="{{_('100')}}">
+                                <label for="idMaxBudget">{{_("Max Budget")}}</label>
+                            </div>
+                        </div>
+                        <div class="col-md-2"></div>
+                        <div class="col-md-4">
+                            <div class="my-2">
+                                <div class="form-check mb-3 fs-3">
+                                    <span class="border border-2 border-primary-subtle p-2 rounded">
+                                        <input name="job_type" class="form-check-input" type="radio" value="HOURLY"
+                                            id="idHourly" checked>
+                                        <label class="form-check-label" for="idHourly">
+                                            {{_("Hourly")}}
+                                        </label>
+                                    </span>
+                                </div>
+                                <div class="form-check fs-3">
+                                    <span class="border border-2 border-success-subtle p-2 rounded">
+                                        <input name="job_type" class="form-check-input" type="radio" value="FIXED"
+                                            id="idFixed">
+                                        <label class="form-check-label px-2" for="idFixed">
+                                            {{_("Fixed")}}
+                                        </label>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-grid gap-2 col-6 mx-auto my-4">
+                        <button class="btn btn-primary" type="submit">
+                            <i class="fa-solid fa-check-double"></i>
+                            {{_("Submit")}}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    const fixedRadio = document.getElementById("idFixed");
+    const hourlyRadio = document.getElementById("idHourly");
+    const minBudgetInput = document.getElementById("idMinBudget");
+    const maxBudgetInput = document.getElementById("idMaxBudget");
+    const minBudgetDiv = document.getElementById("minBudgetDiv");
+    const maxBudgetDiv = document.getElementById("maxBudgetDiv");
+
+    // initially checked HOURLY
+    hourlyRadio.checked = true;
+
+
+    fixedRadio.addEventListener("change", function () {
+        minBudgetDiv.hidden = true;
+        maxBudgetDiv.hidden = false;
+        minBudgetInput.value = 0;
+    });
+
+    hourlyRadio.addEventListener("change", function () {
+        minBudgetDiv.hidden = false;
+        maxBudgetDiv.hidden = false;
+    });
+</script>
+{% endblock jobs_body %}

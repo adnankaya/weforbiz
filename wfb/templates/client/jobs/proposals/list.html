@@ -1,0 +1,42 @@
+{% extends 'client/jobs/base.html' %}
+
+
+
+<div>
+    {% block jobs_body %}
+    <div class="row">
+        <div class="col">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <h3>
+                        <span>
+                            <b class="text-primary-emphasis">{{job.title}}</b>
+                            <span class="text-muted">{{_(" proposals")}}</span>
+                        </span>
+                    </h3>
+                </div>
+            </div>
+            {% if proposals %}
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="list-group list-group-flush">
+                        {% for proposal in proposals %}
+                        <div class="list-group-item list-group-item-action mb-2">
+                            {% include 'client/jobs/proposals/proposal-item.html' %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <div class="alert alert-warning my-4 mx-2">
+                <i class="fa-solid fa-warning fs-3"></i>
+                <strong>
+                    {{_("No proposal found")}}
+                </strong>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    {% endblock jobs_body %}
+</div>

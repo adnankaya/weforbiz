@@ -1,0 +1,10 @@
+{% load i18n %}
+<form action="{% url 'blog:index' %}" method="get" class="">
+    <div class="input-group">
+        <input name="query" value="{%if query%}{{query}}{%endif%}" type="search" class="form-control pytr-shadow"
+            placeholder="{{_('Search...')}}" aria-label="post" aria-describedby="button-search">
+        <button class="btn btn-sm btn-dark" type="submit" id="button-search">
+            <i class="fa-solid fa-search"></i>
+        </button>
+    </div>
+</form>

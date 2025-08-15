@@ -1,0 +1,57 @@
+{% load i18n %}
+{% load core_tags %}
+
+
+
+<div class="border-bottom p-2">
+    
+    <div class="">
+        <b class="d-flex justify-content-between">
+            <a href="{{ post.get_absolute_url }}" class="text-decoration-none text-pytr-blue">
+                <i class="{{post.category.icon}}"></i>
+                <span class="">
+                    {{post.title}}
+                </span>
+            </a>
+            {% if user.is_superuser %}
+            <span class="text-muted" style="font-size: 13px;">
+                <i class="fa-solid fa-eye"></i>
+                <span class="ms-1">{{post.get_hit_count}}</span>
+            </span>
+            {% endif %}
+        </b>
+    </div>
+    <div class="mt-2 d-flex justify-content-start">
+        <p style="font-size: 13px;">
+            <i class="bi bi-calendar3"></i>
+            <small class="text-muted">{{post.created_date|date}}</small>
+        </p>
+        <p class="ms-2" style="font-size: 13px;">
+            <i class="fa-solid fa-user-edit"></i>
+            <small class="text-muted">{{post.created_by.get_full_name}}</small>
+        </p>
+    </div>
+    <div class="d-flex align-items-end">
+        <small class="tags">
+            <i class="bi bi-tags-fill"></i>
+            {% for tag in post.get_tags %}
+            <span class="badge badge-pill bg-light">
+                <a class="text-decoration-none text-muted" href="{% url 'blog:posts-by-tag' tag_slug=tag.slug %}">
+                    {{ tag.name }}
+                </a>
+            </span>
+            {% if not forloop.last %}
+            {% endif %}
+            {% endfor %}
+        </small>
+    </div>
+    <div class="">
+        {% if request.get_full_path == post.get_absolute_url%}
+        <div>
+            <p>
+                {{post.body|safe}}
+            </p>
+        </div>
+        {% endif %}
+    </div>
+</div>

@@ -1,0 +1,116 @@
+{% extends 'home/base.html' %}
+{% load i18n %}
+
+
+<div class="">
+    {% block home_body %}
+
+    <div class="">
+        <section class="main-section p-5">
+
+                <div class="row">
+                    <div class="col-lg-6 py-4">
+                        <h1 class="display-3 fw-bold mb-4">{{_("Find the Perfect Professional for Your Business")}}</h1>
+                        <a href="{% url 'users:professionals' %}" class="btn btn-outline-dark btn-lg mb-2">
+                            <i class="fa-solid fa-user-astronaut"></i>
+                            {{_("Browse Professionals")}}
+                        </a>
+                        <a class="btn btn-primary btn-lg mb-2" href="{% url 'jobs:post' %}">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                            {{_("Post a Job")}}
+                        </a>
+                    </div>
+                    <div class="col-lg-6 d-none d-md-block">
+                        {% include 'home/animation.html' %}
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col text-center">
+                        <h3 class="text-dark py-5">
+                            {% blocktranslate %}
+                            Tap into a vast network of skilled and experienced professionals ready to deliver exceptional
+                            results.
+                            {% endblocktranslate %}
+                        </h3>
+                    </div>
+                </div>
+        </section>
+    </div>
+    <div class="container">
+        <div class="page-header my-4">
+            <h2 class="text-center text-muted">
+                <i class="fa-solid fa-users-gear"></i>
+                {{_("How It Works")}}
+            </h2>
+        </div>
+        <section class="">
+            {% include 'home/timeline.html' %}
+        </section>
+    </div>
+    <!-- <div class="container">
+        <div class="page-header my-4">
+            <h2 class="text-center text-muted">
+                <i class="fa-solid fa-hand-holding-heart"></i>
+                {{_("What We Offer")}}
+            </h2>
+        </div>
+        <section class="services">
+            <div class="container p-3">
+                <div class="row">
+                    <div class="col-md-4 text-center">
+                        <div class="card p-2 m-1 h-100">
+                            <i class="fa-solid fa-user-astronaut fa-5x"></i>
+                            <h3 class="mt-3">{{_("Skilled Professionals")}}</h3>
+                            <p>
+                                {{_("Access a wide pool of skilled professionals with expertise in various industries.")}}
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 text-center">
+                        <div class="card p-2 m-1 h-100">
+                            <i class="fa-solid fa-handshake fa-5x"></i>
+                            <h3 class="mt-3">{{_("Secure Transactions")}}</h3>
+                            <p>{{_("Protect your payments with our secure escrow system.")}}</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 text-center">
+                        <div class="card p-2 m-1 h-100">
+                            <i class="fa-solid fa-headset fa-5x"></i>
+                            <h3 class="mt-3">{{_("24/7 Support")}}</h3>
+                            <p>{{_("Get help from our dedicated support team whenever you need it.")}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div> -->
+    <!-- {% if best_professionals %}
+    <div class="container">
+        <div class="page-header my-4">
+            <h2 class="text-center text-muted">
+                <i class="fa-solid fa-user-astronaut"></i>
+                {{_("Best Professionals")}}
+            </h2>
+        </div>
+        {% include 'home/bestprofessionals.html' %}
+    </div>
+    {% endif %} -->
+    <div class="container">
+        <section class="cta bg-primary  py-5">
+            <div class="container d-flex justify-content-start">
+                <h2 class="text-center text-white">
+                    <i class="fa-solid fa-person-running fa-bounce"
+                        style="--fa-animation-duration: 3s; --fa-animation-iteration-count: 10;"></i>
+                    {{_("Get Started Today")}}
+                </h2>
+                <a href="{% url 'account_signup' %}" class="btn btn-lg btn-light ms-4">
+                    <i class="fa-solid fa-user-plus"></i>
+                    {{_("Sign Up")}}
+                </a>
+            </div>
+        </section>
+    </div>
+    {% endblock home_body %}
+</div>

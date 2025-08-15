@@ -1,0 +1,57 @@
+{% load i18n %}
+<ul class="nav nav-underline nav-fill" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="professional-tab" data-bs-toggle="tab" data-bs-target="#professional-tab-pane"
+            type="button" role="tab" aria-controls="professional-tab-pane" aria-selected="true">
+            {{_("Professional")}}
+        </button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="client-tab" data-bs-toggle="tab" data-bs-target="#client-tab-pane" type="button"
+            role="tab" aria-controls="client-tab-pane" aria-selected="false">
+            {{_("Client")}}
+        </button>
+    </li>
+
+</ul>
+<div class="tab-content mt-2" id="myTabContent">
+    <div class="tab-pane fade show active" id="professional-tab-pane" role="tabpanel" aria-labelledby="professional-tab"
+        tabindex="0">
+
+        <p>
+            {% blocktranslate %}
+            Whether you're an experienced professional ready to elevate your career or a fresh talent eager
+            to kickstart your journey in freelancing, join us now.
+            {% endblocktranslate %}
+        </p>
+        <p class="small text-muted">
+            {% blocktranslate %}
+            Connect with top-tier projects, showcase
+            your expertise, and seize the chance to build your portfolio – your next big opportunity awaits!
+            {% endblocktranslate %}
+        </p>
+        <a href="{% url 'account_signup' %}" class="btn btn-primary m-1">
+            <i class="fa-solid fa-user-astronaut"></i>
+            {{_("Join")}}
+        </a>
+
+    </div>
+    <div class="tab-pane fade" id="client-tab-pane" role="tabpanel" aria-labelledby="client-tab" tabindex="0">
+        <p>
+            {% blocktranslate %}
+            Sign up today to access a world of skilled professionals waiting to bring your projects to new heights.
+            {% endblocktranslate %}
+        </p>
+        <p class="small text-muted">
+            {% blocktranslate %}
+            Your success story begins here – join now and experience the difference of a dynamic professional marketplace
+            tailored to meet your unique needs!
+            {% endblocktranslate %}
+        </p>
+        <a href="{% url 'account_signup' %}" class="btn btn-primary m-1">
+            <i class="fa-solid fa-user-tie"></i>
+            {{_("Join")}}
+        </a>
+
+    </div>
+</div>

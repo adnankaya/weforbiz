@@ -1,0 +1,72 @@
+<form method="post">
+    {% csrf_token %}
+    <label for="idAmount" class="form-label">{{_("Amount")}}</label>
+    <div class="input-group mb-3">
+        <span class="input-group-text">$</span>
+        {% if job.job_type == job_type_choices.HOURLY %}
+        <input name="amount" type="number" step="0.01" min="10" value="{{user.professional.hourly_rate}}" id="idAmount"
+        class="form-control" aria-label="Amount entered by professional" required>
+        {% elif job.job_type == job_type_choices.FIXED %}
+        <input name="amount" type="number" step="0.01" min="10" value="{{job.max_budget}}" id="idAmount"
+        class="form-control" aria-label="Amount entered by professional" required>
+        {% endif %}
+    </div>
+    <label for="idServiceFee" class="form-label">{{_("Service Fee: ")}} {{ COMMISSION }}%</label>
+    <div class="input-group mb-3">
+        <span class="input-group-text">$</span>
+        <input name="service_fee" type="number" step="0.01" min="1" id="idServiceFee" class="form-control"
+            aria-label="ServiceFee" required readonly>
+    </div>
+    <input type="hidden" name="commission" id="idCommissionVal" value="{{COMMISSION}}"
+        aria-label="commission percentage rate">
+    <label for="idTotalResult" class="form-label">{{_("You Will Get")}}</label>
+    <div class="input-group mb-3">
+        <span class="input-group-text">$</span>
+        <input name="total_result" type="number" step="0.01" min="9" id="idTotalResult" class="form-control"
+            aria-label="you will get" required readonly>
+    </div>
+    <div class="form-floating">
+        <textarea name="coverletter" class="form-control" placeholder="{{_('Cover letter')}}" id="idCoverletter"
+            style="height: 400px"></textarea>
+        <label for="idCoverletter">{{_("Cover Letter")}}</label>
+    </div>
+    <div class="d-grid my-2">
+        <button type="submit" class="btn btn-primary">
+            <i class="fa-solid fa-check-double"></i>
+            {{_("Submit Proposal")}}
+        </button>
+    </div>
+</form>
+<script>
+    const amount = document.getElementById("idAmount");
+    const serviceFee = document.getElementById("idServiceFee");
+    const commissionVal = document.getElementById("idCommissionVal");
+    const totalResult = document.getElementById("idTotalResult");
+
+    // initial calculation
+    calculateServiceFee(amount.value);
+    calculateTotalResult();
+
+    function calculateServiceFee(amountValue) {
+        const res = (parseFloat(commissionVal.value) / 100) * parseFloat(amountValue);
+        serviceFee.value = res.toFixed(2);
+    }
+    function calculateTotalResult() {
+        const res = parseFloat(amount.value) - parseFloat(serviceFee.value);
+        totalResult.value = res.toFixed(2);
+    }
+
+    amount.addEventListener("input", (event) => {
+        const amountValue = event.target.value
+        calculateServiceFee(amountValue);
+        calculateTotalResult();
+
+        console.log(serviceFee.value);
+        console.log(totalResult.value);
+    });
+
+
+
+
+
+</script>

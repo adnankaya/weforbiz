@@ -1,0 +1,33 @@
+{% extends 'client/jobs/base.html' %}
+{% load job_tags %}
+
+
+{% block jobs_body %}
+<div>
+    <div class="row">
+        <div class="col">
+            <h2>{{_("Contract Detail")}}</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            {% include 'client/jobs/contracts/contract-item.html' %}
+        </div>
+    </div>    
+    {% is_work_acceptable contract as isWorkAcceptable %}
+    {% if user.client and user.client == contract.job.created_by and isWorkAcceptable %}
+    <div class="row">
+        <div class="col">
+            <div class="card bg-success-subtle p-2 my-2">
+                <div>
+                    <h4>{{_("Do you accept the work frelancer completed?")}}</h4>
+                </div>
+                <div>
+                    {% include 'client/jobs/contracts/accept-work-form.html' %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock jobs_body %}

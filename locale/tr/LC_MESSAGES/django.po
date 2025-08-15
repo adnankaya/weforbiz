@@ -1,0 +1,2202 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-14 06:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: config/settings/base.py:33
+msgid "English"
+msgstr "İngilizce"
+
+#: config/settings/base.py:34
+msgid "Turkish"
+msgstr "Türkçe"
+
+#: wfb/address/views.py:34
+msgid "Created address successfully."
+msgstr "Adres başarıyla oluşturuldu."
+
+#: wfb/address/views.py:48
+msgid "Updated address successfully."
+msgstr "Adres başarıyla güncellendi."
+
+#: wfb/bills/models.py:25 wfb/jobs/models.py:154 wfb/payments/models.py:18
+#: wfb/payments/models.py:49 wfb/payments/models.py:118
+#: wfb/promotions/models.py:42
+msgid "PENDING"
+msgstr "BEKLEMEDE"
+
+#: wfb/bills/models.py:26 wfb/payments/models.py:50 wfb/payments/models.py:119
+msgid "COMPLETED"
+msgstr "TAMAMLANDI"
+
+#: wfb/bills/models.py:27 wfb/payments/models.py:51 wfb/payments/models.py:120
+msgid "REFUNDED"
+msgstr "İADE EDİLDİ"
+
+#: wfb/bills/models.py:28 wfb/payments/models.py:52 wfb/payments/models.py:121
+msgid "FAILED"
+msgstr "BAŞARISIZ"
+
+#: wfb/blog/forms.py:15 wfb/templates/client/jobs/post.html:24
+#: wfb/templates/users/professionals/update-profile-modal.html:20
+msgid "Title"
+msgstr "Başlık"
+
+#: wfb/blog/forms.py:16 wfb/templates/client/jobs/post.html:32
+msgid "Description"
+msgstr "Açıklama"
+
+#: wfb/blog/forms.py:17
+msgid "Category"
+msgstr "Kategori"
+
+#: wfb/blog/models.py:112
+msgid "Image"
+msgstr "Görsel"
+
+#: wfb/blog/services.py:58
+#, python-brace-format
+msgid ""
+"\n"
+"                    Only {remaining_image_upload} images can be uploaded.\n"
+"                    Images can be maximum {settings.MAX_POST_IMAGES_LEN}.\n"
+"                    "
+msgstr ""
+"\n"
+"En fazla {remaining_image_upload} görsel yüklenebilir.\n"
+"                    Görseller en fazla {settings.MAX_POST_IMAGES_LEN} olabilir.\n"
+"                    "
+
+#: wfb/blog/services.py:68
+msgid "Uploaded images!"
+msgstr "Görseller yüklendi!"
+
+#: wfb/blog/services.py:71
+msgid "Error! images could not be uploaded!"
+msgstr "Hata! Görseller yüklenemedi!"
+
+#: wfb/blog/templates/blog/delete_post.html:6
+msgid "Delete Post"
+msgstr "Gönderiyi Sil"
+
+#: wfb/blog/templates/blog/delete_post.html:17
+msgid "Please confirm!"
+msgstr "Lütfen onaylayın!"
+
+#: wfb/blog/templates/blog/delete_post.html:22
+msgid "Are you sure to delete the post?"
+msgstr "Gönderiyi silmek istediğinizden emin misiniz?"
+
+#: wfb/blog/templates/blog/delete_post.html:27
+#: wfb/templates/client/jobs/contracts/contract-item.html:61
+#: wfb/templates/common/modals/address-create-modal.html:15
+#: wfb/templates/common/modals/address-update-modal.html:15
+#: wfb/templates/professional/jobs/contracts/contract-item.html:45
+#: wfb/templates/professional/jobs/flag-job-modal.html:35
+#: wfb/templates/users/professionals/availability-modal.html:30
+#: wfb/templates/users/professionals/hours-per-week-modal.html:30
+#: wfb/templates/users/professionals/visibility-modal.html:66
+msgid "Close"
+msgstr "Kapat"
+
+#: wfb/blog/templates/blog/delete_post.html:28
+msgid "Yes"
+msgstr "Evet"
+
+#: wfb/blog/templates/blog/detail.html:27
+msgid "Error!"
+msgstr "Hata!"
+
+#: wfb/blog/templates/blog/detail.html:31
+msgid "Post could not be found! Could be removed."
+msgstr "Gönderi bulunamadı! Kaldırılmış olabilir."
+
+#: wfb/blog/templates/blog/filterbox.html:5
+msgid "Filters"
+msgstr "Filtreler"
+
+#: wfb/blog/templates/blog/filterbox.html:11
+msgid "Filter by category."
+msgstr "Kategoriye göre filtrele."
+
+#: wfb/blog/templates/blog/filterbox.html:26
+msgid "Apply!"
+msgstr "Uygula!"
+
+#: wfb/blog/templates/blog/header.html:11 wfb/templates/client/header.html:11
+#: wfb/templates/professional/header.html:11
+msgid "We For Biz"
+msgstr "We For Biz"
+
+#: wfb/blog/templates/blog/header.html:19 wfb/templates/footer.html:35
+msgid "Blog"
+msgstr "Blog"
+
+#: wfb/blog/templates/blog/header.html:28
+#: wfb/templates/account/login-form.html:25
+#: wfb/templates/allauth/layouts/entrance.html:8 wfb/templates/header.html:40
+msgid "Sign In"
+msgstr "Giriş Yap"
+
+#: wfb/blog/templates/blog/header.html:31
+#: wfb/home/templates/home/index.html:110 wfb/templates/account/signup.html:38
+#: wfb/templates/header.html:35
+msgid "Sign Up"
+msgstr "Kayıt Ol"
+
+#: wfb/blog/templates/blog/post_contact.html:7
+msgid "Contact"
+msgstr "İletişim"
+
+#: wfb/blog/templates/blog/post_contact.html:28
+msgid "Last seen: "
+msgstr "Son görülme: "
+
+#: wfb/blog/templates/blog/post_contact.html:28
+msgid " ago"
+msgstr " önce"
+
+#: wfb/blog/templates/blog/post_similars.html:5
+msgid "Similar Posts"
+msgstr "Benzer Gönderiler"
+
+#: wfb/blog/templates/blog/searchbox.html:5 wfb/templates/searchbox.html:5
+msgid "Search..."
+msgstr "Ara..."
+
+#: wfb/blog/templates/blog/themes.html:18
+msgid "Change Theme"
+msgstr "Temayı Değiştir"
+
+#: wfb/blog/views.py:84
+msgid "Could not found the post!"
+msgstr "Gönderi bulunamadı!"
+
+#: wfb/chats/models.py:15 wfb/disputes/models.py:19 wfb/jobs/models.py:155
+#: wfb/support/models.py:32
+msgid "OPEN"
+msgstr "AÇIK"
+
+#: wfb/chats/models.py:16 wfb/disputes/models.py:21 wfb/jobs/models.py:156
+#: wfb/support/models.py:34
+msgid "CLOSED"
+msgstr "KAPALI"
+
+#: wfb/chats/models.py:24 wfb/templates/client/jobs/detail.html:80
+#: wfb/templates/professional/jobs/detail.html:62
+msgid "Status"
+msgstr "Durum"
+
+#: wfb/chats/templates/chats/as_client.html:8
+#: wfb/chats/templates/chats/as_professional.html:8
+msgid "Your Chat Rooms"
+msgstr "Sohbet Odalarınız"
+
+#: wfb/chats/templates/chats/as_client.html:29
+msgid "You do not have any chat room yet."
+msgstr "Henüz bir sohbet odanız yok."
+
+#: wfb/chats/templates/chats/room.html:27
+msgid "Typing..."
+msgstr "Yazıyor..."
+
+#: wfb/core/choices.py:7
+msgid "BEGINNER"
+msgstr "BAŞLANGIÇ"
+
+#: wfb/core/choices.py:8
+msgid "INTERMEDIATE"
+msgstr "ORTA DÜZEY"
+
+#: wfb/core/choices.py:9 wfb/users/models.py:117
+msgid "EXPERT"
+msgstr "UZMAN"
+
+#: wfb/core/choices.py:13
+msgid "1 hour"
+msgstr "1 saat"
+
+#: wfb/core/choices.py:14
+msgid "24 hours"
+msgstr "24 saat"
+
+#: wfb/core/choices.py:15
+msgid "3 days"
+msgstr "3 gün"
+
+#: wfb/core/choices.py:16
+msgid "1 week"
+msgstr "1 hafta"
+
+#: wfb/core/choices.py:17
+msgid "1 month"
+msgstr "1 ay"
+
+#: wfb/core/choices.py:18
+msgid "3 months"
+msgstr "3 ay"
+
+#: wfb/core/choices.py:19
+msgid "6 months"
+msgstr "6 ay"
+
+#: wfb/disputes/models.py:20 wfb/support/models.py:33
+msgid "RESOLVED"
+msgstr "ÇÖZÜLDÜ"
+
+#: wfb/feedbacks/templates/feedbacks/index.html:56
+msgid "Feedback List"
+msgstr "Geri Bildirim Listesi"
+
+#: wfb/feedbacks/templates/feedbacks/index.html:71
+msgid "No feedbacks found"
+msgstr "Geri bildirim bulunamadı"
+
+#: wfb/general/views.py:9
+msgid "Contact Us Page"
+msgstr "İletişim Sayfası"
+
+#: wfb/general/views.py:15
+msgid "About Us Page"
+msgstr "Hakkımızda Sayfası"
+
+#: wfb/home/templates/home/index.html:13
+msgid "Find the Perfect Professional for Your Business"
+msgstr "İşiniz İçin Mükemmel Uzmanı Bulun"
+
+#: wfb/home/templates/home/index.html:16
+msgid "Browse Professionals"
+msgstr "Uzmanlara Göz Atın"
+
+#: wfb/home/templates/home/index.html:20
+#: wfb/templates/client/jobs/post-job-button.html:19
+msgid "Post a Job"
+msgstr "İş İlanı Verin"
+
+#: wfb/home/templates/home/index.html:30
+msgid ""
+"\n"
+"                            Tap into a vast network of skilled and "
+"experienced professionals ready to deliver exceptional\n"
+"                            results.\n"
+"                            "
+msgstr ""
+"\n"
+"Harika sonuçlar sunmaya hazır, yetenekli ve deneyimli uzmanlardan oluşan geniş bir ağdan yararlanın."
+"                            "
+
+#: wfb/home/templates/home/index.html:43
+msgid "How It Works"
+msgstr "Nasıl Çalışır"
+
+#: wfb/home/templates/home/index.html:54
+msgid "What We Offer"
+msgstr "Sunduklarımız"
+
+#: wfb/home/templates/home/index.html:63
+msgid "Skilled Professionals"
+msgstr "Yetenekli Uzmanlar"
+
+#: wfb/home/templates/home/index.html:65
+msgid ""
+"Access a wide pool of skilled professionals with expertise in various "
+"industries."
+msgstr "Çeşitli sektörlerde uzmanlaşmış yetenekli profesyonellerden oluşan geniş bir havuza erişim sağlayın."
+
+#: wfb/home/templates/home/index.html:73
+msgid "Secure Transactions"
+msgstr "Güvenli İşlemler"
+
+#: wfb/home/templates/home/index.html:74
+msgid "Protect your payments with our secure escrow system."
+msgstr "Güvenli emanet sistemimizle ödemelerinizi koruyun."
+
+#: wfb/home/templates/home/index.html:81
+msgid "24/7 Support"
+msgstr "7/24 Destek"
+
+#: wfb/home/templates/home/index.html:82
+msgid "Get help from our dedicated support team whenever you need it."
+msgstr "İhtiyacınız olduğunda özel destek ekibimizden yardım alın."
+
+#: wfb/home/templates/home/index.html:94
+msgid "Best Professionals"
+msgstr "En İyi Uzmanlar"
+
+#: wfb/home/templates/home/index.html:106
+msgid "Get Started Today"
+msgstr "Bugün Başlayın"
+
+#: wfb/home/templates/home/timeline-profile.html:6
+msgid "Professional"
+msgstr "Uzman"
+
+#: wfb/home/templates/home/timeline-profile.html:12
+#: wfb/templates/common/modals/contract-close-modal.html:22
+#: wfb/templates/professional/jobs/flag-job-modal.html:22
+msgid "Client"
+msgstr "Müşteri"
+
+#: wfb/home/templates/home/timeline-profile.html:22
+msgid ""
+"\n"
+"            Whether you're an experienced professional ready to elevate your "
+"career or a fresh talent eager\n"
+"            to kickstart your journey in freelancing, join us now.\n"
+"            "
+msgstr ""
+"\n"
+"İster kariyerinizi yükseltmeye hazır deneyimli bir profesyonel, ister serbest çalışma yolculuğuna başlamak isteyen taze bir yetenek olun, şimdi bize katılın."
+
+#: wfb/home/templates/home/timeline-profile.html:28
+msgid ""
+"\n"
+"            Connect with top-tier projects, showcase\n"
+"            your expertise, and seize the chance to build your portfolio – "
+"your next big opportunity awaits!\n"
+"            "
+msgstr ""
+"\n"
+"En iyi projelerle bağlantı kurun, uzmanlığınızı sergileyin ve portfolyonuzu oluşturma şansını yakalayın – bir sonraki büyük fırsat sizi bekliyor!"
+
+#: wfb/home/templates/home/timeline-profile.html:35
+#: wfb/home/templates/home/timeline-profile.html:53
+msgid "Join"
+msgstr "Katıl"
+
+#: wfb/home/templates/home/timeline-profile.html:41
+msgid ""
+"\n"
+"            Sign up today to access a world of skilled professionals waiting "
+"to bring your projects to new heights.\n"
+"            "
+msgstr ""
+"\n"
+"Projelerinizi yeni zirvelere taşımak için bekleyen yetenekli uzmanların dünyasına erişmek için bugün kaydolun."
+
+#: wfb/home/templates/home/timeline-profile.html:46
+msgid ""
+"\n"
+"            Your success story begins here – join now and experience the "
+"difference of a dynamic professional marketplace\n"
+"            tailored to meet your unique needs!\n"
+"            "
+msgstr ""
+"\n"
+"Başarı hikayeniz burada başlıyor – şimdi katılın ve size özel olarak tasarlanmış dinamik bir profesyonel pazar yerinin farkını deneyimleyin!"
+
+#: wfb/home/templates/home/timeline.html:15
+msgid "Create Profile"
+msgstr "Profil Oluştur"
+
+#: wfb/home/templates/home/timeline.html:30
+msgid "Client posts a job."
+msgstr "Müşteri bir iş ilanı verir."
+
+#: wfb/home/templates/home/timeline.html:35
+msgid ""
+"\n"
+"                        Ready to turn your project vision into reality? Post "
+"your job and tap into a\n"
+"                        pool of skilled professionals eager to bring your "
+"ideas to life.\n"
+"                        "
+msgstr ""
+"\n"
+"Proje vizyonunuzu gerçeğe dönüştürmeye hazır mısınız? İşinizi yayınlayın ve fikirlerinizi hayata geçirmeye hevesli yetenekli profesyonellerin havuzundan yararlanın."
+
+#: wfb/home/templates/home/timeline.html:41
+msgid ""
+"\n"
+"                        The right talent is just a click away –\n"
+"                        create your job posting now and kickstart the "
+"journey to project success!\"\n"
+"                        "
+msgstr ""
+"\n"
+"Doğru yetenek sadece bir tık uzağınızda – iş ilanınızı şimdi oluşturun ve proje başarısı yolculuğuna başlayın!"
+
+#: wfb/home/templates/home/timeline.html:56
+msgid "Professionals send proposals"
+msgstr "Uzmanlar teklif gönderir"
+
+#: wfb/home/templates/home/timeline.html:61
+msgid ""
+"\n"
+"                        Take the first step by sending compelling proposals "
+"to high-quality jobs on our professional\n"
+"                        marketplace.\n"
+"                        "
+msgstr ""
+"\n"
+"Profesyonel pazar yerimizde yüksek kaliteli işlere ilgi çekici teklifler göndererek ilk adımı atın."
+
+#: wfb/home/templates/home/timeline.html:67
+msgid ""
+"\n"
+"                        Don't miss out on the opportunities that await – "
+"start bidding now and turn your\n"
+"                        skills into success!\n"
+"                        "
+msgstr ""
+"\n"
+"Sizi bekleyen fırsatları kaçırmayın – şimdi teklif vermeye başlayın ve yeteneklerinizi başarıya dönüştürün!"
+
+#: wfb/home/templates/home/timeline.html:81
+msgid "Professional works on"
+msgstr "Uzman işe başlar"
+
+#: wfb/home/templates/home/timeline.html:85
+msgid ""
+"\n"
+"                        It's time to turn potential into performance. "
+"Professional starts working on the job by accepting a\n"
+"                        contract created by client and delivers exceptional "
+"results.\n"
+"                        "
+msgstr ""
+"\n"
+"Potansiyeli performansa dönüştürme zamanı. Uzman, müşteri tarafından oluşturulan bir sözleşmeyi kabul ederek işe başlar ve olağanüstü sonuçlar sunar."
+
+#: wfb/home/templates/home/timeline.html:91
+msgid ""
+"\n"
+"                        Dive into the exciting journey of success–commence "
+"your freelance project and make an impact\n"
+"                        today!\n"
+"                        "
+msgstr ""
+"\n"
+"Başarının heyecan verici yolculuğuna dalın – serbest proje çalışmanıza başlayın ve bugün bir etki yaratın!"
+
+#: wfb/home/templates/home/timeline.html:106
+msgid "Deliver and Get paid!"
+msgstr "Teslim et ve Ödemeni Al!"
+
+#: wfb/home/templates/home/timeline.html:111
+msgid ""
+"\n"
+"                        Deliver your outstanding work and watch your efforts "
+"turn into payment.\n"
+"                        "
+msgstr ""
+"\n"
+"Olağanüstü çalışmanızı teslim edin ve çabalarınızın ödemeye dönüştüğünü izleyin."
+
+#: wfb/home/templates/home/timeline.html:116
+msgid ""
+"\n"
+"                        Your success story begins with each completed task – "
+"submit your work and anticipate the rewards\n"
+"                        coming your way.\n"
+"                        Ready to reap the benefits of your hard work?\n"
+"                        "
+msgstr ""
+"\n"
+"Başarı hikayeniz tamamlanan her görevle başlar – işinizi gönderin ve sizi bekleyen ödülleri bekleyin.\n"
+"                        Sıkı çalışmanızın meyvelerini toplamaya hazır mısınız?"
+
+#: wfb/invoices/models.py:17
+msgid "DRAFT"
+msgstr "TASLAK"
+
+#: wfb/invoices/models.py:18
+msgid "SENT"
+msgstr "GÖNDERİLDİ"
+
+#: wfb/invoices/models.py:19
+msgid "PAID"
+msgstr "ÖDENDİ"
+
+#: wfb/jobs/models.py:18
+msgid "FIXED"
+msgstr "SABİT"
+
+#: wfb/jobs/models.py:19
+msgid "HOURLY"
+msgstr "SAATLİK"
+
+#: wfb/jobs/models.py:22
+msgid "TODO"
+msgstr "YAPILACAK"
+
+#: wfb/jobs/models.py:23
+msgid "IN PROGRESS"
+msgstr "DEVAM EDİYOR"
+
+#: wfb/jobs/models.py:24
+msgid "IN REVIEW"
+msgstr "İNCELENİYOR"
+
+#: wfb/jobs/models.py:25
+msgid "CHANGE REQUEST"
+msgstr "DEĞİŞİKLİK TALEBİ"
+
+#: wfb/jobs/models.py:26
+msgid "DONE"
+msgstr "TAMAMLANDI"
+
+#: wfb/jobs/models.py:101
+msgid "Professional proposal amount to complete the job"
+msgstr "İşi tamamlamak için profesyonel teklif tutarı"
+
+#: wfb/jobs/models.py:107
+msgid "Commission Percentage Rate. Ex; 10"
+msgstr "Komisyon Yüzdesi. Örn; 10"
+
+#: wfb/jobs/models.py:110
+msgid "Platform Service Fee"
+msgstr "Platform Hizmet Bedeli"
+
+#: wfb/jobs/models.py:115
+msgid "Total Professional Money"
+msgstr "Toplam Profesyonel Kazancı"
+
+#: wfb/jobs/models.py:123
+msgid "View date when a client view the proposal we need to set this field"
+msgstr "Bir müşteri teklifi görüntülediğinde bu alanı ayarlamamız gereken görüntüleme tarihi"
+
+#: wfb/jobs/models.py:135
+msgid "Expected calculation is commission < total_result < amount"
+msgstr "Beklenen hesaplama komisyon < toplam_sonuç < tutardır"
+
+#: wfb/jobs/models.py:197
+msgid "hours_worked must be 1 for FIXED jobs!"
+msgstr "SABİT işler için hours_worked 1 olmalıdır!"
+
+#: wfb/jobs/models.py:210
+#: wfb/templates/common/modals/contract-close-modal.html:31
+#: wfb/templates/professional/jobs/flag-job-modal.html:31
+msgid "Reason"
+msgstr "Sebep"
+
+#: wfb/jobs/services.py:110
+msgid "Contract for this proposal already exists!"
+msgstr "Bu teklif için sözleşme zaten mevcut!"
+
+#: wfb/jobs/services.py:124 wfb/jobs/views.py:335
+msgid "Already applied this job"
+msgstr "Bu işe zaten başvurdunuz"
+
+#: wfb/jobs/views.py:136
+msgid "Contract is already closed by {}"
+msgstr "Sözleşme zaten {} tarafından kapatılmış"
+
+#: wfb/jobs/views.py:143
+msgid "Closed the Contract successfully!"
+msgstr "Sözleşme başarıyla kapatıldı!"
+
+#: wfb/jobs/views.py:167
+msgid "Contract not found"
+msgstr "Sözleşme bulunamadı"
+
+#: wfb/jobs/views.py:181
+msgid "Work submitted! We notify the client to review the work."
+msgstr "İş gönderildi! İşi incelemesi için müşteriyi bilgilendiriyoruz."
+
+#: wfb/jobs/views.py:203
+msgid "Work accepted! We notify the professional."
+msgstr "İş kabul edildi! Profesyoneli bilgilendiriyoruz."
+
+#: wfb/jobs/views.py:226
+msgid "You accepted the contract. Now you can work for the client."
+msgstr "Sözleşmeyi kabul ettiniz. Artık müşteri için çalışabilirsiniz."
+
+#: wfb/jobs/views.py:244
+msgid "Created contract successfully"
+msgstr "Sözleşme başarıyla oluşturuldu"
+
+#: wfb/jobs/views.py:344
+msgid "Congrats you sent the proposal! We notified the client."
+msgstr "Tebrikler, teklifi gönderdiniz! Müşteriyi bilgilendirdik."
+
+#: wfb/jobs/views.py:401
+msgid "You can create a client profile or switch if exists for posting a job."
+msgstr "İş ilanı vermek için bir müşteri profili oluşturabilir veya mevcutsa ona geçiş yapabilirsiniz."
+
+#: wfb/jobs/views.py:416
+msgid "Your job posted successfully"
+msgstr "İş ilanınız başarıyla yayınlandı"
+
+#: wfb/jobs/views.py:428
+msgid "This user already submitted the feedback..."
+msgstr "Bu kullanıcı zaten geri bildirim göndermiş..."
+
+#: wfb/jobs/views.py:454
+msgid "Submitted feedback successfully..."
+msgstr "Geri bildirim başarıyla gönderildi..."
+
+#: wfb/jobs/views.py:472
+msgid "Thanks for reporting this job"
+msgstr "Bu işi bildirdiğiniz için teşekkürler"
+
+#: wfb/notifications/models.py:177 wfb/payments/models.py:26
+msgid "success"
+msgstr "başarılı"
+
+#: wfb/notifications/models.py:178
+msgid "info"
+msgstr "bilgi"
+
+#: wfb/notifications/models.py:179
+msgid "warning"
+msgstr "uyarı"
+
+#: wfb/notifications/models.py:180 wfb/payments/models.py:27
+msgid "error"
+msgstr "hata"
+
+#: wfb/notifications/models.py:183
+msgid "level"
+msgstr "seviye"
+
+#: wfb/notifications/models.py:190
+msgid "recipient"
+msgstr "alıcı"
+
+#: wfb/notifications/models.py:193
+msgid "unread"
+msgstr "okunmamış"
+
+#: wfb/notifications/models.py:199
+msgid "actor content type"
+msgstr "aktör içerik türü"
+
+#: wfb/notifications/models.py:201
+msgid "actor object id"
+msgstr "aktör obje kimliği"
+
+#: wfb/notifications/models.py:203
+msgid "actor"
+msgstr "aktör"
+
+#: wfb/notifications/models.py:205
+msgid "verb"
+msgstr "fiil"
+
+#: wfb/notifications/models.py:206
+msgid "description"
+msgstr "açıklama"
+
+#: wfb/notifications/models.py:212
+msgid "target content type"
+msgstr "hedef içerik türü"
+
+#: wfb/notifications/models.py:217
+msgid "target object id"
+msgstr "hedef obje kimliği"
+
+#: wfb/notifications/models.py:220
+msgid "target"
+msgstr "hedef"
+
+#: wfb/notifications/models.py:226
+msgid "action object content type"
+msgstr "aksiyon obje içerik türü"
+
+#: wfb/notifications/models.py:231
+msgid "action object object id"
+msgstr "aksiyon obje kimliği"
+
+#: wfb/notifications/models.py:236
+msgid "action object"
+msgstr "aksiyon objesi"
+
+#: wfb/notifications/models.py:239
+msgid "timestamp"
+msgstr "zaman damgası"
+
+#: wfb/notifications/models.py:242
+msgid "public"
+msgstr "herkese açık"
+
+#: wfb/notifications/models.py:243
+msgid "deleted"
+msgstr "silinmiş"
+
+#: wfb/notifications/models.py:244
+msgid "emailed"
+msgstr "e-posta gönderilmiş"
+
+#: wfb/notifications/models.py:246
+msgid "data"
+msgstr "veri"
+
+#: wfb/notifications/models.py:257
+msgid "Notification"
+msgstr "Bildirim"
+
+#: wfb/notifications/models.py:258
+#: wfb/templates/client/settings/sidebar.html:48
+#: wfb/templates/professional/settings/sidebar.html:60
+msgid "Notifications"
+msgstr "Bildirimler"
+
+#: wfb/notifications/models.py:272
+#, python-format
+msgid "%(actor)s %(verb)s %(action_object)s on %(target)s %(timesince)s ago"
+msgstr "%(actor)s %(verb)s %(action_object)s %(target)s üzerinde %(timesince)s önce"
+
+#: wfb/notifications/models.py:276
+#, python-format
+msgid "%(actor)s %(verb)s %(target)s %(timesince)s ago"
+msgstr "%(actor)s %(verb)s %(target)s %(timesince)s önce"
+
+#: wfb/notifications/models.py:278
+#, python-format
+msgid "%(actor)s %(verb)s %(action_object)s %(timesince)s ago"
+msgstr "%(actor)s %(verb)s %(action_object)s %(timesince)s önce"
+
+#: wfb/notifications/models.py:279
+#, python-format
+msgid "%(actor)s %(verb)s %(timesince)s ago"
+msgstr "%(actor)s %(verb)s %(timesince)s önce"
+
+#: wfb/notifications/models.py:418
+msgid "MISC"
+msgstr "DİĞER"
+
+#: wfb/notifications/models.py:419
+msgid "JOB INVITATION"
+msgstr "İŞ DAVETİ"
+
+#: wfb/notifications/models.py:420
+msgid "JOB APPLICATION"
+msgstr "İŞ BAŞVURUSU"
+
+#: wfb/notifications/services.py:25
+msgid "Your proposal has been viewed"
+msgstr "Teklifiniz görüntülendi"
+
+#: wfb/notifications/services.py:27
+msgid ""
+"Good news! The client viewed your proposal. Now it's time to wait for "
+"contract"
+msgstr "İyi haber! Müşteri teklifinizi görüntüledi. Şimdi sözleşme bekleme zamanı."
+
+#: wfb/notifications/services.py:30 wfb/notifications/services.py:52
+msgid "View Proposal"
+msgstr "Teklifi Görüntüle"
+
+#: wfb/notifications/services.py:46
+msgid "{} sent proposal for {}"
+msgstr "{} {} için teklif gönderdi"
+
+#: wfb/notifications/services.py:50
+msgid "You can check it out and hire the professional."
+msgstr "İnceleyebilir ve uzmanı işe alabilirsiniz."
+
+#: wfb/notifications/services.py:69
+msgid "{} sent contract for {}"
+msgstr "{} {} için sözleşme gönderdi"
+
+#: wfb/notifications/services.py:72
+msgid "The client sent the contract. You can accept and start working."
+msgstr "Müşteri sözleşmeyi gönderdi. Kabul edebilir ve çalışmaya başlayabilirsiniz."
+
+#: wfb/notifications/services.py:75 wfb/notifications/services.py:94
+#: wfb/notifications/services.py:117 wfb/notifications/services.py:136
+#: wfb/notifications/services.py:155
+msgid "View Contract"
+msgstr "Sözleşmeyi Görüntüle"
+
+#: wfb/notifications/services.py:91
+msgid "Contract {} has been accepted"
+msgstr "Sözleşme {} kabul edildi"
+
+#: wfb/notifications/services.py:92
+msgid "The professional accepted the contract."
+msgstr "Profesyonel sözleşmeyi kabul etti."
+
+#: wfb/notifications/services.py:114
+msgid "Contract '{}' has been closed"
+msgstr "Sözleşme '{}' kapatıldı"
+
+#: wfb/notifications/services.py:115
+msgid "You can give feedback now."
+msgstr "Şimdi geri bildirim verebilirsiniz."
+
+#: wfb/notifications/services.py:133
+msgid "{} work has been submitted by professional"
+msgstr "{} işi uzman tarafından teslim edildi"
+
+#: wfb/notifications/services.py:134
+msgid "The professional submitted the work. You can check it out!"
+msgstr "Profesyonel işi teslim etti. İnceleyebilirsiniz!"
+
+#: wfb/notifications/services.py:152
+msgid "{} work has been accepted by client"
+msgstr "{} işi müşteri tarafından kabul edildi"
+
+#: wfb/notifications/services.py:153
+msgid "The client accepted the work. Congrats!"
+msgstr "Müşteri işi kabul etti. Tebrikler!"
+
+#: wfb/notifications/templates/notifications/list.html:40
+msgid "There is no any new notifications."
+msgstr "Yeni bildiriminiz yok."
+
+#: wfb/payments/models.py:19
+msgid "PAYPAL"
+msgstr "PAYPAL"
+
+#: wfb/payments/models.py:20
+msgid "IYZICO"
+msgstr "IYZICO"
+
+#: wfb/payments/models.py:21
+msgid "CREDIT CARD"
+msgstr "KREDİ KARTI"
+
+#: wfb/payments/models.py:22
+msgid "BANK TRANSFER"
+msgstr "BANKA HAVALESİ"
+
+#: wfb/payments/models.py:73
+msgid "MEMBERSHIP FEE"
+msgstr "ÜYELİK ÜCRETİ"
+
+#: wfb/payments/models.py:74
+msgid "SERVICE FEE"
+msgstr "HİZMET ÜCRETİ"
+
+#: wfb/payments/models.py:75
+msgid "WITHDRAWAL FEE"
+msgstr "PARA ÇEKİM ÜCRETİ"
+
+#: wfb/payments/models.py:76
+msgid "WITHDRAWAL"
+msgstr "PARA ÇEKME"
+
+#: wfb/payments/models.py:77
+msgid "REFUND"
+msgstr "İADE"
+
+#: wfb/payments/templates/payments/checkout.html:25
+msgid "Could not initialize checkout form."
+msgstr "Ödeme formu başlatılamadı."
+
+#: wfb/payments/templates/payments/index.html:15
+msgid "Make Payment"
+msgstr "Ödeme Yap"
+
+#: wfb/payments/templates/payments/index.html:21
+msgid "Checkout Init"
+msgstr "Ödeme Başlat"
+
+#: wfb/payments/templates/payments/index.html:24
+msgid "Go to Checkout"
+msgstr "Ödemeye Git"
+
+#: wfb/payments/templates/payments/payment-failed.html:14
+msgid "Payment failed"
+msgstr "Ödeme başarısız oldu"
+
+#: wfb/payments/templates/payments/payment-failed.html:19
+msgid "Payment Index"
+msgstr "Ödeme Sayfası"
+
+#: wfb/payments/templates/payments/payment-success.html:14
+msgid "Payment succeeded"
+msgstr "Ödeme başarılı"
+
+#: wfb/payments/views.py:79
+msgid "Checkout Page"
+msgstr "Ödeme Sayfası"
+
+#: wfb/promotions/models.py:43
+msgid "APPROVED"
+msgstr "ONAYLANDI"
+
+#: wfb/promotions/models.py:44
+msgid "REJECTED"
+msgstr "REDDEDİLDİ"
+
+#: wfb/reports/models.py:23
+msgid "WEEKLY"
+msgstr "HAFTALIK"
+
+#: wfb/reports/models.py:24
+msgid "MONTHLY"
+msgstr "AYLIK"
+
+#: wfb/reports/models.py:25
+msgid "YEARLY"
+msgstr "YILLIK"
+
+#: wfb/support/models.py:25
+msgid "LOW"
+msgstr "DÜŞÜK"
+
+#: wfb/support/models.py:26
+msgid "MEDIUM"
+msgstr "ORTA"
+
+#: wfb/support/models.py:27
+msgid "HIGH"
+msgstr "YÜKSEK"
+
+#: wfb/templates/account/login-form.html:12
+msgid "Username or Email"
+msgstr "Kullanıcı Adı veya E-posta"
+
+#: wfb/templates/account/login-form.html:20
+msgid "Password"
+msgstr "Şifre"
+
+#: wfb/templates/account/login-form.html:32
+msgid "Sign in with Google"
+msgstr "Google ile Giriş Yap"
+
+#: wfb/templates/account/login.html:14
+msgid "Welcome back to Weforbiz!"
+msgstr "Weforbiz'e tekrar hoş geldiniz!"
+
+#: wfb/templates/account/login.html:17
+msgid "The best platform for your business needs."
+msgstr "İş ihtiyaçlarınız için en iyi platform."
+
+#: wfb/templates/account/login.html:24
+msgid "Don't have an account? Sign Up"
+msgstr "Hesabınız yok mu? Kayıt Olun"
+
+#: wfb/templates/account/login.html:27
+msgid "Forgot password?"
+msgstr "Şifrenizi mi unuttunuz?"
+
+#: wfb/templates/account/signup.html:14
+msgid "Join Weforbiz "
+msgstr "Weforbiz'e Katılın"
+
+#: wfb/templates/account/signup.html:17
+msgid "Great marketplace for everyone."
+msgstr "Herkes için harika bir pazar yeri."
+
+#: wfb/templates/account/signup.html:43
+msgid "Join with Google"
+msgstr "Google ile Katıl"
+
+#: wfb/templates/account/signup.html:50
+msgid "Have an account? Sign In"
+msgstr "Hesabınız var mı? Giriş Yapın"
+
+#: wfb/templates/client/header.html:19
+#: wfb/templates/professional/header.html:19
+msgid "Jobs"
+msgstr "İşler"
+
+#: wfb/templates/client/header.html:25
+#: wfb/templates/client/jobs/contracts/list.html:9
+#: wfb/templates/client/jobs/detail.html:39
+#: wfb/templates/professional/header.html:25
+#: wfb/templates/professional/jobs/contracts/detail.html:10
+#: wfb/templates/professional/jobs/contracts/list.html:9
+#: wfb/templates/users/professionals/collapses.html:25
+msgid "Contracts"
+msgstr "Sözleşmeler"
+
+#: wfb/templates/client/header.html:31
+#: wfb/templates/professional/header.html:37
+msgid "Messages"
+msgstr "Mesajlar"
+
+#: wfb/templates/client/header.html:48
+#: wfb/templates/client/settings/sidebar.html:65 wfb/templates/header.html:25
+#: wfb/templates/professional/header.html:59
+#: wfb/templates/professional/settings/sidebar.html:77
+msgid "My Profile"
+msgstr "Profilim"
+
+#: wfb/templates/client/header.html:56
+msgid "Switch to Professional Profile"
+msgstr "Uzman Profili'ne Geç"
+
+#: wfb/templates/client/header.html:63
+#: wfb/templates/client/settings/base.html:37
+#: wfb/templates/professional/header.html:74
+#: wfb/templates/professional/settings/base.html:37
+msgid "Settings"
+msgstr "Ayarlar"
+
+#: wfb/templates/client/header.html:71 wfb/templates/header.html:29
+#: wfb/templates/professional/header.html:82
+msgid "Sign Out"
+msgstr "Çıkış Yap"
+
+#: wfb/templates/client/header.html:82
+#: wfb/templates/professional/header.html:93
+msgid "Menu"
+msgstr "Menü"
+
+#: wfb/templates/client/jobs/contracts/accept-work-form.html:7
+#: wfb/templates/professional/jobs/contracts/accept-work-form.html:7
+msgid "Accept Work"
+msgstr "İşi Kabul Et"
+
+#: wfb/templates/client/jobs/contracts/contract-item.html:6
+#: wfb/templates/professional/jobs/contracts/contract-item.html:6
+msgid "Contract for :"
+msgstr "Sözleşme:"
+
+#: wfb/templates/client/jobs/contracts/contract-item.html:15
+#: wfb/templates/client/jobs/proposals/detail.html:10
+#: wfb/templates/client/jobs/proposals/proposal-item.html:16
+#: wfb/templates/professional/jobs/contracts/contract-item.html:12
+#: wfb/templates/professional/jobs/contracts/detail.html:11
+msgid "Detail"
+msgstr "Detay"
+
+#: wfb/templates/client/jobs/contracts/contract-item.html:22
+#: wfb/templates/professional/jobs/contracts/contract-item.html:18
+msgid "Work Status :"
+msgstr "İş Durumu:"
+
+#: wfb/templates/client/jobs/contracts/contract-item.html:33
+msgid "Hours Worked :"
+msgstr "Çalışılan Saatler:"
+
+#: wfb/templates/client/jobs/contracts/contract-item.html:51
+#: wfb/templates/professional/jobs/contracts/contract-item.html:31
+msgid "Created date:"
+msgstr "Oluşturulma tarihi:"
+
+#: wfb/templates/client/jobs/contracts/contract-item.html:58
+#: wfb/templates/common/modals/contract-close-modal.html:8
+#: wfb/templates/professional/jobs/contracts/contract-item.html:42
+msgid "Close Contract"
+msgstr "Sözleşmeyi Kapat"
+
+#: wfb/templates/client/jobs/contracts/contract-item.html:69
+msgid "Contract Status: "
+msgstr "Sözleşme Durumu:"
+
+#: wfb/templates/client/jobs/contracts/contract-item.html:82
+msgid "Professional: "
+msgstr "Uzman:"
+
+#: wfb/templates/client/jobs/contracts/contract-item.html:90
+#: wfb/templates/professional/jobs/contracts/contract-item.html:65
+msgid "Feedback"
+msgstr "Geri Bildirim"
+
+#: wfb/templates/client/jobs/contracts/create-feedback.html:56
+#: wfb/templates/client/jobs/contracts/create-feedback.html:60
+#: wfb/templates/professional/jobs/contracts/create-feedback.html:56
+#: wfb/templates/professional/jobs/contracts/create-feedback.html:60
+msgid "Feedback for "
+msgstr "Geri bildirim:"
+
+#: wfb/templates/client/jobs/contracts/create-feedback.html:65
+#: wfb/templates/professional/jobs/contracts/create-feedback.html:65
+msgid "Job: "
+msgstr "İş:"
+
+#: wfb/templates/client/jobs/contracts/create-feedback.html:70
+#: wfb/templates/professional/jobs/contracts/create-feedback.html:70
+msgid "Please rate your experience with the following questions:"
+msgstr "Lütfen aşağıdaki sorularla deneyiminizi puanlayın:"
+
+#: wfb/templates/client/jobs/contracts/create-feedback.html:99
+#: wfb/templates/professional/jobs/contracts/create-feedback.html:99
+msgid "Comment"
+msgstr "Yorum"
+
+#: wfb/templates/client/jobs/contracts/create-feedback.html:104
+#: wfb/templates/client/jobs/post.html:113
+#: wfb/templates/common/modals/address-create-modal.html:16
+#: wfb/templates/common/modals/address-update-modal.html:16
+#: wfb/templates/common/modals/contract-close-modal.html:37
+#: wfb/templates/common/modals/phone-modal.html:22
+#: wfb/templates/common/modals/user-info-modal.html:33
+#: wfb/templates/professional/jobs/contracts/create-feedback.html:104
+#: wfb/templates/users/clients/create.html:18
+#: wfb/templates/users/professionals/availability-modal.html:31
+#: wfb/templates/users/professionals/create.html:38
+#: wfb/templates/users/professionals/hours-per-week-modal.html:31
+#: wfb/templates/users/professionals/visibility-modal.html:67
+#: wfb/templates/users/profile-create.html:46
+msgid "Submit"
+msgstr "Gönder"
+
+#: wfb/templates/client/jobs/contracts/detail.html:9
+#: wfb/templates/professional/jobs/contracts/detail.html:17
+msgid "Contract Detail"
+msgstr "Sözleşme Detayı"
+
+#: wfb/templates/client/jobs/contracts/detail.html:23
+#: wfb/templates/professional/jobs/contracts/detail.html:46
+msgid "Do you accept the work frelancer completed?"
+msgstr "Serbest çalışanın tamamladığı işi kabul ediyor musunuz?"
+
+#: wfb/templates/client/jobs/contracts/list.html:24
+#: wfb/templates/professional/jobs/contracts/list.html:24
+msgid "No contract found."
+msgstr "Sözleşme bulunamadı."
+
+#: wfb/templates/client/jobs/detail.html:15
+msgid "Job Detail"
+msgstr "İş Detayı"
+
+#: wfb/templates/client/jobs/detail.html:27
+#: wfb/templates/client/jobs/job-item.html:26
+#: wfb/templates/client/jobs/proposals/detail.html:8
+#: wfb/templates/professional/header.html:31
+#: wfb/templates/users/professionals/collapses.html:7
+msgid "Proposals"
+msgstr "Teklifler"
+
+#: wfb/templates/client/jobs/detail.html:60
+#: wfb/templates/professional/jobs/detail.html:42
+msgid "Hired: "
+msgstr "İşe Alınan:"
+
+#: wfb/templates/client/jobs/detail.html:67
+#: wfb/templates/professional/jobs/detail.html:49
+msgid "Last viewed by client: "
+msgstr "Müşteri tarafından son görüntülenme:"
+
+#: wfb/templates/client/jobs/detail.html:73
+#: wfb/templates/professional/jobs/detail.html:55
+msgid "Not yet!"
+msgstr "Henüz değil!"
+
+#: wfb/templates/client/jobs/detail.html:90
+#: wfb/templates/common/forms/skills.html:1
+#: wfb/templates/common/forms/skills.html:9
+#: wfb/templates/users/professionals/detail.html:143
+msgid "Skills"
+msgstr "Yetenekler"
+
+#: wfb/templates/client/jobs/detail.html:101
+#: wfb/templates/client/jobs/post.html:66
+#: wfb/templates/professional/jobs/job-item.html:52
+msgid "Job Description"
+msgstr "İş Tanımı"
+
+#: wfb/templates/client/jobs/detail.html:118
+msgid "Edit"
+msgstr "Düzenle"
+
+#: wfb/templates/client/jobs/detail.html:122
+msgid "Close this Job"
+msgstr "Bu İşi Kapat"
+
+#: wfb/templates/client/jobs/detail.html:129
+#: wfb/templates/professional/jobs/detail.html:96
+msgid "About Client"
+msgstr "Müşteri Hakkında"
+
+#: wfb/templates/client/jobs/detail.html:132
+#: wfb/templates/client/settings/contact-info.html:32
+#: wfb/templates/professional/jobs/detail.html:99
+#: wfb/templates/professional/settings/contact-info.html:32
+msgid "Full Name: "
+msgstr "Ad Soyad:"
+
+#: wfb/templates/client/jobs/detail.html:141
+#: wfb/templates/professional/jobs/detail.html:108
+msgid "Verified"
+msgstr "Doğrulandı"
+
+#: wfb/templates/client/jobs/detail.html:144
+#: wfb/templates/professional/jobs/detail.html:111
+msgid "Not Verified"
+msgstr "Doğrulanmadı"
+
+#: wfb/templates/client/jobs/detail.html:149
+#: wfb/templates/professional/jobs/detail.html:119
+#: wfb/templates/users/clients/detail.html:15
+msgid "Spent:"
+msgstr "Harcanan:"
+
+#: wfb/templates/client/jobs/detail.html:185
+#: wfb/templates/client/jobs/proposals/list.html:35
+#: wfb/templates/professional/jobs/proposals/detail.html:66
+#: wfb/templates/professional/jobs/proposals/list.html:24
+msgid "No proposal found"
+msgstr "Teklif bulunamadı"
+
+#: wfb/templates/client/jobs/detail.html:209
+msgid "No contracts found"
+msgstr "Sözleşme bulunamadı"
+
+#: wfb/templates/client/jobs/list.html:25
+msgid "Jobs you posted"
+msgstr "Yayınladığınız işler"
+
+#: wfb/templates/client/jobs/list.html:42
+msgid "You did not post any job yet..."
+msgstr "Henüz herhangi bir iş ilanı yayınlamadınız..."
+
+#: wfb/templates/client/jobs/post.html:10
+msgid " Post your job in 3 simple steps"
+msgstr " İşinizi 3 basit adımda yayınlayın"
+
+#: wfb/templates/client/jobs/post.html:11
+msgid "and"
+msgstr "ve"
+
+#: wfb/templates/client/jobs/post.html:13
+msgid "kickstart your project."
+msgstr "projenize hız katın."
+
+#: wfb/templates/client/jobs/post.html:39
+msgid "Budget"
+msgstr "Bütçe"
+
+#: wfb/templates/client/jobs/post.html:50
+msgid "I want to build a website"
+msgstr "Bir web sitesi yapmak istiyorum"
+
+#: wfb/templates/client/jobs/post.html:51
+msgid "Job Title"
+msgstr "İş Başlığı"
+
+#: wfb/templates/client/jobs/post.html:76
+msgid "10"
+msgstr "10"
+
+#: wfb/templates/client/jobs/post.html:77
+msgid "Min Budget"
+msgstr "Min. Bütçe"
+
+#: wfb/templates/client/jobs/post.html:82
+msgid "100"
+msgstr "100"
+
+#: wfb/templates/client/jobs/post.html:83
+msgid "Max Budget"
+msgstr "Maks. Bütçe"
+
+#: wfb/templates/client/jobs/post.html:94
+msgid "Hourly"
+msgstr "Saatlik"
+
+#: wfb/templates/client/jobs/post.html:103
+msgid "Fixed"
+msgstr "Sabit"
+
+#: wfb/templates/client/jobs/proposals/detail.html:15
+msgid "Proposal Detail"
+msgstr "Teklif Detayı"
+
+#: wfb/templates/client/jobs/proposals/detail.html:30
+msgid "Create Contract"
+msgstr "Sözleşme Oluştur"
+
+#: wfb/templates/client/jobs/proposals/list.html:14
+msgid " proposals"
+msgstr " teklif"
+
+#: wfb/templates/client/jobs/proposals/proposal-item.html:28
+msgid "Message"
+msgstr "Mesaj"
+
+#: wfb/templates/client/settings/billing.html:9
+#: wfb/templates/professional/settings/billing.html:9
+msgid "Billing Page"
+msgstr "Fatura Sayfası"
+
+#: wfb/templates/client/settings/contact-info.html:9
+#: wfb/templates/professional/settings/contact-info.html:9
+msgid "Contact Information Page"
+msgstr "İletişim Bilgileri Sayfası"
+
+#: wfb/templates/client/settings/contact-info.html:17
+#: wfb/templates/professional/settings/contact-info.html:17
+msgid "Account"
+msgstr "Hesap"
+
+#: wfb/templates/client/settings/contact-info.html:22
+#: wfb/templates/client/settings/contact-info.html:108
+#: wfb/templates/professional/settings/contact-info.html:22
+#: wfb/templates/professional/settings/contact-info.html:108
+msgid "user update"
+msgstr "kullanıcı güncellemesi"
+
+#: wfb/templates/client/settings/contact-info.html:36
+#: wfb/templates/professional/settings/contact-info.html:37
+msgid "Firstname and Lastname are required for payment."
+msgstr "Ödeme için Ad ve Soyad gereklidir."
+
+#: wfb/templates/client/settings/contact-info.html:41
+#: wfb/templates/professional/settings/contact-info.html:42
+msgid "Username: "
+msgstr "Kullanıcı Adı:"
+
+#: wfb/templates/client/settings/contact-info.html:45
+#: wfb/templates/professional/settings/contact-info.html:46
+msgid "Email: "
+msgstr "E-posta:"
+
+#: wfb/templates/client/settings/contact-info.html:49
+#: wfb/templates/professional/settings/contact-info.html:50
+msgid "Email Verified: "
+msgstr "E-posta Doğrulandı:"
+
+#: wfb/templates/client/settings/contact-info.html:68
+#: wfb/templates/professional/settings/contact-info.html:69
+msgid "Location"
+msgstr "Konum"
+
+#: wfb/templates/client/settings/contact-info.html:73
+#: wfb/templates/client/settings/contact-info.html:76
+#: wfb/templates/professional/settings/contact-info.html:74
+msgid "Address"
+msgstr "Adres"
+
+#: wfb/templates/client/settings/contact-info.html:88
+#: wfb/templates/professional/settings/contact-info.html:88
+msgid "Time Zone: "
+msgstr "Saat Dilimi:"
+
+#: wfb/templates/client/settings/contact-info.html:95
+#: wfb/templates/professional/settings/contact-info.html:95
+msgid "Address: "
+msgstr "Adres:"
+
+#: wfb/templates/client/settings/contact-info.html:103
+#: wfb/templates/professional/settings/contact-info.html:103
+msgid "Phone: "
+msgstr "Telefon:"
+
+#: wfb/templates/client/settings/id-verification.html:9
+#: wfb/templates/professional/settings/id-verification.html:9
+msgid "Identity Verification Page"
+msgstr "Kimlik Doğrulama Sayfası"
+
+#: wfb/templates/client/settings/membership.html:11
+#: wfb/templates/professional/settings/membership.html:11
+msgid "Membership Plan"
+msgstr "Üyelik Planı"
+
+#: wfb/templates/client/settings/notifications.html:9
+#: wfb/templates/professional/settings/notifications.html:9
+msgid "Notifications Page"
+msgstr "Bildirimler Sayfası"
+
+#: wfb/templates/client/settings/security.html:9
+#: wfb/templates/professional/settings/security.html:9
+msgid "Security Page"
+msgstr "Güvenlik Sayfası"
+
+#: wfb/templates/client/settings/sidebar.html:12
+#: wfb/templates/professional/settings/sidebar.html:12
+msgid "Payment"
+msgstr "Ödeme"
+
+#: wfb/templates/client/settings/sidebar.html:17
+#: wfb/templates/professional/settings/sidebar.html:17
+msgid "Billing"
+msgstr "Fatura"
+
+#: wfb/templates/client/settings/sidebar.html:24
+#: wfb/templates/professional/settings/sidebar.html:30
+msgid "USER SETTINGS"
+msgstr "KULLANICI AYARLARI"
+
+#: wfb/templates/client/settings/sidebar.html:30
+#: wfb/templates/professional/settings/sidebar.html:36
+msgid "Membership"
+msgstr "Üyelik"
+
+#: wfb/templates/client/settings/sidebar.html:36
+#: wfb/templates/professional/settings/sidebar.html:48
+msgid "Contact Info"
+msgstr "İletişim Bilgileri"
+
+#: wfb/templates/client/settings/sidebar.html:42
+#: wfb/templates/professional/settings/sidebar.html:54
+msgid "Identity Verification"
+msgstr "Kimlik Doğrulama"
+
+#: wfb/templates/client/settings/sidebar.html:54
+#: wfb/templates/professional/settings/sidebar.html:66
+msgid "Security"
+msgstr "Güvenlik"
+
+#: wfb/templates/common/badges/soon.html:3
+msgid "Soon"
+msgstr "Yakında"
+
+#: wfb/templates/common/forms/address.html:4
+msgid "country"
+msgstr "ülke"
+
+#: wfb/templates/common/forms/address.html:5
+msgid "Country"
+msgstr "Ülke"
+
+#: wfb/templates/common/forms/address.html:9
+msgid "city"
+msgstr "şehir"
+
+#: wfb/templates/common/forms/address.html:10
+msgid "City"
+msgstr "Şehir"
+
+#: wfb/templates/common/forms/address.html:15
+msgid "Address Line"
+msgstr "Adres Satırı"
+
+#: wfb/templates/common/forms/skills.html:18
+msgid "Add skills with comma separated. Ex; python, django, html"
+msgstr "Yetenekleri virgülle ayırarak ekleyin. Örn; python, django, html"
+
+#: wfb/templates/common/forms/skills.html:21
+msgid "Max 10 skills allowed..."
+msgstr "En fazla 10 yetenek ekleyebilirsiniz..."
+
+#: wfb/templates/common/modals/address-create-modal.html:8
+msgid "Create Address"
+msgstr "Adres Oluştur"
+
+#: wfb/templates/common/modals/address-update-modal.html:8
+msgid "Update Address"
+msgstr "Adresi Güncelle"
+
+#: wfb/templates/common/modals/contract-close-modal.html:15
+#: wfb/templates/professional/jobs/flag-job-modal.html:15
+msgid "Job"
+msgstr "İş"
+
+#: wfb/templates/common/modals/phone-modal.html:8
+#: wfb/templates/common/modals/phone-modal.html:16
+msgid "Phone"
+msgstr "Telefon"
+
+#: wfb/templates/common/modals/phone-modal.html:14
+msgid "Ex; 555 555 5555"
+msgstr "Örn; 555 555 5555"
+
+#: wfb/templates/common/modals/user-info-modal.html:8
+msgid "User Information"
+msgstr "Kullanıcı Bilgileri"
+
+#: wfb/templates/common/modals/user-info-modal.html:14
+msgid "Ex; adnan"
+msgstr "Örn; adnan"
+
+#: wfb/templates/common/modals/user-info-modal.html:16
+msgid "First Name"
+msgstr "Ad"
+
+#: wfb/templates/common/modals/user-info-modal.html:20
+msgid "Ex; kaya"
+msgstr "Örn; kaya"
+
+#: wfb/templates/common/modals/user-info-modal.html:22
+msgid "Last Name"
+msgstr "Soyad"
+
+#: wfb/templates/common/modals/user-info-modal.html:27
+msgid "Email"
+msgstr "E-posta"
+
+#: wfb/templates/footer.html:32
+msgid "Resources"
+msgstr "Kaynaklar"
+
+#: wfb/templates/footer.html:38
+msgid "Help & Support"
+msgstr "Yardım ve Destek"
+
+#: wfb/templates/footer.html:41
+msgid "Success Stories"
+msgstr "Başarı Hikayeleri"
+
+#: wfb/templates/footer.html:44
+msgid "Reviews"
+msgstr "Yorumlar"
+
+#: wfb/templates/footer.html:47
+msgid "Community"
+msgstr "Topluluk"
+
+#: wfb/templates/footer.html:52
+msgid "Company"
+msgstr "Şirket"
+
+#: wfb/templates/footer.html:55
+msgid "About Us"
+msgstr "Hakkımızda"
+
+#: wfb/templates/footer.html:58
+msgid "Contact Us"
+msgstr "Bize Ulaşın"
+
+#: wfb/templates/footer.html:68
+msgid "All rights reserved."
+msgstr "Tüm hakları saklıdır."
+
+#: wfb/templates/notification.html:7
+msgid "New alerts"
+msgstr "Yeni bildirimler"
+
+#: wfb/templates/notification.html:25
+msgid "See All Notifications"
+msgstr "Tüm Bildirimleri Gör"
+
+#: wfb/templates/pagination.html:6
+msgid "first"
+msgstr "ilk"
+
+#: wfb/templates/pagination.html:11
+msgid "Prev"
+msgstr "Önceki"
+
+#: wfb/templates/pagination.html:22
+msgid "Next"
+msgstr "Sonraki"
+
+#: wfb/templates/pagination.html:26
+msgid "last"
+msgstr "son"
+
+#: wfb/templates/professional/header.html:67
+msgid "Switch to Client Profile"
+msgstr "Müşteri Profili'ne Geç"
+
+#: wfb/templates/professional/jobs/contracts/contract-item.html:37
+msgid "Contract Status :"
+msgstr "Sözleşme Durumu:"
+
+#: wfb/templates/professional/jobs/contracts/contract-item.html:57
+msgid "Hired by :"
+msgstr "İşe Alan:"
+
+#: wfb/templates/professional/jobs/contracts/contract-item.html:78
+msgid "Accept"
+msgstr "Kabul Et"
+
+#: wfb/templates/professional/jobs/contracts/detail.html:31
+msgid "Did you complete the work?"
+msgstr "İşi tamamladınız mı?"
+
+#: wfb/templates/professional/jobs/contracts/submit-work-form.html:8
+msgid "Hours"
+msgstr "Saat"
+
+#: wfb/templates/professional/jobs/contracts/submit-work-form.html:10
+msgid "Ex; 12"
+msgstr "Örn; 12"
+
+#: wfb/templates/professional/jobs/contracts/submit-work-form.html:15
+msgid "Upload Files"
+msgstr "Dosyaları Yükle"
+
+#: wfb/templates/professional/jobs/contracts/submit-work-form.html:22
+msgid "Submit Work"
+msgstr "İşi Gönder"
+
+#: wfb/templates/professional/jobs/detail.html:20
+msgid "You already sent "
+msgstr "Zaten gönderdiniz "
+
+#: wfb/templates/professional/jobs/detail.html:22
+msgid "proposal "
+msgstr "teklifi"
+
+#: wfb/templates/professional/jobs/detail.html:24
+msgid "for this job!"
+msgstr "bu iş için!"
+
+#: wfb/templates/professional/jobs/detail.html:79
+msgid "Send Proposal"
+msgstr "Teklif Gönder"
+
+#: wfb/templates/professional/jobs/detail.html:84
+msgid "Required Points: "
+msgstr "Gerekli Puan:"
+
+#: wfb/templates/professional/jobs/detail.html:88
+msgid "Available Points: "
+msgstr "Mevcut Puan:"
+
+#: wfb/templates/professional/jobs/detail.html:116
+msgid "Total Jobs:"
+msgstr "Toplam İş:"
+
+#: wfb/templates/professional/jobs/detail.html:128
+#: wfb/templates/users/professionals/detail.html:91
+msgid "of"
+msgstr "üzerinden"
+
+#: wfb/templates/professional/jobs/detail.html:129
+#: wfb/templates/users/professionals/detail.html:92
+msgid "reviews"
+msgstr "yorum"
+
+#: wfb/templates/professional/jobs/detail.html:134
+msgid "Joined Date: "
+msgstr "Katılma Tarihi:"
+
+#: wfb/templates/professional/jobs/flag-job-modal.html:8
+#: wfb/templates/professional/jobs/job-item.html:96
+#: wfb/templates/professional/jobs/job-item.html:101
+msgid "Report this job"
+msgstr "Bu işi bildir"
+
+#: wfb/templates/professional/jobs/flag-job-modal.html:36
+msgid "Report"
+msgstr "Bildir"
+
+#: wfb/templates/professional/jobs/job-item.html:39
+msgid "Proposals: "
+msgstr "Teklifler:"
+
+#: wfb/templates/professional/jobs/job-item.html:70
+msgid "Applied"
+msgstr "Başvurdun"
+
+#: wfb/templates/professional/jobs/job-item.html:75
+msgid "Apply"
+msgstr "Başvur"
+
+#: wfb/templates/professional/jobs/job-item.html:84
+#: wfb/templates/professional/jobs/job-save.html:3
+msgid "Saved this job"
+msgstr "Bu iş kaydedildi"
+
+#: wfb/templates/professional/jobs/job-item.html:86
+msgid "Saved"
+msgstr "Kaydedildi"
+
+#: wfb/templates/professional/jobs/job-item.html:90
+#: wfb/templates/professional/jobs/job-save.html:8
+msgid "Save this job"
+msgstr "Bu işi kaydet"
+
+#: wfb/templates/professional/jobs/job-item.html:92
+#: wfb/templates/users/professionals/hourly-rate-modal.html:27
+#: wfb/templates/users/professionals/update-profile-modal.html:38
+msgid "Save"
+msgstr "Kaydet"
+
+#: wfb/templates/professional/jobs/job-item.html:98
+msgid "Flagged"
+msgstr "Bildirildi"
+
+#: wfb/templates/professional/jobs/job-item.html:104
+msgid "Flag"
+msgstr "Bildir"
+
+#: wfb/templates/professional/jobs/leftblock/item.html:3
+#: wfb/templates/professional/jobs/leftblock/item.html:4
+#: wfb/templates/users/professionals/availability-modal.html:17
+msgid "Availability"
+msgstr "Uygunluk"
+
+#: wfb/templates/professional/jobs/leftblock/item.html:12
+msgid "On"
+msgstr "Açık"
+
+#: wfb/templates/professional/jobs/leftblock/item.html:16
+msgid "Off"
+msgstr "Kapalı"
+
+#: wfb/templates/professional/jobs/leftblock/item.html:22
+#: wfb/templates/professional/jobs/leftblock/item.html:23
+msgid "Visibility"
+msgstr "Görünürlük"
+
+#: wfb/templates/professional/jobs/leftblock/item.html:35
+#: wfb/templates/professional/jobs/leftblock/item.html:36
+#: wfb/templates/users/professionals/hours-per-week-modal.html:10
+#: wfb/templates/users/professionals/hours-per-week-modal.html:17
+msgid "Hours Per Week"
+msgstr "Haftalık Saat"
+
+#: wfb/templates/professional/jobs/list.html:31
+msgid "My Feed"
+msgstr "Akışım"
+
+#: wfb/templates/professional/jobs/list.html:38
+#: wfb/templates/professional/jobs/list.html:61
+msgid "Saved Jobs"
+msgstr "Kaydedilen İşler"
+
+#: wfb/templates/professional/jobs/list.html:85
+msgid "Could not find any jobs"
+msgstr "İş bulunamadı"
+
+#: wfb/templates/professional/jobs/proposals/create.html:15
+msgid "Send proposal for this job"
+msgstr "Bu iş için teklif gönder"
+
+#: wfb/templates/professional/jobs/proposals/detail.html:10
+msgid "Proposal"
+msgstr "Teklif"
+
+#: wfb/templates/professional/jobs/proposals/detail.html:22
+msgid "Contract"
+msgstr "Sözleşme"
+
+#: wfb/templates/professional/jobs/proposals/detail.html:48
+#: wfb/templates/professional/jobs/proposals/form.html:31
+msgid "Cover Letter"
+msgstr "Niyet Mektubu"
+
+#: wfb/templates/professional/jobs/proposals/detail.html:87
+msgid "No contract found"
+msgstr "Sözleşme bulunamadı"
+
+#: wfb/templates/professional/jobs/proposals/form.html:3
+msgid "Amount"
+msgstr "Tutar"
+
+#: wfb/templates/professional/jobs/proposals/form.html:14
+msgid "Service Fee: "
+msgstr "Hizmet Ücreti:"
+
+#: wfb/templates/professional/jobs/proposals/form.html:22
+msgid "You Will Get"
+msgstr "Alacağınız"
+
+#: wfb/templates/professional/jobs/proposals/form.html:29
+msgid "Cover letter"
+msgstr "Niyet mektubu"
+
+#: wfb/templates/professional/jobs/proposals/form.html:36
+msgid "Submit Proposal"
+msgstr "Teklifi Gönder"
+
+#: wfb/templates/professional/jobs/proposals/list.html:10
+msgid "Job Proposals"
+msgstr "İş Teklifleri"
+
+#: wfb/templates/professional/professional-item.html:23
+msgid "h"
+msgstr "s"
+
+#: wfb/templates/professional/settings/get-paid/form.html:4
+#: wfb/templates/professional/settings/get-paid/form.html:5
+msgid "IBAN"
+msgstr "IBAN"
+
+#: wfb/templates/professional/settings/get-paid/index.html:9
+msgid "Get Paid Page"
+msgstr "Ödeme Alma Sayfası"
+
+#: wfb/templates/professional/settings/points.html:9
+msgid "Points Page"
+msgstr "Puanlar Sayfası"
+
+#: wfb/templates/professional/settings/points.html:13
+msgid "Points Balance"
+msgstr "Puan Bakiyesi"
+
+#: wfb/templates/professional/settings/points.html:20
+msgid ""
+"\n"
+"                    Learn more about how to earn and use\n"
+"                    <a href=\"#\">Points</a>.\n"
+"                    "
+msgstr ""
+"\n"
+"                    Nasıl kazanılacağı ve kullanılacağı hakkında daha fazla bilgi edinin\n"
+"                    <a href=\"#\">Puanlar</a>.\n"
+"                    "
+
+#: wfb/templates/professional/settings/points.html:27
+msgid "Buy Points"
+msgstr "Puan Satın Al"
+
+#: wfb/templates/professional/settings/points.html:30
+msgid "Point History"
+msgstr "Puan Geçmişi"
+
+#: wfb/templates/professional/settings/sidebar.html:23
+msgid "Get Paid"
+msgstr "Ödeme Al"
+
+#: wfb/templates/professional/settings/sidebar.html:42
+msgid "Points"
+msgstr "Puanlar"
+
+#: wfb/templates/users/add-profile.html:4
+msgid "Add Client Profile"
+msgstr "Müşteri Profili Ekle"
+
+#: wfb/templates/users/add-profile.html:10
+msgid "Add Professional Profile"
+msgstr "Uzman Profili Ekle"
+
+#: wfb/templates/users/clients/create.html:11
+msgid "You are about to create client profile..."
+msgstr "Müşteri profili oluşturmak üzeresiniz..."
+
+#: wfb/templates/users/clients/detail.html:12
+msgid "Client: "
+msgstr "Müşteri:"
+
+#: wfb/templates/users/clients/detail.html:24
+#: wfb/templates/users/professionals/detail.html:160
+msgid "Work History"
+msgstr "Çalışma Geçmişi"
+
+#: wfb/templates/users/clients/detail.html:50
+msgid "To professional: "
+msgstr "Uzmana:"
+
+#: wfb/templates/users/clients/detail.html:64
+msgid "To client: "
+msgstr "Müşteriye:"
+
+#: wfb/templates/users/clients/detail.html:81
+#: wfb/templates/users/professionals/detail.html:199
+msgid "$ Amount :"
+msgstr "$ Tutar:"
+
+#: wfb/templates/users/clients/detail.html:98
+msgid "Jobs posted by this client"
+msgstr "Bu müşteri tarafından yayınlanan işler"
+
+#: wfb/templates/users/new-user-joined.html:3
+msgid "New user"
+msgstr "Yeni kullanıcı"
+
+#: wfb/templates/users/new-user-joined.html:3
+msgid " joined us."
+msgstr " bize katıldı."
+
+#: wfb/templates/users/new-user-joined.html:8
+msgid "You can activate that account!"
+msgstr "Bu hesabı etkinleştirebilirsiniz!"
+
+#: wfb/templates/users/professionals/availability-modal.html:10
+msgid "Profile Availability"
+msgstr "Profil Uygunluğu"
+
+#: wfb/templates/users/professionals/availability-modal.html:22
+#, python-format
+msgid ""
+"\n"
+"                                If you open availability every day you spend "
+"%(AVAILABILITY_POINT)s point(s).\n"
+"                                "
+msgstr ""
+"\n"
+"Uygunluğunuzu her gün açarsanız %(AVAILABILITY_POINT)s puan harcarsınız."
+
+#: wfb/templates/users/professionals/available-points.html:4
+msgid "Available Points"
+msgstr "Mevcut Puanlar"
+
+#: wfb/templates/users/professionals/collapses.html:15
+msgid "Submitted proposals: "
+msgstr "Gönderilen teklifler:"
+
+#: wfb/templates/users/professionals/collapses.html:33
+msgid "Active Contracts: "
+msgstr "Aktif Sözleşmeler:"
+
+#: wfb/templates/users/professionals/collapses.html:43
+msgid "Project Catalog"
+msgstr "Proje Kataloğu"
+
+#: wfb/templates/users/professionals/collapses.html:51
+msgid "My Project Dashboard"
+msgstr "Proje Panelim"
+
+#: wfb/templates/users/professionals/collapses.html:56
+msgid "Create a Catalog project"
+msgstr "Bir katalog projesi oluşturun"
+
+#: wfb/templates/users/professionals/collapses.html:58
+msgid "for clients to purchase instantly"
+msgstr "müşterilerin anında satın alması için"
+
+#: wfb/templates/users/professionals/create.html:13
+#: wfb/templates/users/professionals/hourly-rate-modal.html:14
+msgid "HourlyRate"
+msgstr "Saatlik Ücret"
+
+#: wfb/templates/users/professionals/create.html:26
+msgid "Bio"
+msgstr "Biyografi"
+
+#: wfb/templates/users/professionals/detail.html:42
+#: wfb/templates/users/professionals/stats.html:77
+msgid "Success Score"
+msgstr "Başarı Skoru"
+
+#: wfb/templates/users/professionals/detail.html:58
+msgid "Last updated "
+msgstr "Son güncelleme "
+
+#: wfb/templates/users/professionals/detail.html:79
+#: wfb/templates/users/professionals/stats.html:66
+msgid "Total Earnings"
+msgstr "Toplam Kazanç"
+
+#: wfb/templates/users/professionals/detail.html:87
+msgid "Avg Rating"
+msgstr "Ort. Derecelendirme"
+
+#: wfb/templates/users/professionals/detail.html:97
+msgid "Total Jobs"
+msgstr "Toplam İş"
+
+#: wfb/templates/users/professionals/detail.html:108
+#: wfb/templates/users/professionals/stats.html:39
+msgid "Stats"
+msgstr "İstatistikler"
+
+#: wfb/templates/users/professionals/detail.html:124
+#: wfb/templates/users/professionals/detail.html:127
+#: wfb/templates/users/professionals/update-profile-modal.html:10
+msgid "Update Profile"
+msgstr "Profili Güncelle"
+
+#: wfb/templates/users/professionals/detail.html:164
+#: wfb/templates/users/professionals/stats.html:52
+msgid "Completed Jobs"
+msgstr "Tamamlanan İşler"
+
+#: wfb/templates/users/professionals/hourly-rate-modal.html:8
+#: wfb/templates/users/professionals/hourlyrate.html:13
+msgid "Update Hourly Rate"
+msgstr "Saatlik Ücreti Güncelle"
+
+#: wfb/templates/users/professionals/hourlyrate.html:8
+msgid "/ h"
+msgstr "/ s"
+
+#: wfb/templates/users/professionals/hours-per-week-modal.html:22
+msgid ""
+"\n"
+"                                Set your weekly hours you can work on a "
+"project.\n"
+"                                "
+msgstr ""
+"\n"
+"Bir proje üzerinde çalışabileceğiniz haftalık saatlerinizi ayarlayın."
+
+#: wfb/templates/users/professionals/network.html:4
+msgid "Your Network"
+msgstr "Ağınız"
+
+#: wfb/templates/users/professionals/network.html:13
+msgid "Connections"
+msgstr "Bağlantılar"
+
+#: wfb/templates/users/professionals/stats.html:38
+msgid "Profile"
+msgstr "Profil"
+
+#: wfb/templates/users/professionals/stats.html:49
+msgid "Average Rating"
+msgstr "Ortalama Derecelendirme"
+
+#: wfb/templates/users/professionals/stats.html:55
+msgid "All Proposals"
+msgstr "Tüm Teklifler"
+
+#: wfb/templates/users/professionals/stats.html:58
+msgid "Completion Rate"
+msgstr "Tamamlanma Oranı"
+
+#: wfb/templates/users/professionals/stats.html:63
+msgid "Positive Feedback Count"
+msgstr "Pozitif Geri Bildirim Sayısı"
+
+#: wfb/templates/users/professionals/stats.html:69
+msgid "Total Hours Worked"
+msgstr "Toplam Çalışılan Saat"
+
+#: wfb/templates/users/professionals/stats.html:72
+msgid "Recurring Clients"
+msgstr "Tekrarlayan Müşteriler"
+
+#: wfb/templates/users/professionals/update-profile-modal.html:19
+msgid "Ex; Software Developer"
+msgstr "Örn; Yazılım Geliştirici"
+
+#: wfb/templates/users/professionals/update-profile-modal.html:25
+msgid "Your Bio"
+msgstr "Biyografiniz"
+
+#: wfb/templates/users/professionals/visibility-modal.html:9
+msgid "Profile Visibility"
+msgstr "Profil Görünürlüğü"
+
+#: wfb/templates/users/professionals/visibility-modal.html:17
+#: wfb/users/models.py:109
+msgid "Public"
+msgstr "Herkese Açık"
+
+#: wfb/templates/users/professionals/visibility-modal.html:23
+msgid ""
+"\n"
+"                                Your profile is visible to the general "
+"public and will show up in search engine results\n"
+"                                "
+msgstr ""
+"\n"
+"Profiliniz genel halka açıktır ve arama motoru sonuçlarında görünecektir."
+
+#: wfb/templates/users/professionals/visibility-modal.html:33
+#: wfb/users/models.py:110
+msgid "Platform Only"
+msgstr "Sadece Platform"
+
+#: wfb/templates/users/professionals/visibility-modal.html:39
+msgid "Only signed in platform users will see your profile"
+msgstr "Sadece platforma giriş yapmış kullanıcılar profilinizi görebilir"
+
+#: wfb/templates/users/professionals/visibility-modal.html:47
+#: wfb/users/models.py:111
+msgid "Private"
+msgstr "Gizli"
+
+#: wfb/templates/users/professionals/visibility-modal.html:53
+msgid ""
+"\n"
+"                                Your profile will not appear in search "
+"results on platform or search engines. It will\n"
+"                                not\n"
+"                                be visible via a direct link for non-"
+"platform users. Platform users who have a direct\n"
+"                                link\n"
+"                                to your profile will see limited "
+"information. Clients you have worked with or submitted\n"
+"                                a proposal to will see your full profile\n"
+"                                "
+msgstr ""
+"\n"
+"Profiliniz platformda veya arama motorlarında arama sonuçlarında görünmeyecektir. Platform dışı kullanıcılar için doğrudan bir bağlantı üzerinden görünmez.\n"
+"                                Profilinize doğrudan bağlantısı olan platform kullanıcıları sınırlı bilgi görecektir. Çalıştığınız veya teklif gönderdiğiniz müşteriler tam profilinizi görecektir."
+
+#: wfb/templates/users/profile-create.html:10
+msgid "Tell us who are you?"
+msgstr "Bize kim olduğunuzu söyleyin?"
+
+#: wfb/templates/users/profile-create.html:24
+msgid "I'm a Professional"
+msgstr "Ben bir Uzmanım"
+
+#: wfb/templates/users/profile-create.html:37
+msgid "I'm a Client"
+msgstr "Ben bir Müşteriyim"
+
+#: wfb/users/admin.py:24
+msgid "Personal info"
+msgstr "Kişisel bilgi"
+
+#: wfb/users/admin.py:26
+msgid "Permissions"
+msgstr "İzinler"
+
+#: wfb/users/admin.py:37
+msgid "Important dates"
+msgstr "Önemli tarihler"
+
+#: wfb/users/apps.py:9
+msgid "Users"
+msgstr "Kullanıcılar"
+
+#: wfb/users/forms.py:28
+msgid "This email has already been taken."
+msgstr "Bu e-posta adresi zaten kullanılıyor."
+
+#: wfb/users/models.py:27
+msgid "Name of User"
+msgstr "Kullanıcının Adı"
+
+#: wfb/users/models.py:30
+msgid "email address"
+msgstr "e-posta adresi"
+
+#: wfb/users/models.py:64
+msgid "FREELANCER"
+msgstr "SERBEST ÇALIŞAN"
+
+#: wfb/users/models.py:65
+msgid "CLIENT"
+msgstr "MÜŞTERİ"
+
+#: wfb/users/models.py:114
+msgid "NONE"
+msgstr "YOK"
+
+#: wfb/users/models.py:115
+msgid "RISING STAR"
+msgstr "YÜKSELEN YILDIZ"
+
+#: wfb/users/models.py:116
+msgid "TALENTED"
+msgstr "YETENEKLİ"
+
+#: wfb/users/models.py:118
+msgid "MASTER"
+msgstr "UZMAN"
+
+#: wfb/users/models.py:119
+msgid "ELITE"
+msgstr "ELİT"
+
+#: wfb/users/services.py:14
+msgid "Professional total points are not enough!"
+msgstr "Uzmanın toplam puanları yeterli değil!"
+
+#: wfb/users/tests/test_views.py:72 wfb/users/views.py:38
+msgid "Information successfully updated"
+msgstr "Bilgiler başarıyla güncellendi"
+
+#: wfb/users/views.py:153
+msgid "Updated hourly rate!"
+msgstr "Saatlik ücret güncellendi!"
+
+#: wfb/users/views.py:175
+msgid ""
+"Your email is changed. We sent verification email to your new email address"
+msgstr ""
+"E-postanız değiştirildi. Yeni e-posta adresinize doğrulama e-postası gönderdik"
+
+#: wfb/users/views.py:181
+msgid "Successfully updated!"
+msgstr "Başarıyla güncellendi!"
+
+#: wfb/users/views.py:202
+msgid "Updated phone successfully."
+msgstr "Telefon başarıyla güncellendi."
+
+#: wfb/users/views.py:263 wfb/users/views.py:295
+msgid "Created professional profile successfully!"
+msgstr "Uzman profili başarıyla oluşturuldu!"
+
+#: wfb/users/views.py:280 wfb/users/views.py:303
+msgid "Created client profile successfully!"
+msgstr "Müşteri profili başarıyla oluşturuldu!"
+
+#: wfb/users/views.py:348
+msgid "Opened availability!"
+msgstr "Uygunluk açıldı!"
+
+#: wfb/users/views.py:350
+msgid "Closed availability."
+msgstr "Uygunluk kapatıldı."
+
+#: wfb/users/views.py:364
+msgid "Updated hours per week!"
+msgstr "Haftalık saatler güncellendi!"
+
+#: wfb/users/views.py:410
+msgid "Updated profile"
+msgstr "Profil güncellendi"

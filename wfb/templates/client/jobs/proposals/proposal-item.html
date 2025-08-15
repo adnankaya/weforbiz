@@ -1,0 +1,61 @@
+{% load static %}
+<div class="row">
+    <div class="col">
+        <div class="my-2">
+            <div class="d-flex justify-content-between">
+                <strong class="me-1">
+                    <a href="{{proposal.created_by.get_absolute_url}}" target="_blank">
+                        <i class="fa-solid fa-user-astronaut "></i>
+                        {{proposal.created_by.user.get_full_name}}
+                    </a>
+                </strong>
+                {% if is_proposal_listing %}
+                <a href="{% url 'jobs:proposal-detail' idjob=proposal.job.id proposal_id=proposal.id %}"
+                    class="btn btn-success rounded-pill px-3">
+                    <i class="fa-solid fa-comment-dollar"></i>
+                    {{_("Detail")}}
+                </a>
+                {% endif %}
+            </div>
+            <span>
+                <form action="{% url 'chats:start-chat' %}" method="post" class="mt-2">
+                    {% csrf_token %}
+                    <input type="hidden" name="proposal_id" value="{{proposal.id}}">
+                    <button type="submit" title="Send message to {{proposal.created_by.user.get_full_name}}"
+                        class="badge d-flex align-items-center text-light bg-primary-subtle text-primary-emphasis border border-primary-subtle">
+                        <i class="fa-solid fa-message"></i>
+                        <span class="vr mx-2"></span>
+                        {{_("Message")}}
+                    </button>
+                </form>
+            </span>
+        </div>
+        <div class="mb-3 d-flex justify-content-between">
+            <div class="my-1 text-muted small">
+                <i class="fa-solid fa-calendar-days"></i>
+                {{proposal.created_date|date:'D d M Y'}}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <p>
+            <i class="fa-solid fa-comment-dollar"></i>
+            {{proposal.amount}} / {{proposal.job.job_type}}
+        </p>
+        {% if show_full_coverletter %}
+        <div class="">
+            <span>
+                {{proposal.coverletter|linebreaks}}
+            </span>
+        </div>
+        {% else %}
+        <div>
+            <span>
+                {{proposal.coverletter|truncatewords:32}}
+            </span>
+        </div>
+        {% endif %}
+    </div>
+</div>

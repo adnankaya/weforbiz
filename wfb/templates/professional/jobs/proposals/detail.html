@@ -1,0 +1,97 @@
+{% extends 'professional/jobs/base.html' %}
+
+<div>
+    {% block jobs_body %}
+    <ul class="nav nav-underline mb-2" id="pills-tab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="job-proposals-tab" data-bs-toggle="pill" data-bs-target="#job-proposals"
+                type="button" role="tab" aria-controls="job-proposals" aria-selected="false">
+                <i class="fa-solid fa-comments-dollar"></i>
+                {{_("Proposal")}}
+            </button>
+        </li>
+        <li class="nav-item">
+            <span class="fs-4">
+                <i class="fa-solid fa-chevron-right"></i>
+            </span>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="job-contracts-tab" data-bs-toggle="pill" data-bs-target="#job-contracts"
+                type="button" role="tab" aria-controls="job-contracts" aria-selected="false">
+                <i class="fa-solid fa-file-signature"></i>
+                {{_("Contract")}}
+            </button>
+        </li>
+
+    </ul>
+    <div class="tab-content" id="pills-tabContent">
+        <div class="tab-pane fade show active" id="job-proposals" role="tabpanel" aria-labelledby="job-proposals-tab"
+            tabindex="0">
+            {% if proposal %}
+            <div class="row mt-4">
+                <div class="col">
+                    <div class="card border-0 shadow-sm p-2">
+                        <div>
+                            {% include 'professional/jobs/proposals/proposal-item.html' %}
+                        </div>
+                        <p class="">
+                            <strong class="me-1">
+                                <i class="fa-solid fa-user-tie "></i>
+                                {{proposal.job.created_by.user.get_full_name}}
+                            </strong>
+                        </p>
+                        <p>
+                            <i class="fa-solid fa-comment-dollar"></i>
+                            {{proposal.amount}} / {{proposal.job.job_type}}
+                        </p>
+                        <div>
+                            <h5 class="my-2 text-muted">{{_("Cover Letter")}}</h5>
+                            {% if show_full_coverletter %}
+                            <span>
+                                {{proposal.coverletter|linebreaks}}
+                            </span>
+                            {% else %}
+                            <span>
+                                {{proposal.coverletter|truncatewords:32}}
+                            </span>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <div class="alert alert-warning my-4 mx-2">
+                <i class="fa-solid fa-warning fs-3"></i>
+                <strong>
+                    {{_("No proposal found")}}
+                </strong>
+            </div>
+            {% endif %}
+        </div>
+        <div class="tab-pane fade" id="job-contracts" role="tabpanel" aria-labelledby="job-contracts-tab" tabindex="0">
+            {% with proposal.contract_set.first as contract %}
+            {% if contract %}
+            <div class="row mt-4">
+                <div class="col-lg-10 col-md-10 mx-auto">
+                    <div class="list-group list-group-flush">
+                        <div class="list-group-item list-group-item-action mb-2">
+                            {% include 'professional/jobs/contracts/contract-item.html' %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <div class="alert alert-warning my-4 mx-2">
+                <i class="fa-solid fa-warning fs-3"></i>
+                <strong>
+                    {{_("No contract found")}}
+                </strong>
+            </div>
+            {% endif %}
+            {% endwith %}
+        </div>
+
+    </div>
+
+    {% endblock jobs_body %}
+</div>

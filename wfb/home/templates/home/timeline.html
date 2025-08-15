@@ -1,0 +1,127 @@
+{% load i18n %}
+{% include 'home/timeline-style.html' %}
+
+<div class="">
+    <ul class="timeline">
+        <li class="px-2">
+            <div class="timeline-badge primary">
+                <a href="{% url 'account_signup' %}" class="text-white">
+                    <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                </a>
+            </div>
+            <div class="timeline-panel p-3">
+                <div class="timeline-heading">
+                    <h4 class="timeline-title">
+                        {{_("Create Profile")}}
+                    </h4>
+                </div>
+                <div class="timeline-body">
+                    {% include 'home/timeline-profile.html' %}
+                </div>
+            </div>
+        </li>
+        <li class="px-2 timeline-inverted">
+            <div class="timeline-badge modern">
+                <i class="fa-solid fa-pen-to-square"></i>
+            </div>
+            <div class="timeline-panel p-3">
+                <div class="timeline-heading">
+                    <h4 class="timeline-title">
+                        {{_("Client posts a job.")}}
+                    </h4>
+                </div>
+                <div class="timeline-body">
+                    <p>
+                        {% blocktranslate %}
+                        Ready to turn your project vision into reality? Post your job and tap into a
+                        pool of skilled professionals eager to bring your ideas to life.
+                        {% endblocktranslate %}
+                    </p>
+                    <p class="small text-muted">
+                        {% blocktranslate %}
+                        The right talent is just a click away –
+                        create your job posting now and kickstart the journey to project success!"
+                        {% endblocktranslate %}
+                    </p>
+                </div>
+            </div>
+        </li>
+        <li class="px-2 ">
+            <div class="timeline-badge bg-dark">
+                <i class="fa-solid fa-comment-dollar"></i>
+            </div>
+            <div class="timeline-panel p-3">
+                <div class="timeline-heading">
+                    <h4 class="timeline-title">
+                        {{_("Professionals send proposals")}}
+                    </h4>
+                </div>
+                <div class="timeline-body">
+                    <p>
+                        {% blocktranslate %}
+                        Take the first step by sending compelling proposals to high-quality jobs on our professional
+                        marketplace.
+                        {% endblocktranslate %}
+                    </p>
+                    <p class="small text-muted">
+                        {% blocktranslate %}
+                        Don't miss out on the opportunities that await – start bidding now and turn your
+                        skills into success!
+                        {% endblocktranslate %}
+                    </p>
+                </div>
+            </div>
+        </li>
+        <li class="px-2 timeline-inverted">
+            <div class="timeline-badge danger">
+                <i class="fa-solid fa-laptop-file"></i>
+            </div>
+            <div class="timeline-panel p-3">
+                <div class="timeline-heading">
+                    <h4 class="timeline-title">{{_("Professional works on")}}</h4>
+                </div>
+                <div class="timeline-body">
+                    <p>
+                        {% blocktranslate %}
+                        It's time to turn potential into performance. Professional starts working on the job by accepting a
+                        contract created by client and delivers exceptional results.
+                        {% endblocktranslate %}
+                    </p>
+                    <p class="small text-muted">
+                        {% blocktranslate %}
+                        Dive into the exciting journey of success–commence your freelance project and make an impact
+                        today!
+                        {% endblocktranslate %}
+                    </p>
+                </div>
+            </div>
+        </li>
+        <li class="px-2 ">
+            <div class="timeline-badge success">
+                <i class="fa-solid fa-sack-dollar"></i>
+            </div>
+            <div class="timeline-panel p-3">
+                <div class="timeline-heading">
+                    <h4 class="timeline-title">
+                        {{_("Deliver and Get paid!")}}
+                    </h4>
+                </div>
+                <div class="timeline-body">
+                    <p>
+                        {% blocktranslate %}
+                        Deliver your outstanding work and watch your efforts turn into payment.
+                        {% endblocktranslate %}
+                    </p>
+                    <p class="small text-muted">
+                        {% blocktranslate %}
+                        Your success story begins with each completed task – submit your work and anticipate the rewards
+                        coming your way.
+                        Ready to reap the benefits of your hard work?
+                        {% endblocktranslate %}
+                    </p>
+                </div>
+            </div>
+        </li>
+    </ul>
+
+</div>

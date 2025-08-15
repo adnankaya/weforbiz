@@ -1,0 +1,21 @@
+# General
+# ------------------------------------------------------------------------------
+USE_DOCKER=yes
+IPYTHONDIR=/app/.ipython
+# Redis
+# ------------------------------------------------------------------------------
+REDIS_URL=redis://redis:6379/0
+
+# Celery
+# ------------------------------------------------------------------------------
+
+# Flower
+CELERY_FLOWER_USER=developer
+CELERY_FLOWER_PASSWORD=developer
+# database
+POSTGRES_HOST=postgres
+POSTGRES_PORT=5432
+POSTGRES_DB=db_weforbiz
+POSTGRES_USER=developer
+POSTGRES_PASSWORD=developer
+DATABASE_URL="postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}"

@@ -1,0 +1,34 @@
+{% load humanize %}
+<div class="card h-100 p-1 custom-shadow mb-2 job-item">
+    <div class="card-body">
+        <div class="small my-1">
+            <small>
+                <i class="fa-solid fa-clock"></i>
+                {{ job.created_date|naturaltime}}
+            </small>
+        </div>
+        <div class="my-2">
+            <a href="{{job.get_absolute_url}}" class="text-decoration-none">
+                <i class="fa-solid fa-briefcase"></i>
+                <span>
+                    {{job.title}}
+                </span>
+            </a>
+        </div>
+        <p>
+            {% include 'client/jobs/budget-item.html' with job=job %}
+        </p>
+    </div>
+    <div class="card-footer border-0">
+        <p class="">
+            <a href="{% url 'jobs:job-proposals' idjob=job.id %}" class="text-decoration-none">
+                <i class="fa-solid fa-comments-dollar"></i>
+                {{_("Proposals")}}
+                <span class="badge bg-primary-subtle border border-primary-subtle text-primary-emphasis">
+                    {{job.proposal_count}}
+                </span>
+            </a>
+        </p>
+    </div>
+
+</div>

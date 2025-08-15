@@ -1,0 +1,36 @@
+{% load i18n %}
+<div class="modal fade" id="hoursPerWeekModal" tabindex="-1" aria-labelledby="hoursPerWeekModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <form action="{% url 'users:professional-hoursperweek' fid=user.professional.id %}" method="post"
+                class="form-group">
+                {% csrf_token %}
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="hoursPerWeekModalLabel">{{_("Hours Per Week")}}</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-floating">
+                        <input name="hoursperweek" type="number" step="1" min="0" class="form-control border border-2 border-primary-subtle"
+                            id="floatingInput" placeholder="Ex; 20" value="{{user.professional.hoursperweek}}">
+                        <label for="floatingInput">{{_("Hours Per Week")}}</label>
+                    </div>
+                    <div class="small mt-2">
+                        <ul>
+                            <li>
+                                {% blocktranslate %}
+                                Set your weekly hours you can work on a project.
+                                {% endblocktranslate %}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-between">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{_("Close")}}</button>
+                    <button type="submit" class="btn btn-primary">{{_("Submit")}}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+<form action="{% url 'jobs:accept-work' %}" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="contract_id" value="{{contract.id}}" id="idContractAcceptWork{{contract.id}}">
+    <div class="d-grid gap-2 col-md-6 mx-auto my-4">
+        <button type="submit" class="btn btn-success">
+            <i class="fa-solid fa-check-circle"></i>
+            {{_("Accept Work")}}
+        </button>
+    </div>
+</form>

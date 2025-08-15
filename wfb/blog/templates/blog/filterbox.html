@@ -1,0 +1,31 @@
+{% load i18n %}
+<button class="btn btn-warning mb-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
+    aria-expanded="false" aria-controls="collapseExample">
+    <i class="bi bi-filter"></i>
+    {{_("Filters")}}
+</button>
+<div class="collapse" id="collapseExample">
+    <div class="card card-body bg-md-blue-grey-50">
+        <form action="{% url 'blog:index' %}" method="get" class="">
+            <ul class="list-group list-group-sm overflow-scroll" style="max-height: 220px;">
+                <li class="list-group-item bg-md-amber-100">{{_("Filter by category.")}}
+                </li>
+                {% for category in categories %}
+                <li class="list-group-item">
+                    <input class="form-check-input me-1" name="cid" value="{{category.id}}" type="checkbox"
+                        id="cbCategory{{category.id}}">
+                    <label class="form-check-label stretched-link" for="cbCategory{{category.id}}">
+                        {{category.name}}
+                    </label>
+                </li>
+                {% endfor %}
+            </ul>
+            <div>
+                <button class="btn btn-sm btn-warning m-2" type="submit" id="button-select-category">
+                    <i class="fs-5 bi bi-check-all"></i>
+                    {{_("Apply!")}}
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

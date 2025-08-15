@@ -1,0 +1,152 @@
+{% extends "chats/base.html" %}
+{% load static %}
+{% load humanize %}
+{% load chat_tags %}
+
+
+
+<div class="container">
+    {% block chats_body %}
+    {% get_sender_receiver request client professional as obj_chatter %}
+    <div>
+        <input type="hidden" name="" id="idSender" value="{{obj_chatter.sender.user.id}}">
+        <input type="hidden" name="" id="idReceiver" value="{{obj_chatter.receiver.user.id}}">
+        <input type="hidden" name="" id="idJob" value="{{job.id}}">
+        <input type="hidden" name="" id="idChatRoom" value="{{chat_room.id}}">
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="py-2 px-4 border-bottom d-none d-lg-block">
+                <div class="d-flex align-items-center py-1">
+                    <div class="position-relative">
+                        <img src="{% static 'images/profiles/user.png' %}" class="rounded-circle mr-1"
+                            alt="{{obj_chatter.receiver.user.get_full_name}}" width="40" height="40">
+                    </div>
+                    <div class="flex-grow-1 pl-3">
+                        <strong>{{obj_chatter.receiver.user.get_full_name}}</strong>
+                        <div class="text-muted small"><em>{{_("Typing...")}}</em></div>
+                    </div>
+                    <div>
+                        <button class="btn">
+                            <i class="fa-solid fa-info-circle fs-4"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="position-relative">
+                <div class="chat-messages p-4">
+                    {% for message in chat_room.message_set.all %}
+                    {% if user.id == message.sender.id %}
+                    <div class="text-center">
+                        {% ifchanged %}
+                        <b class="text-muted">{{ message.messaged_date|naturaltime }}</b>
+                        {% endifchanged %}
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 ms-auto bg-md-cyan-50">
+                            {% include 'chats/message-item.html' with sender=message.sender %}
+                        </div>
+                    </div>
+                    {% else %}
+                    <div class="row">
+                        <div class="col-xl-6 me-auto bg-md-amber-50">
+                            {% include 'chats/message-item.html' with sender=message.sender %}
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="flex-grow-0 py-3 px-4 border-top">
+                <form action="#" class="bg-light">
+                    <div class="input-group">
+                        <textarea id="chat-message-input" class="form-control rounded-0 border-0 py-4 bg-light" rows="6"
+                            cols="30"></textarea>
+                        <div class="align-top">
+                            <button id="chat-message-submit" type="button" value="Send" class="btn btn-link">
+                                <i class="fa-solid fa-paper-plane fs-4"></i>
+                            </button>
+                            <br class="">
+                            <button id="button-send-attachment " type="button" class="btn btn-link">
+                                <i class="fa-solid fa-paperclip fs-4"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <section>
+        {{ chat_room.room_name|json_script:"room-name" }}
+    </section>
+
+    <script>
+        const roomName = JSON.parse(document.getElementById('room-name').textContent);
+        const sender = document.getElementById('idSender').value;
+        const receiver = document.getElementById('idReceiver').value;
+        const job = document.getElementById('idJob').value;
+        const chatRoom = document.getElementById('idChatRoom').value;
+
+        function connectWebSocket() {
+
+            // web socket variables
+            const prod = "wss://";
+            const local = "ws://";
+            let protocol = prod;
+            const host = window.location.host;
+            const endpoint = '/ws/chat/';
+            const is_local = ["localhost", "127.0.0.1", "0.0.0.0"].some(substring => host.includes(substring))
+            if (is_local) {
+                protocol = local;
+            }
+            const url = `${protocol}${host}${endpoint}${roomName}/`;
+            // init websocket instance
+            const wsocket = new WebSocket(url);
+
+            wsocket.onmessage = function (e) {
+                const data = JSON.parse(e.data);
+                document.querySelector('#chat-log').value += (data.text + '\n');
+            };
+
+            wsocket.onclose = function (e) {
+                console.error('Chat socket closed unexpectedly');
+                setTimeout(connectWebSocket, 1000);
+            };
+            wsocket.onerror = function (error) {
+                console.error('WebSocket error:', error);
+                // in case of error, close the socket connection and reconnect
+                wsocket.close();
+            };
+
+            document.querySelector('#chat-message-input').focus();
+            document.querySelector('#chat-message-input').onkeyup = function (e) {
+                if (e.keyCode === 13) {  // enter, return
+                    document.querySelector('#chat-message-submit').click();
+                }
+            };
+
+            document.querySelector('#chat-message-submit').onclick = function (e) {
+                const messageInputDom = document.querySelector('#chat-message-input');
+                const text = messageInputDom.value;
+                wsocket.send(JSON.stringify({
+                    'text': text,
+                    'sender': sender,
+                    'receiver': receiver,
+                    'room_name': roomName,
+                    'chat_room': chatRoom,
+                    'job': job,
+
+                }));
+                messageInputDom.value = '';
+            };
+
+        }
+        /*******************************************************/
+        // Connect to the WebSocket
+        /*******************************************************/
+        connectWebSocket();
+    </script>
+
+
+    {% endblock chats_body %}
+</div>

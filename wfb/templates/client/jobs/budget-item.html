@@ -1,0 +1,8 @@
+<i class="fa-solid fa-hand-holding-dollar"></i>
+<span class="badge text-bg-light">{{job.job_type}}</span>
+<span>/</span>
+{% if job.job_type == 'HOURLY' %}
+<span class="badge text-bg-light">${{job.min_budget}} - ${{job.max_budget}}</span>
+{% elif job.job_type == 'FIXED' %}
+<span class="badge text-bg-light">${{job.max_budget}}</span>
+{% endif %}

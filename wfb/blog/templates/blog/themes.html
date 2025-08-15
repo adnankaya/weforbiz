@@ -1,0 +1,22 @@
+{% load i18n %}
+{% load core_tags %}
+
+{% get_themes as themes %}
+<div class="row mt-4">
+    <div class="col">
+        <form action="{% url 'core:set_theme' %}" method="post">
+            {% csrf_token %}
+            <div class="form-floating">
+                <select class="form-select form-select-sm" aria-label=".form-select-sm theme" name="theme"
+                    id="theme_select" onchange="this.form.submit()">
+                    {% for theme in themes %}
+                    <option value="{{ theme }}" {% if request.session.theme == theme %}selected{% endif %}>
+                        {{ theme }}
+                    </option>
+                    {% endfor %}
+                </select>
+                <label for="theme_select">{{_("Change Theme")}}</label>
+            </div>
+        </form>
+    </div>
+</div>

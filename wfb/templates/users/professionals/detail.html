@@ -1,0 +1,216 @@
+{% extends 'users/base.html' %}
+{% load static %}
+{% load job_tags %}
+{% load core_tags %}
+{% load humanize %}
+
+
+{% block users_body %}
+<div class="row p-2">
+    <div class="col">
+
+        <div class="card border-0 shadow-sm mb-3 p-2">
+            <div class="row">
+                <div class="col-md-2 mb-2">
+                    <img src="{% static 'images/profiles/user.png' %}" class="img-fluid p-2 m-2" width="128"
+                        height="128" alt="image profile">
+                </div>
+                <div class="col-md-4">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            {{professional.user.get_full_name}}
+                        </h5>
+                    </div>
+                    <div class="card-text">
+                        {% include "users/professionals/hourlyrate.html" with professional=professional is_owner=is_owner %}
+                    </div>
+                </div>
+                <div class="col-md-4 mb-2">
+                    <div class="card-text">
+                        <div class="mt-4">
+                            {% if not professional.badge == 'NONE' %}
+                            <span class="bg-warning rounded rounded-pill p-2">
+                                {% include 'users/professionals/badge.html' %}
+                                <b>{{professional.badge|title}}</b>
+                            </span>
+                            {% endif %}
+                        </div>
+                        <div class="mt-4">
+                            <span class="text-bg-success rounded rounded-pill p-2">
+                                <i class="fa-solid fa-trophy"></i>
+                                <b>
+                                    {{_("Success Score")}}
+                                </b>
+                                <span class="badge badge-pill bg-success-subtle text-success-emphasis">
+                                    {{professional.success_score}}
+                                </span>
+                            </span>
+                            <span class="ms-1">
+                                <a href="#">
+                                    <i class="fa-solid fa-circle-question"></i>
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 mb-2">
+                    <div class="text-body-secondary">
+                        {{_("Last updated ")}}{{professional.updated_date|naturaltime}}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="justify-content-start">
+                        <div class="">
+                            {% include 'users/professionals/available-points.html' with professional=user.professional %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card border-0 shadow-sm p-2">
+            <div class="row">
+                <div class="col-md-2 col-lg-3">
+                    <div class="list-group list-group-flush">
+                        <div class="list-group-item">
+                            <span class="d-block mb-2">
+                                {{_("Total Earnings")}}
+                                $
+                                <span class="badge badge-pill bg-dark text-light">
+                                    {{professional.total_earnings_amount|intword}}
+                                </span>
+                            </span>
+                        </div>
+                        <div class="list-group-item">
+                            <span class="d-block">{{_("Avg Rating")}}</span>
+                            <div class="d-block text-primary-emphasis">{% render_stars professional.total_avg_rating %}
+                            </div>
+                            <div>
+                                {{ professional.total_avg_rating }} {{_("of")}} {{professional.feedback_count}}
+                                {{_("reviews")}}
+                            </div>
+                        </div>
+                        <div class="list-group-item">
+                            <span class="d-block mb-2">
+                                {{_("Total Jobs")}}
+                                <span class="badge badge-pill bg-dark text-light">
+                                    {{professional.completed_jobs_count}}
+                                </span>
+                            </span>
+                        </div>
+                        {% if is_owner %}
+                        <div class="list-group-item mt-2">
+                            <a href="{% url 'users:professional-stats' fid=professional.id %}"
+                                class="p-2 border border-secondary-subtle">
+                                <i class="fa-solid fa-chart-line"></i>
+                                {{_("Stats")}}
+                            </a>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-md-1 border-end">
+                </div>
+                <div class="col-md-8 col-lg-8">
+                    <div class="d-flex">
+                        <h5>
+                            {{professional.title|title}}
+                        </h5>
+                        {% if is_owner %}
+                        <div>
+                            {% if not professional.title or not professional.bio %}
+                            <span>{{_("Update Profile")}}</span>
+                            {% endif %}
+                            <button class="btn btn-sm btn-light rounded rounded-circle" aria-label="non flagged button"
+                                title="{{_('Update Profile')}}" data-bs-toggle="modal"
+                                data-bs-target="#updateProfileModal">
+                                <i class="fa-solid fa-edit text-primary fs-5"></i>
+                            </button>
+                            <div>
+                                {% include 'users/professionals/update-profile-modal.html' %}
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="my-2">
+                        {{professional.bio|linebreaks}}
+                    </div>
+                    {% if professional.skills.exists %}
+                    <div>
+                        <h5>
+                            {{_("Skills")}}
+                        </h5>
+                        {% for skill in professional.skills.all %}
+                        <span
+                            class="badge bg-secondary-subtle border border-secondary-subtle text-secondary-emphasis rounded-pill">
+                            {{skill.name}}
+                        </span>
+                        {% endfor%}
+                    </div>
+                    {% endif%}
+                </div>
+            </div>
+        </div>
+        <div class="row my-4">
+            <div class="col">
+                <h4 class="mt-4">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    {{_("Work History")}}
+                </h4>
+                <div>
+                    <span class="d-block mb-2">
+                        {{_("Completed Jobs")}}
+                        <span class="badge badge-pill bg-light text-dark">
+                            {{professional.completed_jobs_count}}
+                        </span>
+                    </span>
+                </div>
+                <div class="list-group">
+                    {% for prev_contract in previous_contracts %}
+                    <div class="list-group-item list-group-item-action">
+                        <p>
+                            <a href="{{ prev_contract.job.get_absolute_url }}">
+                                {{ prev_contract.job.title }}
+                            </a>
+                        </p>
+                        <p>
+                            <small>
+                                {{ prev_contract.job.created_date|date:"d M Y" }}
+                                /
+                                {{ prev_contract.updated_date|date:"d M Y" }}
+
+                            </small>
+                        </p>
+                        <p>
+                            {% for feedback in prev_contract.feedback_set.all %}
+                        <div class="text-primary-emphasis">
+                            {% render_stars feedback.avg_rating %}
+                        </div>
+                        <div>
+                            <i class="fa-regular fa-comment"></i>
+                            {{feedback.comment}}
+                        </div>
+                        {% endfor %}
+                        </p>
+                        <div>
+                            <span class="badge bg-success-subtle text-success-emphasis rounded-pill">
+                                {{_("$ Amount :")}}
+                                {{prev_contract.proposal.amount}}
+                            </span>
+                            <span>-</span>
+                            <small>
+                                <b class="ms-1">
+                                    {{prev_contract.job.job_type|title}}
+                                </b>
+                            </small>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock users_body %}

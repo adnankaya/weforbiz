@@ -1,0 +1,81 @@
+{% extends 'feedbacks/base.html' %}
+
+
+
+
+{% block feedbacks_body %}
+
+<style>
+    .rate {
+        float: left;
+        height: 46px;
+        padding: 0 10px;
+    }
+
+    .rate:not(:checked)>input {
+        position: absolute;
+        top: -9999px;
+    }
+
+    .rate:not(:checked)>label {
+        float: right;
+        width: 1em;
+        overflow: hidden;
+        white-space: nowrap;
+        cursor: pointer;
+        font-size: 30px;
+        color: #ccc;
+    }
+
+    .rate:not(:checked)>label:before {
+        content: '★ ';
+    }
+
+    .rate>input:checked~label {
+        color: #2962ff;
+    }
+
+    .rate:not(:checked)>label:hover,
+    .rate:not(:checked)>label:hover~label {
+        color: #2962ff;
+    }
+
+    .rate>input:checked+label:hover,
+    .rate>input:checked+label:hover~label,
+    .rate>input:checked~label:hover,
+    .rate>input:checked~label:hover~label,
+    .rate>label:hover~input:checked~label {
+        color: #2962ff;
+    }
+</style>
+
+<div class="row">
+    <div class="col py-4">
+        <div class="container mt-5">
+            <h3>
+                {{_("Feedback List")}}
+            </h3>
+            {% if feedbacks %}
+            <div class="row">
+                <div class="col">
+                    {% for feedback in feedbacks %}
+                    
+                    {% endfor %}
+                </div>
+            </div>
+            {% else %}
+            <div class="row">
+                <div class="col">
+                    <div class="alert alert-info">
+                        <strong>
+                            {{_("No feedbacks found")}}
+                        </strong>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock feedbacks_body %}

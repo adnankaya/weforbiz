@@ -1,0 +1,98 @@
+<div class="row">
+    <div class="col">
+        <div class="card p-3 mb-2 {% if contract.status == contract_status_choices.OPEN %}bg-white{%endif%}">
+            <div class="d-flex justify-content-between">
+                <span>
+                    {{_("Contract for :")}} 
+                    <a href="{{contract.job.get_absolute_url}}">
+                        {{contract.job.title}}
+                    </a>
+                </span>
+                {% if not is_detail %}
+                <a href="{% url 'jobs:contracts-detail' cid=contract.id %}" class="btn btn-primary rounded-pill px-3">
+                    <i class="fa-solid fa-square-arrow-up-right"></i>
+                    <span>
+                        {{_("Detail")}}
+                    </span>
+                </a>
+                {% endif %}
+            </div>
+            <div class="mb-2">
+                <span class="badge bg-warning-subtle text-primary-emphasis rounded-pill">
+                    {{_("Work Status :")}}
+                    {{contract.workstatus}}
+                </span>
+                {% if contract.workstatus == job_status_choices.IN_REVIEW %}
+                <span class="spinner-grow spinner-grow-sm text-success" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </span>
+                {% endif %}
+                <div>
+                    {% if contract.job.job_type == job_type_choices.HOURLY and contract.workstatus == job_status_choices.IN_REVIEW %}
+                    <span class="badge bg-success-subtle text-success-emphasis rounded-pill">
+                        {{_("Hours Worked :")}}
+                        {{contract.hours_worked}}
+                    </span>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="my-2">
+                <span class="fs-6">$</span>
+                <span class="badge bg-success-subtle text-success-emphasis rounded-pill">
+                    {{contract.proposal.amount}} 
+                </span>
+                <b class="small">
+                    - {{contract.job.job_type}}
+                </b>
+            </div>
+            <div class="mb-2 d-flex justify-content-between">
+                <span>
+                    <small>
+                        {{_("Created date:")}}
+                        {{ contract.created_date|date:"D d M Y" }}
+                    </small>
+                </span>
+            </div>
+            <div>
+                {% if contract.status == contract_status_choices.OPEN and contract.workstatus == job_status_choices.DONE %}
+                <button class="btn btn-danger btn-sm" aria-label="non flagged button" title="{{_('Close Contract')}}"
+                    data-bs-toggle="modal" data-bs-target="#contractCloseModal-{{job.id}}">
+                    <i class="fa-regular fa-circle-xmark"></i>
+                    {{_('Close')}}
+                </button>
+                <div>
+                    {% include 'common/modals/contract-close-modal.html' with contract=contract %}
+                </div>
+                {% elif contract.status == contract_status_choices.PENDING %}
+                <div>
+                    <span>
+                        {{_("Contract Status: ")}}
+                        <small
+                            class="badge bg-light-subtle border border-light-subtle text-light-emphasis rounded-pill">
+                            {{contract.status|title}}
+                        </small>
+                    </span>
+                    <span class="spinner-grow spinner-grow-sm text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </span>
+                </div>
+                {% endif %}
+            </div>
+            <p>
+                <span>{{_("Professional: ")}} </span>
+                <span class="badge bg-secondary-subtle text-secondary-emphasis rounded-pill">
+                    {{contract.professional_user.get_full_name}}
+                </span>
+                {% if contract.status == contract_status_choices.CLOSED and not contract.is_feedback_submitted %}
+                <a href="{% url 'jobs:contracts-create-feedback' cid=contract.id %}"
+                    class="btn btn-primary btn-sm rounded-pill">
+                    <i class="fa-solid fa-comment-dots"></i>
+                    {{_("Feedback")}}
+                </a>
+                {% endif %}
+            </p>
+            
+
+        </div>
+    </div>
+</div>

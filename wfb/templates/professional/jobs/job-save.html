@@ -1,0 +1,11 @@
+{% if job.is_saved %}
+<a href="{% url 'jobs:unsave-job' idjob=job.id %}" class="btn btn-sm btn-light" aria-label="saved job link"
+    title="{{_('Saved this job')}}">
+    <i class="fa-solid fa-bookmark"></i>
+</a>
+{% else %}
+<a href="{% url 'jobs:save-job' idjob=job.id %}" class="btn btn-sm btn-light" aria-label="unsaved job link"
+    title="{{_('Save this job')}}">
+    <i class="fa-regular fa-bookmark"></i>
+</a>
+{% endif %}

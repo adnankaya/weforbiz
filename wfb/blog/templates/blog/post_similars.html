@@ -1,0 +1,16 @@
+{% if similar_posts %}
+<div class="row my-2">
+    <div class="col">
+        <div class="my-4 p-2 shadow-sm bg-white text-center">
+            <h4>{{_("Similar Posts")}}</h4>
+        </div>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            {% for post in similar_posts %}
+            <div class="col">
+                {% include "blog/post_item.html" %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endif %}

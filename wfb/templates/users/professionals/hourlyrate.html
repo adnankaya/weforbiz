@@ -1,0 +1,20 @@
+<div class="">
+    <span class="bg-success-subtle text-success-emphasis rounded rounded-pill p-2">
+        <i class="fa-solid fa-sack-dollar"></i>
+        <span class="">
+            {{professional.hourly_rate}}
+        </span>
+        <b>
+            {{_("/ h")}}
+        </b>
+    </span>
+    {% if is_owner %}
+    <button class="btn btn-sm btn-light rounded rounded-circle" aria-label="non flagged button"
+        title="{{_('Update Hourly Rate')}}" data-bs-toggle="modal" data-bs-target="#hourlyRateModal">
+        <i class="fa-solid fa-edit text-primary fs-5"></i>
+    </button>
+    <div>
+        {% include 'users/professionals/hourly-rate-modal.html' %}
+    </div>
+    {% endif %}
+</div>

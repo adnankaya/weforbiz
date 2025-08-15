@@ -1,0 +1,30 @@
+{% load static %}
+{% load core_tags %}
+<div class="row">
+    <div class="col">
+        <div class="card p-2 align-items-center justify-content-center border-0 shadow-sm">
+            <!-- img src change later, allow users to upload their profile photo -->
+            <img src="{% static 'images/profiles/user.png' %}" class="img-fluid" alt="image profile">
+            <div class="card-body">
+                <h5 class="card-title text-center">
+                    <a href="{% url 'users:professionals-detail' fid=user.professional.id %}">
+                        {% if user.first_name and user.last_name %}
+                        {{ user.first_name }} {{user.last_name|first}}.
+                        {% else %}
+                        {{ user.email }}
+                        {% endif %}
+                    </a>
+                </h5>
+                <p class="card-text text-center">
+                    {% render_stars user.professional.total_avg_rating %}
+                </p>
+                <div class="text-center">
+                    {% include 'users/professionals/available-points.html' with professional=user.professional %}
+                </div>
+                <div class="mt-2 text-center small">
+                    {% include "users/professionals/hourlyrate.html" with professional=user.professional is_owner=True %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

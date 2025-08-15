@@ -1,0 +1,27 @@
+<div class="dropdown me-4 mb-sm-2">
+    <a class="link-dark text-decoration-none" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="fa-solid fa-bell"></i>
+        {% if user_notifications %}
+        <i
+            class="fa-solid fa-dot position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle">
+            <span class="visually-hidden">{{_("New alerts")}}</span>
+        </i>
+        {% endif %}
+    </a>
+    <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-start" data-popper-placement="bottom-end">
+        {% if user_notifications %}
+        {% for notification in user_notifications %}
+        <li class="small" style="min-width: 320px;">
+            <a class="dropdown-item text-wrap mb-1" href="{% url 'notifications:all' %}" id="longerText">
+                <i class="fa-solid fa-envelope me-1"></i>
+                {{notification.verb}}
+            </a>
+        </li>
+        {% endfor %}
+        <li>
+            <hr class="dropdown-divider">
+        </li>
+        {% endif %}
+        <li><a class="dropdown-item" href="{% url 'notifications:all' %}">{{_("See All Notifications")}}</a></li>
+    </ul>
+</div>

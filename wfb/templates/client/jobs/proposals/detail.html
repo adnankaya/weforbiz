@@ -1,0 +1,39 @@
+{% extends 'client/jobs/base.html' %}
+
+<div>
+    {% block jobs_body %}
+    <div class="container my-4 d-flex justify-content-center">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'jobs:job-proposals' idjob=job.id %}">{{_("Proposals")}}</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">{{_("Detail")}}</li>
+            </ol>
+        </nav>
+    </div>
+    <div>
+        <h2 class="text-success-emphasis">{{_("Proposal Detail")}}</h2>
+    </div>
+    <div class="card border-0 p-3 m-1">
+        <div class="row">
+            <div class="col-lg-9 mb-3">
+                {% include 'client/jobs/proposals/proposal-item.html' %}
+            </div>
+            <div class="col-lg-3">
+                <form action="{% url 'jobs:create-contract' %}" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="proposal" value="{{proposal.id}}">
+                    <input type="hidden" name="job" value="{{proposal.job.id}}">
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-success btn-lg">
+                            <i class="fa-solid fa-file-signature"></i>
+                            {{_("Create Contract")}}
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    {% endblock jobs_body %}
+</div>

@@ -1,0 +1,37 @@
+{% extends 'professional/settings/base.html' %}
+{% load i18n %}
+
+{% block settings_body %}
+
+<div class="row">
+    <div class="col">
+        <h1>
+            {{_("Points Page")}}
+        </h1>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{_("Points Balance")}}</h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary">
+                    <span class="badge badge-pill bg-success-subtle text-success-emphasis">
+                        {{user.professional.total_points}}
+                    </span>
+                </h6>
+                <p class="card-text">
+                    {% blocktranslate %}
+                    Learn more about how to earn and use
+                    <a href="#">Points</a>.
+                    {% endblocktranslate %}
+                </p>
+                <a href="#" class="card-link btn btn-primary">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    {{_("Buy Points")}}
+                </a>
+                <a href="#" class="card-link">
+                    {{_("Point History")}}
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock settings_body %}

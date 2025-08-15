@@ -1,0 +1,83 @@
+{% extends 'users/base.html' %}
+{% load static %}
+{% load job_tags %}
+{% load core_tags %}
+{% load humanize %}
+
+
+{% block users_body %}
+
+<style>
+    .icon-stat{
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    font-weight: 400;
+    line-height: 1.6;
+    word-wrap: break-word;
+    box-sizing: border-box;
+    display: inline-block;
+    color: #111111;
+    fill: currentColor;
+    stroke: none;
+    position: absolute !important;
+    margin-top: -1.5rem !important;
+    text-align: center !important;
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(30, 57, 233, 0.4) !important;
+    background-position: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 0.75rem;
+
+    }
+    
+</style>
+
+<div class="container my-4 d-flex justify-content-center">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'users:professionals-detail' fid=professional.id %}">{{_("Profile")}}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{_("Stats")}}</li>
+        </ol>
+    </nav>
+</div>
+
+<div class="container my-4">
+
+    <div class="row">
+        
+        <div class="col-xl-3 col-sm-6 mb-xl-0 my-4">
+            {% include 'users/professionals/stats-card.html' with title=_("Average Rating") value=professional.total_avg_rating icon='fa-star' %}
+        </div>
+        <div class="col-xl-3 col-sm-6 mb-xl-0 my-4">
+            {% include 'users/professionals/stats-card.html' with title=_("Completed Jobs") value=professional.completed_jobs_count icon='fa-briefcase' %}
+        </div>
+        <div class="col-xl-3 col-sm-6 mb-xl-0 my-4">
+            {% include 'users/professionals/stats-card.html' with title=_("All Proposals") value=professional.proposal_set.count icon='fa-comments-dollar' %}
+        </div>
+        <div class="col-xl-3 col-sm-6 mb-xl-0 my-4">
+            {% include 'users/professionals/stats-card.html' with title=_("Completion Rate") value=professional.completion_rate icon='fa-percent' %}
+        </div>
+    </div>
+    <div class="row my-4">
+        <div class="col-xl-3 col-sm-6 mb-xl-0 my-4">
+            {% include 'users/professionals/stats-card.html' with title=_("Positive Feedback Count") value=professional.positive_feedback_count icon='fa-face-smile' %}
+        </div>
+        <div class="col-xl-3 col-sm-6 mb-xl-0 my-4">
+            {% include 'users/professionals/stats-card.html' with title=_("Total Earnings") value=professional.total_earnings_amount icon='fa-sack-dollar' %}
+        </div>
+        <div class="col-xl-3 col-sm-6 mb-xl-0 my-4">
+            {% include 'users/professionals/stats-card.html' with title=_("Total Hours Worked") value=professional.total_hours_worked icon='fa-business-time' %}
+        </div>
+        <div class="col-xl-3 col-sm-6 mb-xl-0 my-4">
+            {% include 'users/professionals/stats-card.html' with title=_("Recurring Clients") value=professional.recurring_client_count icon='fa-user-tie' %}
+        </div>
+    </div>
+    <div class="row my-4">
+        <div class="col-12 mb-xl-0 my-4">
+            {% include 'users/professionals/stats-card.html' with title=_("Success Score") value=professional.success_score icon='fa-equals' %}
+        </div>
+    </div>
+
+</div>
+
+{% endblock users_body %}

@@ -1,0 +1,31 @@
+{% extends 'professional/jobs/base.html' %}
+
+
+
+<div>
+    {% block jobs_body %}
+    <div class="row">
+        <div class="col">
+            <h2>{{_("Contracts")}}</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            {% if contracts %}
+            <div>
+                {% for contract in contracts %}
+                {% include 'professional/jobs/contracts/contract-item.html' %}
+                {% endfor %}
+            </div>
+            {% else %}
+            <div class="alert alert-warning">
+                <i class="fa-solid fa-file-signature fs-3"></i>
+                <strong>
+                    {{_("No contract found.")}}
+                </strong>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    {% endblock jobs_body %}
+</div>

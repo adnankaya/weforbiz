@@ -1,0 +1,60 @@
+{% extends 'professional/settings/base.html' %}
+
+
+{% block settings_body %}
+
+<div class="row">
+    <div class="col">
+        <div class="container py-3">
+            <header class="mb-4 text-start text-muted">
+                <h3>
+                    {{_("Membership Plan")}}
+                    {% include 'common/badges/soon.html' %}
+                </h3>
+            </header>
+            <main>
+                <div class="row row-cols-1 row-cols-md-2 mb-3 text-center">
+                    <div class="col">
+                        <div class="card mb-4 rounded-3 shadow-sm">
+                            <div class="card-header py-3">
+                                <h4 class="my-0 fw-normal">Basic</h4>
+                            </div>
+                            <div class="card-body">
+                                <h1 class="card-title pricing-card-title">$0<small
+                                        class="text-body-secondary fw-light">/mo</small></h1>
+                                <ul class="text-start mt-3 mb-4">
+                                    <li>10 points total per month</li>
+                                    <li>Hourly protection to ensure you're paid for each hour worked</li>
+                                    <li>Fixed-price payments are secured through milestones</li>
+                                    <li>Limited reports and functionality</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card mb-4 rounded-3 shadow-sm border-primary">
+                            <div class="card-header py-3">
+                                <h4 class="my-0 fw-normal">Pro</h4>
+                            </div>
+                            <div class="card-body">
+                                <h1 class="card-title pricing-card-title">$10<small
+                                        class="text-body-secondary fw-light">/mo</small></h1>
+                                <ul class="text-start mt-3 mb-4">
+                                    <b class="bold">Includes everything in Basic and:</b>
+                                    <li>80 points total per month</li>
+                                    <li>View competitor bids for any job</li>
+                                    <li>Setting to keep your earnings confidential</li>
+                                    <li>Your profile will never be set to hidden due to inactivity</li>
+                                    <li>Extended reports and functionality, including grouping and sorting</li>
+                                </ul>
+                                <button type="button" class="w-100 btn btn-lg btn-primary" disabled>Get started</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</div>
+
+{% endblock settings_body %}

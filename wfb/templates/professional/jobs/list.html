@@ -1,0 +1,93 @@
+{% extends 'professional/jobs/base.html' %}
+
+
+
+<div>
+    {% block jobs_body %}
+    <div class="row">
+        <div class="row mt-4">
+            <div class="col-lg-6 col-md-10 mx-auto mb-3" role="search">
+                {% include 'searchbox.html' %}
+            </div>
+        </div>
+        {% if paginated_jobs %}
+        <div class="row">
+            {% if user.is_authenticated and request.session.is_professional %}
+            <div class="col-lg-3 d-md-none d-lg-block">
+                <div class="mb-2">
+                    {% include 'users/professionals/item.html' %}
+                </div>
+                <div class="mb-2">
+                    {% include 'professional/jobs/leftblock/item.html' %}
+                </div>
+            </div>
+            {% endif %}
+            <div class="col-lg-6 col-md-10 mx-md-auto p-2">
+                <ul class="nav nav-underline bg-white px-2 py-2" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="all-jobs-tab" data-bs-toggle="tab"
+                            data-bs-target="#all-jobs-tab-pane" type="button" role="tab"
+                            aria-controls="all-jobs-tab-pane" aria-selected="true">
+                            {{_("My Feed")}}
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="saved-jobs-tab" data-bs-toggle="tab"
+                            data-bs-target="#saved-jobs-tab-pane" type="button" role="tab"
+                            aria-controls="saved-jobs-tab-pane" aria-selected="false">
+                            {{_("Saved Jobs")}}
+                            ({{saved_jobs.count}})
+                        </button>
+                    </li>
+                </ul>
+                <div class="tab-content mt-4" id="myTabContent">
+                    <div class="tab-pane fade show active" id="all-jobs-tab-pane" role="tabpanel"
+                        aria-labelledby="all-jobs-tab" tabindex="0">
+                        {% for job in paginated_jobs %}
+                        <div class="row">
+                            <div class="col">
+                                {% include 'professional/jobs/job-item.html' %}
+                            </div>
+                        </div>
+                        {% endfor %}
+                        <div class="row">
+                            <div class="col my-2">
+                                {% include "pagination.html" with page=paginated_jobs %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="saved-jobs-tab-pane" role="tabpanel" aria-labelledby="saved-jobs-tab"
+                        tabindex="0">
+                        <h5>{{_("Saved Jobs")}}</h5>
+                        {% for saved_job in saved_jobs %}
+                        <div class="row">
+                            <div class="col">
+                                {% include 'professional/jobs/job-item.html' with job=saved_job %}
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% if user.is_authenticated and request.session.is_professional %}
+            <div class="col-lg-3 d-md-none d-lg-block">
+                {% include 'users/professionals/collapses.html' %}
+                <!-- {% include 'users/professionals/network.html' %} -->
+                <!-- {% include 'professional/jobs/rightblock/item.html' %} -->
+            </div>
+            {% endif %}
+        </div>
+        {% else %}
+        <div class="row">
+            <div class="col my-2">
+                <div class="alert alert-primary">
+                    <strong>
+                        {{_("Could not find any jobs")}}
+                    </strong>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+    {% endblock jobs_body %}
+</div>

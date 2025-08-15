@@ -1,0 +1,38 @@
+{% extends 'professional/base.html' %}
+{% load static %}
+{% load core_tags %}
+
+
+
+
+
+{% block core_professional_body %}
+
+<div class="container p-3">
+    <div class="row">
+        <div class="col-lg-9 col-md-8 mb-3" role="search">
+            {% include 'searchbox.html' %}
+        </div>
+    </div>
+    {% if paginated_professionals %}
+    <div class="row">
+        <div class="col my-2">
+            {% include "pagination.html" with page=paginated_professionals %}
+        </div>
+    </div>
+    <div class="row">
+        {% for professional in paginated_professionals %}
+        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 my-5">
+            {% include 'professional/professional-item.html' with professional=professional %}
+        </div>
+        {% endfor %}
+    </div>
+    <div class="row">
+        <div class="col my-2">
+            {% include "pagination.html" with page=paginated_professionals %}
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+{% endblock core_professional_body %}

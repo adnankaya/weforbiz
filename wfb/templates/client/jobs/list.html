@@ -1,0 +1,50 @@
+{% extends 'client/jobs/base.html' %}
+
+
+
+<div>
+    {% block jobs_body %}
+    <div class="row">
+        <div class="col my-2 d-flex justify-content-end">
+            {% include 'client/jobs/post-job-button.html' %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="row">
+            <div class="col-lg-9 col-md-8 mb-3" role="search">
+                {% include 'searchbox.html' %}
+            </div>
+        </div>
+        {% if paginated_jobs %}
+        <div class="row">
+            <div class="col my-2">
+                {% include "pagination.html" with page=paginated_jobs %}
+            </div>
+        </div>
+        <div class="row">
+            <h5>{{_("Jobs you posted")}}</h5>
+            {% for job in paginated_jobs %}
+            <div class="col-lg-3 col-md-4">
+                {% include 'client/jobs/job-item.html' %}
+            </div>
+            {% endfor %}
+        </div>
+        <div class="row">
+            <div class="col my-2">
+                {% include "pagination.html" with page=paginated_jobs %}
+            </div>
+        </div>
+        {% else %}
+        <div class="row">
+            <div class="col my-2">
+                <div class="alert alert-primary">
+                    <strong>
+                        {{_("You did not post any job yet...")}}
+                    </strong>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+    {% endblock jobs_body %}
+</div>

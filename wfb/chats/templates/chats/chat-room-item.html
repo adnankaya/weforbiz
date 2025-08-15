@@ -1,0 +1,26 @@
+{% load static %}
+<a href="{% url 'chats:room' room_name=chat_room.room_name %}" class="border-0 d-flex justify-content-between">
+    <div class="d-flex align-items-start">
+        <span>
+            <img src="{% static 'images/profiles/user.png' %}" class="rounded-circle mr-1"
+                alt="{{cruser.get_full_name}}" width="40" height="40">
+            <div class="small text-center">
+                {% if cruser.is_online %}
+                <i class="fas fa-circle chat-online"></i>
+                {% else %}
+                <i class="fas fa-circle chat-offline"></i>
+                {% endif %}
+            </div>
+        </span>
+        <div class="flex-grow-1 ms-2">
+            {{cruser.get_full_name}}
+            <p class="small">
+                <i class="fa-solid fa-briefcase"></i>
+                {{chat_room.job.title}}
+            </p>
+        </div>
+    </div>
+    <div>
+        <span class="badge badge-pill bg-success">{{user.professional.get_msg_count}}</span>
+    </div>
+</a>

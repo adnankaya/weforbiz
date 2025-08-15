@@ -1,0 +1,43 @@
+<div>
+    <form action="">
+        <div class="form-floating mb-3">
+            <input type="text" name="iban" class="form-control" id="iban" placeholder="{{_('IBAN')}}">
+            <label for="iban">{{_("IBAN")}}</label>
+            <div id="iban-alert" class="alert alert-danger d-none"></div> </div>
+    </form>
+</div>
+
+<script>
+    const ibanInput = document.getElementById('iban');
+    const ibanAlert = document.getElementById('iban-alert');
+
+    ibanInput.addEventListener('input', function (e) {
+        const ibanValue = e.target.value;
+
+        // Validate IBAN length
+        if (ibanValue.replace(/\s/g, '').length !== 26) {
+            showAlert('IBAN must be 26 characters long.');
+        } else {
+            hideAlert(); // Hide alert if IBAN becomes valid
+        }
+
+        // Format input as user types (using your original logic)
+        const formattedIban = ibanValue.replace(/[^\dA-Z]/g, '').replace(/(.{4})/g, '$1 ').trim();
+        e.target.value = formattedIban;
+
+        // Manage cursor position (corrected for const variable)
+        const position = e.target.selectionEnd;
+        let newPosition = position; // Use a non-constant variable for adjustment
+        newPosition += ((formattedIban.charAt(position - 1) === ' ' && formattedIban.charAt(formattedIban.length - 1) === ' ' && formattedIban.length !== ibanValue.length) ? 1 : 0);
+        e.target.selectionEnd = newPosition;
+    });
+
+    function showAlert(message) {
+        ibanAlert.textContent = message;
+        ibanAlert.classList.remove('d-none'); // Show the alert
+    }
+
+    function hideAlert() {
+        ibanAlert.classList.add('d-none'); // Hide the alert
+    }
+</script>

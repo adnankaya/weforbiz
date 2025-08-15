@@ -1,0 +1,33 @@
+{% load i18n %}
+<div class="modal fade" id="hourlyRateModal" tabindex="-1" aria-labelledby="hourlyRateModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <form action="{% url 'users:update-hourly-rate' fid=user.professional.id %}" method="post" class="form-group">
+                {% csrf_token %}
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="hourlyRateModalLabel">{{_("Update Hourly Rate")}}</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col">
+                            <label for="idHourlyRate" class="form-label">{{_("HourlyRate")}}</label>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">$</span>
+                                <input name="hourly_rate" value="{{user.professional.hourly_rate}}" type="number"
+                                    step="0.01" min="10" max="1000" id="idHourlyRate" class="form-control border-primary"
+                                    aria-label="HourlyRate entered by professional" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-grid col-lg-10 mx-auto my-3">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fa-solid fa-check-double"></i>
+                        {{_("Save")}}
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

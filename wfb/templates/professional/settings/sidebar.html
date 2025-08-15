@@ -1,0 +1,85 @@
+<div class="offcanvas-md offcanvas-end bg-body-tertiary" tabindex="-1" id="sidebarMenu"
+    aria-labelledby="sidebarMenuLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="sidebarMenuLabel">Company name</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu"
+            aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
+        <ul class="nav flex-column">
+            <h6
+                class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-2 mb-1 text-body-secondary text-uppercase">
+                {{_("Payment")}}
+            </h6>
+            <!-- <li class="nav-item">
+                <a class="nav-link d-flex align-items-center gap-2" href="{% url 'users:settings-billing' %}">
+                    <i class="fa-solid fa-money-bill"></i>
+                    {{_("Billing")}}
+                </a>
+            </li> -->
+            <li class="nav-item">
+                <a class="nav-link d-flex align-items-center gap-2" href="{% url 'users:settings-get-paid' %}">
+                    <i class="fa-solid fa-money-check-dollar"></i>
+                    {{_("Get Paid")}}
+                </a>
+            </li>
+        </ul>
+
+        <h6
+            class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-body-secondary text-uppercase">
+            {{_("USER SETTINGS")}}
+        </h6>
+        <ul class="nav flex-column mb-auto">
+            <li class="nav-item">
+                <a class="nav-link d-flex align-items-center gap-2" href="{% url 'users:settings-membership' %}">
+                    <i class="fa-solid fa-person-arrow-up-from-line"></i>
+                    {{_("Membership")}}
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link d-flex align-items-center gap-2" href="{% url 'users:settings-points' %}">
+                    <i class="fa-solid fa-coins"></i>
+                    {{_("Points")}}
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link d-flex align-items-center gap-2" href="{% url 'users:settings-contact-info' %}">
+                    <i class="fa-solid fa-address-book"></i>
+                    {{_("Contact Info")}}
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link d-flex align-items-center gap-2" href="{% url 'users:settings-id-verification' %}">
+                    <i class="fa-solid fa-id-card"></i>
+                    {{_("Identity Verification")}}
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link d-flex align-items-center gap-2" href="{% url 'users:settings-notifications' %}">
+                    <i class="fa-solid fa-bell"></i>
+                    {{_("Notifications")}}
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link d-flex align-items-center gap-2" href="{% url 'users:settings-security' %}">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    {{_("Security")}}
+                </a>
+            </li>
+        </ul>
+
+        <hr class="my-3">
+
+        <ul class="nav flex-column mb-auto">
+            <li class="nav-item">
+                <a class="nav-link d-flex align-items-center gap-2" href="{% url 'users:professionals-detail' fid=user.professional.id %}">
+                    <i class="fa-solid fa-user-astronaut"></i>
+                    {{_("My Profile")}}
+                </a>
+            </li>
+            <li class="nav-item">
+                {% include 'users/add-profile.html' %}
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+{% load i18n %}
+<div class="modal fade" id="updateProfileModal" tabindex="-1" aria-labelledby="updateProfileModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-fullscreen-lg-down modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <form action="{% url 'users:professionals-update-profile' fid=user.professional.id %}" method="post"
+                class="form-group">
+                {% csrf_token %}
+                <div class="modal-header bg-primary-subtle">
+                    <h1 class="modal-title fs-5" id="updateProfileModalLabel">{{_("Update Profile")}}</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-floating mb-3">
+                                <input name="title" value="{{professional.title}}" type="text"
+                                    class="form-control border-primary-subtle" id="idTitle"
+                                    placeholder="{{_('Ex; Software Developer')}}" required>
+                                <label for="idTitle">{{_("Title")}}</label>
+                            </div>
+                            <div class="form-floating">
+                                <textarea name="bio" class="form-control border-primary-subtle" placeholder="Description" id="idDescription"
+                                    style="height: 200px" required>{{professional.bio}}</textarea>
+                                <label for="idDescription">{{_("Your Bio")}}</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row my-2">
+                        <div class="col">
+                            {% include 'common/forms/skills.html' with professionalSkills=professional.skill_names_comma_separated %}
+                        </div>
+                    </div>
+                </div>
+                <div class="d-grid col-md-6 mx-auto my-3">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fa-solid fa-check-double"></i>
+                        {{_("Save")}}
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

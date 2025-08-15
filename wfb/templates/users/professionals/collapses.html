@@ -1,0 +1,64 @@
+<div class="card p-2 my-2 border-0 shadow-sm">
+    <div class="accordion accordion-flush" id="accordionFlushExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#idProposals" aria-expanded="true" aria-controls="idProposals">
+                    {{_("Proposals")}}
+                </button>
+            </h2>
+            <div id="idProposals" class="accordion-collapse collapse show" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">
+                    <div class="list-group list-group-flush border-0">
+                        <a href="{% url 'jobs:proposals' %}" target="_blank"
+                            class="list-group-item list-group-item-action border-0  text-primary">
+                            {{_("Submitted proposals: ")}} {{user.professional.submitted_proposals_count}}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#idContracts" aria-expanded="false" aria-controls="idContracts">
+                    {{_("Contracts")}}
+                </button>
+            </h2>
+            <div id="idContracts" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">
+                    <div class="list-group list-group-flush border-0">
+                        <a href="{% url 'jobs:contracts' %}" target="_blank"
+                            class="list-group-item list-group-item-action border-0  text-primary">
+                            {{_("Active Contracts: ")}} {{user.professional.active_contracts_count}}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#idProjectCatalog" aria-expanded="false" aria-controls="idProjectCatalog">
+                    {{_("Project Catalog")}}
+                    {% include 'common/badges/soon.html' %}
+                </button>
+            </h2>
+            <div id="idProjectCatalog" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">
+                    <p class="p-2 m-2">
+                        <a href="#" class="text-decoration-none">
+                            {{_("My Project Dashboard")}}
+                        </a>
+                    </p>
+                    <p class="p-2 m-2">
+                        <a href="#" class="text-decoration-none">
+                            {{_("Create a Catalog project")}}
+                        </a>
+                        {{_("for clients to purchase instantly")}}
+                    </p>
+                </div>
+            </div>
+        </div> -->
+    </div>
+</div>

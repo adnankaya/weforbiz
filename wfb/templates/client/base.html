@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+
+<div>
+    {% block content %}
+    <div class="container my-4">
+        <div class="row">
+            <div class="col">
+                {% block core_client_body %}
+                {% endblock core_client_body %}
+            </div>
+        </div>
+
+    </div>
+    {% endblock content %}
+</div>

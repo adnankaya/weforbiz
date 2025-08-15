@@ -1,0 +1,218 @@
+{% extends 'client/jobs/base.html' %}
+{% load static %}
+{% load job_tags %}
+{% load core_tags %}
+{% load humanize %}
+
+
+
+{% block jobs_body %}
+<ul class="nav nav-underline mb-2" id="pills-tab" role="tablist">
+    <li class="nav-item fs-4" role="presentation">
+        <button class="nav-link active " id="job-detail-tab" data-bs-toggle="pill" data-bs-target="#job-detail"
+            type="button" role="tab" aria-controls="job-detail" aria-selected="true">
+            <i class="fa-solid fa-briefcase"></i>
+            {{_("Job Detail")}}
+        </button>
+    </li>
+    <li class="nav-item fs-2 text-muted">
+        <span class="">
+            <i class="fa-solid fa-chevron-right"></i>
+        </span>
+    </li>
+    <li class="nav-item fs-4" role="presentation">
+        <button class="nav-link" id="job-proposals-tab" data-bs-toggle="pill" data-bs-target="#job-proposals"
+            type="button" role="tab" aria-controls="job-proposals" aria-selected="false">
+            <i class="fa-solid fa-comments-dollar"></i>
+            {{_("Proposals")}} ({{job.proposal_set.count}})
+        </button>
+    </li>
+    <li class="nav-item fs-2 text-muted">
+        <span class="">
+            <i class="fa-solid fa-chevron-right"></i>
+        </span>
+    </li>
+    <li class="nav-item fs-4" role="presentation">
+        <button class="nav-link" id="job-contracts-tab" data-bs-toggle="pill" data-bs-target="#job-contracts"
+            type="button" role="tab" aria-controls="job-contracts" aria-selected="false">
+            <i class="fa-solid fa-file-signature"></i>
+            {{_("Contracts")}}
+        </button>
+    </li>
+
+</ul>
+<div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="job-detail" role="tabpanel" aria-labelledby="job-detail-tab"
+        tabindex="0">
+        <div class="row">
+            <div class="col-md-8 p-2">
+                <div class="row">
+                    <div class="col">
+                        {% include 'client/jobs/job-item.html' %}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="card p-3">
+                            <p>
+                                <span>
+                                    <i class="fa-solid fa-user-group"></i>
+                                    {{_("Hired: ")}}
+                                </span>
+                                <span>{{job.hired}}</span>
+                            </p>
+                            <p>
+                                <span>
+                                    <i class="fa-solid fa-eye"></i>
+                                    {{_("Last viewed by client: ")}}
+                                </span>
+                                {% if job.last_viewed_date %}
+                                <span>{{job.last_viewed_date|naturaltime}}</span>
+                                {% else %}
+                                <span class="text-muted">
+                                    {{_("Not yet!")}}
+                                </span>
+                                {% endif %}
+                            </p>
+                            {% if user.is_authenticated %}
+                            <p>
+                                <span>
+                                    {{_("Status")}}
+                                </span>
+                                <span class="badge badge-pill bg-light text-dark">
+                                    {{job.status}}
+                                </span>
+                            </p>
+                            {% endif %}
+                            <p>
+                                <span>
+                                    <i class="fa-solid fa-tags"></i>
+                                    {{_("Skills")}}
+                                </span>
+                                {% for skill in job.skills.all %}
+                                <span class="badge badge-pill bg-secondary-subtle text-dark-emphasis">
+                                    {{skill.name}}
+                                </span>
+                                {% endfor %}
+                            </p>
+                            <p>
+                            <h5>
+                                <i class="fa-solid fa-file-lines"></i>
+                                {{_("Job Description")}}
+                            </h5>
+                            <p>
+                                <span>
+                                    {{job.description|linebreaks}}
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 p-2">
+                <div class="card p-3">
+                    <div class="d-grid gap-2">
+
+                        <a href="#" class="btn btn-dark" type="button">
+                            <i class="fa-solid fa-pen"></i>
+                            {{_("Edit")}}
+                        </a>
+                        <a href="#" class="btn btn-warning" type="button">
+                            <i class="fa-solid fa-square-xmark"></i>
+                            {{_("Close this Job")}}
+                        </a>
+                    </div>
+                </div>
+                <div class="card p-2">
+                    <div class="card-body">
+                        <h5 class="">
+                            {{_("About Client")}}
+                        </h5>
+                        <p>
+                            {{_("Full Name: ")}}
+                            <a href="{% url 'users:clients-detail' cid=job.created_by.id %}">
+                                {{job.created_by.user.get_full_name}}
+                            </a>
+                        </p>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <!-- TODO: verification not only will be with email. Improve this -->
+                                {% if job.created_by.user.email_verified %}
+                                {{_("Verified")}}
+                                <i class="fa-solid fa-circle-check"></i>
+                                {% else %}
+                                {{_("Not Verified")}}
+                                <i class="fa-solid fa-circle-xmark"></i>
+                                {% endif%}
+                            </li>
+                            <li class="list-group-item">
+                                {{_("Spent:")}} ${{job.created_by.total_spent}}
+                            </li>
+                            <li class="list-group-item">
+                                <div>
+                                    <span class="d-block text-primary-emphasis">
+                                        {% render_stars job.created_by.total_avg_rating %}
+                                    </span>
+                                </div>
+                                <div>
+                                    {{job.created_by.total_avg_rating}} of {{job.created_by.feedback_count}}
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane fade" id="job-proposals" role="tabpanel" aria-labelledby="job-proposals-tab" tabindex="0">
+        {% with job.proposal_set.all as proposals %}
+        {% if proposals %}
+        <div class="row mt-4">
+            <div class="col-lg-10 col-md-10 mx-auto">
+                <div class="list-group list-group-flush">
+                    {% for proposal in proposals %}
+                    <div class="list-group-item list-group-item-action mb-2">
+                        {% include 'client/jobs/proposals/proposal-item.html' %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="alert alert-warning my-4 mx-2">
+            <i class="fa-solid fa-warning fs-3"></i>
+            <strong>
+                {{_("No proposal found")}}
+            </strong>
+        </div>
+        {% endif %}
+        {% endwith %}
+    </div>
+    <div class="tab-pane fade" id="job-contracts" role="tabpanel" aria-labelledby="job-contracts-tab" tabindex="0">
+        {% with job.contract_set.all as contracts %}
+        {% if contracts %}
+        <div class="row mt-4">
+            <div class="col-lg-10 col-md-10 mx-auto">
+                <div class="list-group list-group-flush">
+                    {% for contract in contracts %}
+                    <div class="list-group-item list-group-item-action mb-2">
+                        {% include 'client/jobs/contracts/contract-item.html' %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="alert alert-warning my-4 mx-2">
+            <i class="fa-solid fa-warning fs-3"></i>
+            <strong>
+                {{_("No contracts found")}}
+            </strong>
+        </div>
+        {% endif %}
+        {% endwith %}
+    </div>
+</div>
+
+
+{% endblock jobs_body %}

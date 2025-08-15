@@ -1,0 +1,112 @@
+{% extends 'feedbacks/base.html' %}
+
+
+
+
+{% block feedbacks_body %}
+
+<style>
+    .rate {
+        float: left;
+        height: 46px;
+        padding: 0 10px;
+    }
+
+    .rate:not(:checked)>input {
+        position: absolute;
+        top: -9999px;
+    }
+
+    .rate:not(:checked)>label {
+        float: right;
+        width: 1em;
+        overflow: hidden;
+        white-space: nowrap;
+        cursor: pointer;
+        font-size: 30px;
+        color: #ccc;
+    }
+
+    .rate:not(:checked)>label:before {
+        content: '★ ';
+    }
+
+    .rate>input:checked~label {
+        color: #2962ff;
+    }
+
+    .rate:not(:checked)>label:hover,
+    .rate:not(:checked)>label:hover~label {
+        color: #2962ff;
+    }
+
+    .rate>input:checked+label:hover,
+    .rate>input:checked+label:hover~label,
+    .rate>input:checked~label:hover,
+    .rate>input:checked~label:hover~label,
+    .rate>label:hover~input:checked~label {
+        color: #2962ff;
+    }
+</style>
+
+<div class="row">
+    <div class="col">
+        <div class="container mt-5">
+            {% if user.client and request.session.is_client %}
+            <h2>{{_("Feedback for ")}}
+                <span class="badge bg-success-subtle text-success-emphasis">{{contract.professional_user.get_full_name}}</span>
+            </h2>
+            {% elif user.professional and request.session.is_professional %}
+            <h2>{{_("Feedback for ")}}
+                <span class="badge bg-success-subtle text-success-emphasis">{{contract.client_user.get_full_name}}</span>
+            </h2>
+            {% endif %}
+            <p>
+                {{_("Job: ")}}
+                <a href="{{ contract.job.get_absolute_url }}">
+                    {{contract.job.title}}
+                </a>
+            </p>
+            <p>{{_("Please rate your experience with the following questions:")}}</p>
+            <form action="{% url 'jobs:contracts-create-feedback' cid=contract.id %}" method="post">
+                {% csrf_token %}
+                {% for question in questions %}
+                <div class="row mb-1">
+                    <div class="col">
+                        <div class="form-group mb-3">
+                            <label for="{{ question.id }}" class="text-primary-emphasis">
+                                <strong>
+                                    {{ question.text }}
+                                </strong>
+                            </label>
+                            <div class="rating-container">
+                                {% for rating in rating_choices %}
+                                <div class="rate">
+                                    <input type="radio" id="star-{{rating}}-{{ question.id }}"
+                                        name="feedbackquestion-{{ question.id }}" value="{{rating}}" />
+                                    <label for="star-{{rating}}-{{ question.id }}" title="text">5 stars</label>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                <div class="form-group mb-3">
+                    <div class="form-floating">
+                        <textarea name="comment" class="form-control border border-primary-subtle" placeholder="Comment"
+                            id="idComment" style="height: 200px"></textarea>
+                        <label for="idComment">{{_("Comment")}}</label>
+                    </div>
+                </div>
+                <div class="d-grid col-md-6 mx-auto">
+                    <button type="submit" class="btn btn-primary">
+                        {{_("Submit")}}
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock feedbacks_body %}

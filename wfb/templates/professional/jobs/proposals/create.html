@@ -1,0 +1,23 @@
+{% extends 'professional/jobs/base.html' %}
+
+
+
+<div>
+    {% block jobs_body %}
+    <div class="row">
+        <div class="col-xl-6">
+            {% include 'professional/jobs/job-item.html' %}
+        </div>
+        <div class="col-xl-6">
+            {% if not is_proposal_sent %}
+            <div class="card p-2 bg-md-grey-100">
+                <h4>
+                    {{_("Send proposal for this job")}}
+                </h4>
+                {% include 'professional/jobs/proposals/form.html' %}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    {% endblock jobs_body %}
+</div>

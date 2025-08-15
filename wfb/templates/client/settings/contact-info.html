@@ -1,0 +1,123 @@
+{% extends 'client/settings/base.html' %}
+
+
+{% block settings_body %}
+
+<div class="row">
+    <div class="col">
+        <h1>
+            {{_("Contact Information Page")}}
+        </h1>
+        <div class="row">
+            <div class="col">
+                <div class="card p-3">
+                    <div class="d-flex justify-content-start">
+                        <h4>
+                            <i class="fa-solid fa-user-astronaut"></i>
+                            {{_("Account")}}
+                        </h4>
+                        <div class="row">
+                            <div class="col">
+                                <button class="btn btn-sm btn-outline-primary rounded rounded-circle ms-1" aria-label="non flagged button"
+                                    title="{{_('user update')}}" data-bs-toggle="modal"
+                                    data-bs-target="#userInfoModal-{{job.id}}">
+                                    <i class="fa-solid fa-edit"></i>
+                                </button>
+                                {% include "common/modals/user-info-modal.html" with user=user %}
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="mb-4">
+                            <b>{{_("Full Name: ")}}</b>
+                            <div>{{user.first_name}} {{user.last_name}}</div>
+                            {% if not user.first_name or user.last_name %}
+                            <div class="alert alert-info fw-bold mt-1">
+                                {{_("Firstname and Lastname are required for payment.")}}
+                            </div>
+                            {% endif %}
+                        </div>
+                        <div class="mb-4">
+                            <b>{{_("Username: ")}}</b>
+                            <div>{{user.username}}</div>
+                        </div>
+                        <div class="mb-4">
+                            <b>{{_("Email: ")}}</b>
+                            <div>{{user.email}}</div>
+                        </div>
+                        <div>
+                            <b>{{_("Email Verified: ")}}</b>
+                            <div>
+                                {% if user.email_verified %}
+                                <i class="fa-solid fa-circle-check"></i>
+                                {% else %}
+                                <i class="fa-solid fa-circle-xmark"></i>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col">
+                <div class="card p-3">
+                    <div class="d-flex justify-content-start">
+                        <h4>
+                            <i class="fa-solid fa-location-dot"></i>
+                            {{_("Location")}}
+                        </h4>
+                        <div class="row">
+                            <div class="col">
+                                <button class="btn btn-sm btn-outline-primary rounded rounded-circle ms-1" aria-label="non flagged button"
+                                    title="{{_('Address')}}" data-bs-toggle="modal"
+                                    data-bs-target="#addressModal-{{job.id}}">
+                                    <i class="fa-solid fa-edit"></i>
+                                    <!-- {{_("Address")}} -->
+                                </button>
+                                {% if user.client.address %}
+                                {% include "common/modals/address-update-modal.html" with address=user.client.address %}
+                                {% else %}
+                                {% include "common/modals/address-create-modal.html" %}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="mb-4">
+                            <b>{{_("Time Zone: ")}}</b>
+                            <div>
+                                UTC+03:00 {{user.client.address.city.name}},
+                                {{user.client.address.city.country.name}}
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <b>{{_("Address: ")}}</b>
+                            <div>
+                                {{user.client.address.line}}
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-start">
+                            <span>
+                                <i class="fa-solid fa-phone"></i>
+                                <b>{{_("Phone: ")}}</b> {{user.professional.phone}}
+                            </span>
+                            <div class="row">
+                                <div class="col">
+                                    <button class="btn btn-sm btn-outline-primary rounded rounded-circle ms-1"
+                                        aria-label="non flagged button" title="{{_('user update')}}"
+                                        data-bs-toggle="modal" data-bs-target="#phoneModal-{{job.id}}">
+                                        <i class="fa-solid fa-edit"></i>
+                                    </button>
+                                    {% include "common/modals/phone-modal.html" with phone=user.client.phone %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock settings_body %}

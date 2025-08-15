@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+
+<div>
+  {% block content %}
+  <div class="container my-4">
+    {% block notifications_body %}
+    {% if notifications %}
+    <div class="list-group">
+      {% for notice in notifications %}
+      <label class="list-group-item d-flex justify-content-between" for="idNotification{{notice.id}}">
+        <div class="d-flex gap-2">
+          <div>
+            <input class="form-check-input flex-shrink-0" type="checkbox" value="" id="idNotification{{notice.id}}">
+            <i class="fa-solid fa-{{notice.level}}"></i>
+          </div>
+          <div class="">
+            <span>
+              {{notice.verb}}
+              <small class="d-block text-body-secondary">
+                {{notice.description}}
+              </small>
+            </span>
+            <a href="{{ notice.data.action.url }}" class="badge text-bg-primary rounded-pill">
+              <span class="px-1">{{ notice.data.action.title }}</span>
+            </a>
+          </div>
+        </div>
+        <div class="text-muted">
+          {{ notice.timesince }}
+        </div>
+      </label>
+      {% endfor %}
+    </div>
+
+
+    {% else %}
+    <div class="alert alert-info">
+      <strong>
+        {{_("There is no any new notifications.")}}
+      </strong>
+    </div>
+    {% endif %}
+
+    {% endblock notifications_body %}
+  </div>
+  {% endblock content %}
+</div>

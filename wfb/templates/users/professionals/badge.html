@@ -1,0 +1,11 @@
+{% if professional.badge == badges_choices.RISING_STAR %}
+<i class="fa-solid fa-ranking-star"></i>
+{% elif professional.badge == badges_choices.TALENTED %}
+<i class="fa-solid fa-medal"></i>
+{% elif professional.badge == badges_choices.EXPERT %}
+<i class="fa-solid fa-award"></i>
+{% elif professional.badge == badges_choices.MASTER %}
+<i class="fa-solid fa-snowflake"></i>
+{% elif professional.badge == badges_choices.ELITE %}
+<i class="fa-solid fa-crown"></i>
+{% endif %}

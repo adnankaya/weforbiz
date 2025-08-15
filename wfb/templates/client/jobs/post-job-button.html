@@ -1,0 +1,21 @@
+<style>
+    .btn-bd-primary {
+        --bs-btn-font-weight: 500;
+        --bs-btn-color: #fff;
+        --bs-btn-bg: #3f51b5;
+        --bs-btn-border-color: #3f51b5;
+        --bs-btn-hover-color: #fff;
+        --bs-btn-hover-bg: #3f51b5;
+        --bs-btn-hover-border-color: #3f51b5;
+        --bs-btn-focus-shadow-rgb: rgb(112.520718,44.062154,249.437846);
+        --bs-btn-active-color: #fff;
+        --bs-btn-active-bg: #3f51b5;
+        --bs-btn-active-border-color: #3f51b5;
+    }
+</style>
+{% if user.client and request.session.is_client %}
+<a class="btn btn-bd-primary ms-2" href="{% url 'jobs:post' %}">
+    <i class="fa-solid fa-pen-to-square"></i>
+    {{_("Post a Job")}}
+</a>
+{%endif%}

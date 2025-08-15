@@ -1,0 +1,41 @@
+<div class="modal fade" id="flagJobModal-{{job.id}}" tabindex="-1" aria-labelledby="flagJobModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <form action="{% url 'jobs:flag-job' idjob=job.id %}" method="post" class="form-group">
+                {% csrf_token %}
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="flagJobModalLabel">{{_("Report this job")}}</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="my-2 alert alert-secondary">
+                        <small>
+                            <b>
+                                {{_("Job")}}:
+                            </b>
+                            {{job.title}}
+                        </small>
+                        <br>
+                        <small>
+                            <b>
+                                {{_("Client")}}:
+                            </b>
+                            {{job.created_by.user.get_full_name}}
+                        </small>
+                    </div>
+
+                    <div class="form-floating">
+                        <textarea name="reason" class="form-control" placeholder="" id="idReason"
+                            style="height: 100px"></textarea>
+                        <label for="idReason">{{_("Reason")}}</label>
+                    </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-between">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{_("Close")}}</button>
+                    <button type="submit" class="btn btn-primary">{{_("Report")}}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+{% extends 'payments/base.html' %}
+
+
+
+
+{% block payments_body %}
+
+
+<div class="row">
+    <div class="col py-4">
+        <div class="container mt-5">
+            <h1 class="text-center text-danger">
+                Welcome to checkout page!
+            </h1>
+            {% if checkout_form_content %}
+            <div class="card p-3">
+                <div id="iyzipay-checkout-form" class="responsive"></div>
+                <div>
+                    {{checkout_form_content|safe}}
+                </div>
+            </div>
+            {% else %}
+            <div class="alert alert-info">
+                <b>
+                    {{_("Could not initialize checkout form.")}}
+                </b>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock payments_body %}

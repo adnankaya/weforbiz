@@ -1,0 +1,31 @@
+{% extends 'payments/base.html' %}
+
+
+
+
+{% block payments_body %}
+
+
+<div class="row">
+    <div class="col py-4">
+        <div class="container mt-5">
+            <form action="{% url 'payments:checkout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-success">
+                    {{_("Make Payment")}}
+                </button>
+            </form>
+
+            <div class="my-4">
+                <h2>
+                    {{_("Checkout Init")}}
+                </h2>
+                <a class="btn btn-primary" href="{% url 'payments:checkout' %}">
+                    {{_("Go to Checkout")}}
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock payments_body %}
