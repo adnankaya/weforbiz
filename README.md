@@ -50,5 +50,11 @@ See detailed [cookiecutter-django Docker documentation](https://cookiecutter-dja
 
 [![weforbiz | Profesyonel Pazaryeri Uygulaması](https://img.youtube.com/vi/kVwxe-8muBw/0.jpg)](https://www.youtube.com/watch?v=kVwxe-8muBw)
 
+---
+---
+---
 
+### English 🇺🇸
+
+[![weforbiz | Marketplace App that meets clients and professionals ](https://img.youtube.com/vi/24rpnWShZoU/0.jpg)](https://www.youtube.com/watch?v=24rpnWShZoU)
 
