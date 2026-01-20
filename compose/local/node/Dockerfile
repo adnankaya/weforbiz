@@ -1,4 +1,4 @@
-FROM docker.io/node:24.5-bookworm-slim
+FROM docker.io/node:25.4-bookworm-slim
 
 WORKDIR /app
 
